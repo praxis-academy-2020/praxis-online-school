@@ -6,8 +6,10 @@
 // import javax.persistence.GeneratedValue;
 // import javax.persistence.GenerationType;
 // import javax.persistence.OneToMany;
+// import javax.persistence.Column;
 
 // import java.util.HashSet;
+// import java.util.List;
 // import java.util.Objects;
 // import java.util.Set;
 
@@ -17,16 +19,17 @@
     
 //     @Id
 //     @GeneretadValue(strategy=GenerationType.AUTO)
+//     @Column(name = "id_mentor")
 //     private Long id_mentor;
 
 //     private String nama_mentor;
     
 //     private String status_mentor;
     
-//     private String nama_kelas;
+//     private Long nomor_kelas;
 
-//     // @OneToMany(mappedBy = "kelas")
-//     // private Set<Kelas> kelas = new HashSet();
+//     @OneToMany(fetch = FetchType.LAZY, mappedBy = "mentor")
+//     private List<Kelas> kelas;
     
 //     public Long getId(){
 //         return id_mentor;
@@ -61,11 +64,11 @@
 //     }
 
 
-//     public Set<Kelas> getKelas() {
+//     public List<Kelas> getKelas() {
 //         return kelas;
 //     }
 
-//     public void setKelas(Set<Kelas> kelas) {
+//     public void setKelas(List<Kelas> kelas) {
 //         this.kelas = kelas;
 //     }
 // }

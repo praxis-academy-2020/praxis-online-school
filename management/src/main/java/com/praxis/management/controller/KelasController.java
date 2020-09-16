@@ -21,32 +21,52 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestCOntroller
-@RequestMapping("/praxis")
+@RestController
+@RequestMapping("/praxis/kelas")
 public class KelasController{
     
     @Autowired
     private KelasRepository kelasRepository;
 
-    @GetMapping("/getAll")
-    public List<Kelas> getAllUsers(){
+    @GetMapping("/getKelas")
+    public List<Kelas> getAllKelas(){
         return kelasRepository.findAll();
     }
 
+    @GetMapping("/get/{id}")
+    public Kelas getByNomorKelas(@PathVariable("id") Long nomorKelas){
+        return kelasRepository.findByNomorKelas(nomorKelas).get();
+    }
+
+    @PostMapping("/post")
+    public @ResponseBody Kelas createUser(@RequestBody Kelas kelas){
+        return kelasRepository.save(kelas);
+    }
+
     @PutMapping("/put{id}")
-    Mentor updateUser(@RequestBody Kelas newUser, @PathVariable Long id){
-        return kelasRepository.findById(id).map(
-            user -> {
-            user.setNamaKelas(newUser.getNama());
-            user.setJumlah(newUser.getJumlahPeserta());
-            return kelasRepository.save(user);
+    public Kelas updateKelas(@RequestBody Kelas newKelas, @PathVariable("id") Long nomorKelas){
+        return kelasRepository.findByNomorKelas(nomorKelas).map(
+            kelas -> {
+            kelas.setNamaKelas(newKelas.getNamaKelas());
+            kelas.setJumlahPeserta(newKelas.getJumlahPeserta());
+            // kelas.setNomorKelas(newKelas.getNomorKelas());
+            return kelasRepository.save(kelas);
 
         }).orElseGet(() -> {
           //   newUser.setId(userId);
-          newUser.setId(id);
-          return kelasRepository.save(newUser);
+          newKelas.setNomorKelas(nomorKelas);
+          return kelasRepository.save(newKelas);
         });
     }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long nomorKelas){
+        Kelas kelas = kelasRepository.findByNomorKelas(nomorKelas).get();
+        kelasRepository.delete(kelas);
+        return "Terhapus";
+    }
+
+    
 
 
 }

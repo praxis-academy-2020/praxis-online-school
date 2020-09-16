@@ -25,28 +25,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @RestController
-@RequestMapping("/praxis")
+@RequestMapping("/praxis/murid")
 public class MuridController{
 
     @Autowired
     private MuridRepository muridRepository;
 
-    @GetMapping("/getAll")
+    @GetMapping("/get")
     public List<Murid> getAllUsers(){
         return muridRepository.findAll();
     }
 
+    @GetMapping("/getId/{id}")
+    public Optional<Murid> getId(@PathVariable Long id) {
+        return muridRepository.findById(id);
+      }
+
     @PostMapping("/post")
-    public @ResponseBody Murid createUser(@RequestBody Murid user){
-        return muridRepository.save(user);
+    public @ResponseBody Murid createUser(@RequestBody Murid murid){
+        return muridRepository.save(murid);
     }
 
     @PutMapping("/put/{id}")
-    Murid updateUser(@RequestBody Murid newUser, @PathVariable Long id){
+    public Murid updateUser(@RequestBody Murid newUser, @PathVariable Long id){
         return muridRepository.findById(id).map(
             user -> {
             user.setNama(newUser.getNama());
             user.setStatus(newUser.getStatus());
+            user.setEmailUser(newUser.getEmailUser());
+            user.setNomorHape(newUser.getNomorHape());
+            user.setKelas(newUser.getKelas());
             return muridRepository.save(user);
 
         }).orElseGet(() -> {

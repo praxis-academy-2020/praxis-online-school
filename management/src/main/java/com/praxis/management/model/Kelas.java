@@ -1,54 +1,79 @@
-// package com.praxis.management.model;
+package com.praxis.management.model;
 
-// import javax.annotation.processing.Generated;
-// import javax.persistence.Entity;
-// import javax.persistence.Table;
-// import javax.persistence.Id;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.GenerationType;
+import java.util.List;
 
-// @Entity
-// @Table(name="kelas")
-// public class Kelas {
+import javax.annotation.processing.Generated;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
-//     @Id
-//     @GeneratedValue(strategy=GenerationType.AUTO)
-//     private Long id_kelas;
+@Entity
+@Table(name="kelas")
+public class Kelas {
 
-//     private Long no_kelas;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "nomorKelas")   
+    private Long nomorKelas;
 
-//     private String nama_kelas;
     
-//     private Long jumlah_peserta;
 
-//     public Long getId() {
-//         return id_kelas;
-//     }
+    // @OneToOne(mappedBy = "kelas", cascade = CascadeType.ALL)
+    // private Murid murid;
 
-//     public void setId(Long id_kelas){
-//         this.id_kelas = id_kelas;
-//     }
+    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "kelas")
+    // private List<Murid> murid;
+
+    // @OneToMany(targetEntity=Murid.class, mappedBy="nomorSekolah",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    // private List<Murid> murid;
+
+
+    private String namaKelas;
     
-//     public String getNama() {
-//         return nama_kelas;
-//     }
+    private Long jumlahPeserta;
 
-//     public void setNama(String nama_kelas){
-//         this.nama_kelas = nama_kelas;
-//     }
+    // public Long getId() {
+    //     return id_kelas;
+    // }
 
-//     public Long getJumlah() {
-//         return jumlah_peserta;
-//     }
+    // public void setId(Long id_kelas){
+    //     this.id_kelas = id_kelas;
+    // }
+    
+    public String getNamaKelas() {
+        return namaKelas;
+    }
 
-//     public void setJumlah(Long jumlah_peserta){
-//         this.jumlah_peserta = jumlah_peserta;
-//     }
+    public void setNamaKelas(String namaKelas){
+        this.namaKelas = namaKelas;
+    }
 
-//     public void setNoKelas(Long no_kelas){
-//         this.no_kelas = no_kelas;
-//     }
-//     public Long getNoKelas(){
-//         return no_kelas;
-//     }
-// }
+    public Long getJumlahPeserta() {
+        return jumlahPeserta;
+    }
+
+    public void setJumlahPeserta(Long jumlahPeserta){
+        this.jumlahPeserta = jumlahPeserta;
+    }
+
+    public void setNomorKelas(Long nomorKelas){
+        this.nomorKelas = nomorKelas;
+    }
+    public Long getNomorKelas(){
+        return nomorKelas;
+    }
+
+    // public void setMurid(List<Murid> murid){
+    //     this.murid = murid;
+    // }
+    // public List<Murid> getMurid(){
+    //     return murid;
+    // }
+}
