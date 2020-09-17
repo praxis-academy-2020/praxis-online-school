@@ -1,5 +1,6 @@
 package com.praxis.management.controller;
 
+import com.praxis.management.model.Kelas;
 import com.praxis.management.model.Murid;
 import com.praxis.management.model.Murid;
 import com.praxis.management.repository.MuridRepository;
@@ -54,6 +55,7 @@ public class MuridController{
             user.setStatus(newUser.getStatus());
             user.setEmailUser(newUser.getEmailUser());
             user.setNomorHape(newUser.getNomorHape());
+            user.setNomorKelas(newUser.getNomorKelas());
             user.setKelas(newUser.getKelas());
             return muridRepository.save(user);
 
@@ -62,5 +64,13 @@ public class MuridController{
           newUser.setId(id);
           return muridRepository.save(newUser);
         });
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id){
+        Murid murid = muridRepository.findById(id).get();
+        muridRepository.delete(murid);
+        return "Terhapus";
+
     }
 }

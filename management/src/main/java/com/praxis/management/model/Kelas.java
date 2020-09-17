@@ -95,4 +95,12 @@ public class Kelas {
     public Long getIdMentor(){
         return idMentor;
     }
+
+    public void setMentor(Mentor mentor){
+        this.mentor = mentor;
+    }
+
+    public Mentor getMentor(){
+        return mentor;
+    }
 }

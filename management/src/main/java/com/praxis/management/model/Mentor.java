@@ -30,14 +30,14 @@ public class Mentor{
     private Long nomorKelas;
 
 
-    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "mentor")
+    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "")
     // private List<Kelas> kelas;
     
-    public Long getIdMentor(){
+    public Long getNomorMentor(){
         return nomorMentor;
     }
 
-    public void setIdMentor(Long nomorMentor){
+    public void setNomorMentor(Long nomorMentor){
         this.nomorMentor = nomorMentor;
     }
 

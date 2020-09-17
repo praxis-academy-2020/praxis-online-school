@@ -33,7 +33,12 @@ public class MentorController{
         return mentorRepository.findAll();
     }
 
-    @PutMapping("/put{id}")
+    @GetMapping("/get/{id}")
+    public @ResponseBody Mentor getByNomorMentor(@PathVariable("id") Long nomorMentor){
+        return mentorRepository.findBynomorMentor(nomorMentor).get();
+    }
+
+    @PutMapping("/put/{id}")
     Mentor updateMentor(@RequestBody Mentor newMentor, @PathVariable("id") Long nomorMentor){
         return mentorRepository.findBynomorMentor(nomorMentor).map(
             mentor -> {
@@ -45,7 +50,7 @@ public class MentorController{
 
         }).orElseGet(() -> {
           //   newUser.setId(userId);
-          newMentor.setIdMentor(nomorMentor);
+          newMentor.setNomorMentor(nomorMentor);
           return mentorRepository.save(newMentor);
         });
     }
@@ -55,7 +60,12 @@ public class MentorController{
         return mentorRepository.save(mentor);
     }
 
-
+    @DeleteMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long nomorMentor){
+        Mentor mentor = mentorRepository.findBynomorMentor(nomorMentor).get();
+        mentorRepository.delete(mentor);
+        return "Terhapus";
+    }
 
 }
 

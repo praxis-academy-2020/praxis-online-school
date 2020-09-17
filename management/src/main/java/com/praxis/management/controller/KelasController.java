@@ -43,12 +43,13 @@ public class KelasController{
         return kelasRepository.save(kelas);
     }
 
-    @PutMapping("/put{id}")
+    @PutMapping("/put/{id}")
     public Kelas updateKelas(@RequestBody Kelas newKelas, @PathVariable("id") Long nomorKelas){
         return kelasRepository.findByNomorKelas(nomorKelas).map(
             kelas -> {
             kelas.setNamaKelas(newKelas.getNamaKelas());
             kelas.setJumlahPeserta(newKelas.getJumlahPeserta());
+            kelas.setIdMentor(newKelas.getIdMentor());
             // kelas.setNomorKelas(newKelas.getNomorKelas());
             return kelasRepository.save(kelas);
 
