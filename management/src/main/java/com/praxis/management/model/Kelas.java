@@ -13,13 +13,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
+
 
 @Entity
 @Table(name="kelas")
 public class Kelas {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    // @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "nomorKelas")   
     private Long nomorKelas;
 
@@ -31,12 +33,21 @@ public class Kelas {
     // @OneToMany(fetch = FetchType.LAZY, mappedBy = "kelas")
     // private List<Murid> murid;
 
-    // @OneToMany(targetEntity=Murid.class, mappedBy="nomorSekolah",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+
+    //Relasi dengan Murid
+    // @OneToMany(targetEntity=Murid.class, mappedBy="kelas",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     // private List<Murid> murid;
 
+    //Relasi dengan Mentor
+    @ManyToOne
+    @JoinColumn(name = "idMentor", referencedColumnName="nomorMentor", insertable = false, updatable = false)
+    private Mentor mentor;
+
+
+    private Long idMentor;
 
     private String namaKelas;
-    
+
     private Long jumlahPeserta;
 
     // public Long getId() {
@@ -76,4 +87,12 @@ public class Kelas {
     // public List<Murid> getMurid(){
     //     return murid;
     // }
+
+    public void setIdMentor(Long idMentor){
+        this.idMentor = idMentor;
+    }
+
+    public Long getIdMentor(){
+        return idMentor;
+    }
 }

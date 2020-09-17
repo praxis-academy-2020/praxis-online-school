@@ -1,74 +1,84 @@
-// package com.praxis.management.model;
+package com.praxis.management.model;
 
-// import javax.persistence.Entity;
-// import javax.persistence.Table;
-// import javax.persistence.Id;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.GenerationType;
-// import javax.persistence.OneToMany;
-// import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
+import javax.persistence.Column;
+import javax.persistence.FetchType;
 
-// import java.util.HashSet;
-// import java.util.List;
-// import java.util.Objects;
-// import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
-// @Entity
-// @Table(name="mentor")
-// public class Mentor{
+@Entity
+@Table(name="mentors")
+public class Mentor{
     
-//     @Id
-//     @GeneretadValue(strategy=GenerationType.AUTO)
-//     @Column(name = "id_mentor")
-//     private Long id_mentor;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "nomorMentor")
+    private Long nomorMentor;
 
-//     private String nama_mentor;
+    private String namaMentor;
     
-//     private String status_mentor;
+    private String status_mentor;
     
-//     private Long nomor_kelas;
+    private Long nomorKelas;
 
-//     @OneToMany(fetch = FetchType.LAZY, mappedBy = "mentor")
-//     private List<Kelas> kelas;
+
+    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "mentor")
+    // private List<Kelas> kelas;
     
-//     public Long getId(){
-//         return id_mentor;
-//     }
+    public Long getIdMentor(){
+        return nomorMentor;
+    }
 
-//     public void setId(Long id_mentor){
-//         this.id_mentor = id_mentor;
-//     }
+    public void setIdMentor(Long nomorMentor){
+        this.nomorMentor = nomorMentor;
+    }
 
-//     public String getNama(){
-//         return nama_mentor;
-//     }
+    public String getNama(){
+        return namaMentor;
+    }
 
-//     public void setNama(String nama_mentor){
-//         this.nama_mentor = nama_mentor;
-//     }
+    public void setNama(String namaMentor){
+        this.namaMentor = namaMentor;
+    }
 
-//     public String getStatus(){
-//         return status_mentor;
-//     }
+    public String getStatus(){
+        return status_mentor;
+    }
 
-//     public void setStatus(String status_mentor){
-//         this.status_mentor = status_mentor;
-//     }
+    public void setStatus(String status_mentor){
+        this.status_mentor = status_mentor;
+    }
 
-//     public String getNamaKelas(){
-//         return nama_kelas;
-//     }
+    // public String getNamaKelas(){
+    //     return nama_kelas;
+    // }
 
-//     public void setNamaKelas(String nama_kelas){
-//         this.nama_kelas = nama_kelas;
-//     }
+    // public void setNamaKelas(String nama_kelas){
+    //     this.nama_kelas = nama_kelas;
+    // }
 
 
-//     public List<Kelas> getKelas() {
-//         return kelas;
-//     }
+    // public List<Kelas> getKelas() {
+    //     return kelas;
+    // }
 
-//     public void setKelas(List<Kelas> kelas) {
-//         this.kelas = kelas;
-//     }
-// }
+    // public void setKelas(List<Kelas> kelas) {
+    //     this.kelas = kelas;
+    // }
+
+    public void setNomorKelas(Long nomorKelas){
+        this.nomorKelas = nomorKelas;
+    }
+
+    public Long getNomorKelas(){
+        return nomorKelas;
+    }
+}

@@ -35,7 +35,7 @@ public class Murid {
     private String emailUser;
 
     // @OneToOne(mappedBy = "pengguna", cascade = CascadeType.ALL)
-    // @ManyToOne(fetch = FetchType.LAZY)
+ 
     // @JoinColumn(name = "nomorKelas")
     // private Kelas kelas;
     // @JoinTable(name = "kelas",
