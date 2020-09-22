@@ -43,15 +43,21 @@
         </div>
 
         <div class="mr-5 hidden-xs-only">
-          <span>Karya</span>
+          <router-link to="/creation" class="text-decoration-none">
+            <span class="white--text">Creation</span>
+          </router-link>
         </div>
 
         <div class="mr-5 hidden-xs-only">
-          <span>Activity</span>
+          <router-link to="/activity" class="text-decoration-none">
+            <span class="white--text">Activity</span>
+          </router-link>
         </div>
 
         <div class="mr-5 hidden-xs-only">
-          <span>Bootcamp</span>
+          <router-link to="/register/syarat" class="text-decoration-none">
+            <span class="white--text">Bootcamp</span>
+          </router-link>
         </div>
 
         <v-app-bar-nav-icon class="hidden-sm-and-up" @click="sideNav = true"></v-app-bar-nav-icon>
@@ -61,7 +67,13 @@
       <v-navigation-drawer v-model="sideNav" right fixed temporary>
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title class="title">PRAXIS</v-list-item-title>
+            <v-list-item-avatar>
+              <img :src="logo" />
+            </v-list-item-avatar>
+          </v-list-item-content>
+
+          <v-list-item-content>
+            <v-list-item-title>Praxis</v-list-item-title>
             <v-list-item-subtitle>academy</v-list-item-subtitle>
           </v-list-item-content>
 
@@ -80,17 +92,23 @@
               <v-list-item-title>Program</v-list-item-title>
             </v-list-item>
 
-            <v-list-item>
-              <v-list-item-title>Karya</v-list-item-title>
-            </v-list-item>
+            <router-link to="/creation" class="text-decoration-none">
+              <v-list-item>
+                <v-list-item-title class="black--text">Creation</v-list-item-title>
+              </v-list-item>
+            </router-link>
 
-            <v-list-item>
-              <v-list-item-title>Activity</v-list-item-title>
-            </v-list-item>
+            <router-link to="/activity" class="text-decoration-none">
+              <v-list-item>
+                <v-list-item-title class="black--text">Activity</v-list-item-title>
+              </v-list-item>
+            </router-link>
 
-            <v-list-item>
-              <v-list-item-title>Bootcamp</v-list-item-title>
-            </v-list-item>
+            <router-link to="/register/syarat" class="text-decoration-none">
+              <v-list-item>
+                <v-list-item-title class="black--text">Bootcamp</v-list-item-title>
+              </v-list-item>
+            </router-link>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>

@@ -28,9 +28,24 @@ const routes = [
     ]
   },
   {
+    path: '/creation',
+    name: 'Creation',
+    component: () => import('../views/Creation.vue')
+  },
+  {
+    path: '/activity',
+    name: 'Activity',
+    component: () => import('../views/Activity.vue')
+  },
+  {
     path: '/admin',
     name: 'Login',
     component: () => import('../views/Login.vue')
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import('../views/404.vue')
   }
 ]
 
