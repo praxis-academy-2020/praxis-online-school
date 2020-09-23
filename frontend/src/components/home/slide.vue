@@ -1,54 +1,34 @@
 <template>
   <div class="mt-15">
     <h1 class="text-center mb-5">TESTIMONI</h1><br>
-    <v-sheet
-    class="mx-auto"
-    elevation="8"
-    max-width="800"
-  >
-    <v-slide-group
-      v-model="model"
-      class="pa-4"
-      multiple
-      show-arrows
-    >
-      <v-slide-item
-        v-for="n in 15"
-        :key="n"
-        v-slot:default="{ active, toggle }"
-      >
-        <v-card
-          :color="active ? 'primary' : 'grey lighten-1'"
-          class="ma-4"
-          height="200"
-          width="100"
-          @click="toggle"
-        >
-          <v-row
-            class="fill-height"
-            align="center"
-            justify="center"
-          >
-            <v-scale-transition>
-              <v-icon
-                v-if="active"
-                color="white"
-                size="48"
-                v-text="'mdi-close-circle-outline'"
-              ></v-icon>
-            </v-scale-transition>
-          </v-row>
-        </v-card>
-      </v-slide-item>
-    </v-slide-group>
-  </v-sheet>
-  </div>
+    <v-container>
+      <v-carousel class="mb-10" cycle height="200" hide-delimiter-background show-arrows-on-hover>
+      <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src"></v-carousel-item>
+    </v-carousel>
+    </v-container>
+    </div>
+    
   
 </template>
 <script>
-  export default {
-    data: () => ({
-      model: [],
-    }),
-  }
+import gmbhome1 from "@/assets/carousel/carouselhome1.jpg";
+import gmbhome2 from "@/assets/carousel/carouselhome2.jpg";
+import gmbhome3 from "@/assets/carousel/carouselhome3.jpg";
+export default {
+    data(){
+        return{
+            items:[
+        {
+          src: gmbhome1
+        },
+        {
+          src: gmbhome2
+        },
+        {
+          src: gmbhome3
+        }
+      ]
+        }
+    }
+}
 </script>

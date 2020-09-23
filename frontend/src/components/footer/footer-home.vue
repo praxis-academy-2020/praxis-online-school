@@ -1,12 +1,12 @@
 <template>
-  <v-footer color="primary" class="mt-12">
+  <v-footer color="primary" class="mt-9 ukuran">
     <div class="text-center">
-      <v-row class="mt-10">
+      <v-row class="mt-5">
         <v-col cols="12" sm="4" md="3">
           <v-btn v-for="icon in icons" :key="icon" class="mx-1 white--text" icon>
             <v-icon size="24px">{{ icon }}</v-icon>
           </v-btn>
-          <v-img src="@/assets/p.png" aspect-ratio="1"></v-img>
+          <v-img src="@/assets/p.png" aspect-ratio="1" class="ukurangmb"></v-img>
         </v-col>
 
         <v-col cols="12" sm="4" md="3">
@@ -26,14 +26,14 @@
 
         <v-col class="hidden-xs-only" md="3">
           <v-card-text
-            class="warna"
+            class="warna ukuran"
           >Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui.</v-card-text>
         </v-col>
       </v-row>
 
       <v-divider></v-divider>
 
-      <v-card-text class="white--text">
+      <v-card-text class="white--text ukuran">
         {{ new Date().getFullYear() }} —
         <strong>Praxis Academy</strong>
       </v-card-text>
@@ -60,5 +60,14 @@ export default {
 .warna a:hover {
   color: wheat;
   text-decoration: none;
+}
+.ukuran{
+  font-size: 12px;
+  height: 100%;
+}
+.ukurangmb{
+  height: 100px;
+  width: 100px;
+  display: block; margin: auto;
 }
 </style>
