@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="mx-auto overflow-hidden" height="100%" >
+    <v-card class="mx-auto overflow-hidden ukuran"  >
       <!-- dekstop -->
       <v-app-bar color="blue lighten-2" dark  fixed inverted-scroll    >
         <router-link to="/" class="text-decoration-none">
@@ -11,7 +11,7 @@
 
         <v-spacer></v-spacer>
 
-        <div class="mr-5 hidden-xs-only">
+        <div class="mr-5 hidden-xs-only ">
           <v-menu left bottom>
             <template v-slot:activator="{ on, attrs }">
               <div v-bind="attrs" v-on="on">
@@ -89,24 +89,24 @@
         <v-list nav dense>
           <v-list-item-group>
             <v-list-item>
-              <v-list-item-title>Program</v-list-item-title>
+              <v-list-item-title class="ukurann">Program</v-list-item-title>
             </v-list-item>
 
             <router-link to="/creation" class="text-decoration-none">
               <v-list-item>
-                <v-list-item-title class="black--text">Creation</v-list-item-title>
+                <v-list-item-title class="black--text ukurann">Creation</v-list-item-title>
               </v-list-item>
             </router-link>
 
             <router-link to="/activity" class="text-decoration-none">
               <v-list-item>
-                <v-list-item-title class="black--text">Activity</v-list-item-title>
+                <v-list-item-title class="black--text ukurann">Activity</v-list-item-title>
               </v-list-item>
             </router-link>
 
-            <router-link to="/register/syarat" class="text-decoration-none">
+            <router-link to="/register/syarat" class="text-decoration-none ukurann">
               <v-list-item>
-                <v-list-item-title class="black--text">Bootcamp</v-list-item-title>
+                <v-list-item-title class="black--text ">Bootcamp</v-list-item-title>
               </v-list-item>
             </router-link>
           </v-list-item-group>
@@ -129,3 +129,14 @@ export default {
   }
 };
 </script>
+<style scoped>
+  .ukuran{
+    font-size: 12px;
+  }
+  .ukurann{
+    color: blanchedalmond;
+  }
+  .ukurann:hover{
+    color: red;
+  }
+</style>

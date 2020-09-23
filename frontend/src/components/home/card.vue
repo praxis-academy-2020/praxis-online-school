@@ -1,11 +1,12 @@
 <template>
   <div>
+    <!-- card -->
     <v-col>
-      <v-card class="mx-auto" max-width="400">
-        <v-img height="100" :src="poto"></v-img>
+      <v-card class="mx-auto" max-width="400" >
+        <v-img min-height="100" :src="poto"></v-img>
         <v-card-title>{{judul}}</v-card-title>
-        <div class="ml-4">{{deskripsi}}</div>
-        <br>
+        
+        
          <v-row justify="center" class="pb-5">
     <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
       <template v-slot:activator="{ on, attrs }">
@@ -26,12 +27,18 @@
           <v-toolbar-title>{{namakarya}}</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
+
+        <!-- modal -->
         <v-container>
-        <v-row>
-          <v-col cols="12">
-             <v-img  :src="poto" class="center" hight="100"></v-img>
-          </v-col>
-        </v-row>
+        
+         <v-row>
+           <v-col  class="d-flex justify-center">
+             <v-img  :src="poto"  max-width="300"></v-img>
+           </v-col>
+         </v-row>
+             
+          
+        
         <v-row class="text-center">
           <v-col cols="12">
              <h4>Nama Team: </h4>
@@ -44,7 +51,11 @@
             <p>{{deskripsii}}</p>
           </v-col>
         </v-row>
-        <a :href="link" target="_blank" class="text-decoraton-none" ><v-btn color="primary" class="mx-auto center">GITHUB</v-btn></a>
+        <v-row>
+          <v-col class="d-flex justify-center">
+            <a :href="link" target="_blank" class="text-decoraton-none" ><v-btn color="primary" class="mx-auto center">GITHUB</v-btn></a>
+          </v-col>
+        </v-row>
         </v-container>
       </v-card>
     </v-dialog>
@@ -69,12 +80,5 @@ export default {
 
 </script>
 <style scoped>
-.center {
-  margin: 0;
-  margin-top: 20%;
 
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 </style>
