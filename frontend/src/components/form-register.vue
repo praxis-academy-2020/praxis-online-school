@@ -76,7 +76,12 @@
 
         <v-row>
           <v-col>
-            <v-text-field v-model="data.namaKampus" :rules="namakampusVal" label="Nama kampus" required></v-text-field>
+            <v-text-field
+              v-model="data.namaKampus"
+              :rules="namakampusVal"
+              label="Nama kampus"
+              required
+            ></v-text-field>
           </v-col>
         </v-row>
 
@@ -103,6 +108,99 @@
           </v-col>
         </v-row>
 
+        <v-row>
+          <v-col>
+            <v-textarea
+              v-model="data.pengalamanKerja"
+              autocomplete="pengalaman kerja"
+              label="Pengalaman kerja"
+            ></v-textarea>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-textarea
+              v-model="data.pengalamanProject"
+              autocomplete="pengalaman project"
+              label="Pengalaman project"
+            ></v-textarea>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-textarea
+              v-model="data.alasanIkut"
+              :rules="alasanikutVal"
+              autocomplete="alasan ikut"
+              label="Alasan ikut"
+            ></v-textarea>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <p>Apakah anda bersedia menyelesaikan pendidikan sampai selesai?</p>
+            <v-radio-group :rules="menyelesaikanVal" v-model="menyelesaikan">
+              <v-radio label="Ya" value="Ya"></v-radio>
+              <v-radio label="Tidak" value="Tidak"></v-radio>
+              <v-radio label="Mungkin" value="Mungkin"></v-radio>
+            </v-radio-group>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <p>Apakah anda bersedia memberikan surat referensi?</p>
+            <v-radio-group :rules="referensiVal" v-model="referensi">
+              <v-radio label="Ya" value="Ya"></v-radio>
+              <v-radio label="Tidak" value="Tidak"></v-radio>
+              <v-radio label="Mungkin" value="Mungkin"></v-radio>
+            </v-radio-group>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-textarea
+              v-model="data.mediaSosial"
+              :rules="mediasosialVal"
+              autocomplete="media sosial"
+              label="Media sosial"
+            ></v-textarea>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <p>Mengetahui informasi bootcamp dari:</p>
+            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-text-field
+              v-model="data.info"
+              :rules="infoVal"
+              label="Tuliskan nama pemberi Informasi bootcamp"
+              required
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-file-input :rules="inputVal" multiple label="Upload your CV"></v-file-input>
+          </v-col>
+        </v-row>
+
         <v-btn class="mr-4" @click="submit">submit</v-btn>
       </v-form>
     </v-container>
@@ -113,6 +211,9 @@
 export default {
   data: () => {
     return {
+      // boolean
+      referensiBoolean: false,
+
       // select
       kelas: ["frontend", "backend"],
       pendidikanArr: ["S1", "S2", "S3", "Lainnya"],
@@ -131,7 +232,14 @@ export default {
         pendidikan: null,
         namaKampus: null,
         semester: null,
-        alamatKampus: null
+        alamatKampus: null,
+        pengalamanKerja: null,
+        pengalamanProject: null,
+        alasanIkut: null,
+        menyelesainkan: null,
+        referensi: null,
+        mediaSosial: null,
+        bootcamp: []
       },
 
       // validate
@@ -149,7 +257,12 @@ export default {
       pendidikanVal: [v => !!v || "required"],
       namakampusVal: [v => !!v || "required"],
       semesterVal: [v => !!v || "required"],
-      alamatkampusVal: [v => !!v || "required"]
+      alamatkampusVal: [v => !!v || "required"],
+      alasanikutVal: [v => !!v || "required"],
+      menyelesaikanVal: [v => !!v || "required"],
+      referensiVal: [v => !!v || "required"],
+      mediasosialVal: [v => !!v || "required"],
+      inputVal: [v => !!v || "required"]
     };
   },
   methods: {
