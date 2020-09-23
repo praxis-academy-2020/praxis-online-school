@@ -4,14 +4,14 @@
       <v-form ref="form" lazy-validation>
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.name" label="Name" :rules="nameVal" required></v-text-field>
+            <v-text-field v-model="data.name" label="Name*" :rules="nameVal" required></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-select
               v-model="data.program"
               :items="kelas"
               :rules="programVal"
-              label="Program"
+              label="Program*"
               required
             ></v-select>
           </v-col>
@@ -19,13 +19,13 @@
 
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.email" :rules="emailVal" label="Email" required></v-text-field>
+            <v-text-field v-model="data.email" :rules="emailVal" label="Email*" required></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-text-field
               v-model="data.tempatLahir"
               :rules="tempatlahirVal"
-              label="Tempat lahir"
+              label="Tempat lahir*"
               required
             ></v-text-field>
           </v-col>
@@ -36,18 +36,18 @@
             <v-text-field
               v-model="data.tanggalLahir"
               :rules="tanggallahirVal"
-              label="Tanggal lahir"
+              label="Tanggal lahir*"
               required
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.nomorHP" :rules="nomorhpVal" label="Nomor HP" required></v-text-field>
+            <v-text-field v-model="data.nomorHP" :rules="nomorhpVal" label="Nomor HP*" required></v-text-field>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col>
-            <v-text-field v-model="data.kotaAsal" :rules="kotaasalVal" label="Kota asal" required></v-text-field>
+            <v-text-field v-model="data.kotaAsal" :rules="kotaasalVal" label="Kota asal*" required></v-text-field>
           </v-col>
         </v-row>
 
@@ -57,7 +57,7 @@
               v-model="data.alamat"
               :rules="alamatVal"
               autocomplete="alamat"
-              label="Alamat"
+              label="Alamat*"
             ></v-textarea>
           </v-col>
         </v-row>
@@ -68,7 +68,7 @@
               v-model="data.pendidikan"
               :rules="pendidikanVal"
               :items="pendidikanArr"
-              label="Pendidikan"
+              label="Pendidikan*"
               required
             ></v-select>
           </v-col>
@@ -79,7 +79,7 @@
             <v-text-field
               v-model="data.namaKampus"
               :rules="namakampusVal"
-              label="Nama kampus"
+              label="Nama kampus*"
               required
             ></v-text-field>
           </v-col>
@@ -87,13 +87,11 @@
 
         <v-row>
           <v-col>
-            <v-select
+            <v-text-field
               v-model="data.semester"
-              :rules="semesterVal"
-              :items="semesterArr"
-              label="Semester"
+              label="Semester(diisi apabila belum lulus)"
               required
-            ></v-select>
+            ></v-text-field>
           </v-col>
         </v-row>
 
@@ -103,7 +101,7 @@
               v-model="data.alamatKampus"
               :rules="alamatkampusVal"
               autocomplete="alamat kampus"
-              label="Alamat kampus"
+              label="Alamat kampus*"
             ></v-textarea>
           </v-col>
         </v-row>
@@ -134,14 +132,14 @@
               v-model="data.alasanIkut"
               :rules="alasanikutVal"
               autocomplete="alasan ikut"
-              label="Alasan ikut"
+              label="Alasan ikut*"
             ></v-textarea>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col>
-            <p>Apakah anda bersedia menyelesaikan pendidikan sampai selesai?</p>
+            <p>Apakah anda bersedia menyelesaikan pendidikan sampai selesai?*</p>
             <v-radio-group :rules="menyelesaikanVal" v-model="menyelesaikan">
               <v-radio label="Ya" value="Ya"></v-radio>
               <v-radio label="Tidak" value="Tidak"></v-radio>
@@ -152,7 +150,7 @@
 
         <v-row>
           <v-col>
-            <p>Apakah anda bersedia memberikan surat referensi?</p>
+            <p>Apakah anda bersedia memberikan surat referensi?*</p>
             <v-radio-group :rules="referensiVal" v-model="referensi">
               <v-radio label="Ya" value="Ya"></v-radio>
               <v-radio label="Tidak" value="Tidak"></v-radio>
@@ -167,7 +165,7 @@
               v-model="data.mediaSosial"
               :rules="mediasosialVal"
               autocomplete="media sosial"
-              label="Media sosial"
+              label="Media sosial*"
             ></v-textarea>
           </v-col>
         </v-row>
@@ -188,7 +186,6 @@
           <v-col>
             <v-text-field
               v-model="data.info"
-              :rules="infoVal"
               label="Tuliskan nama pemberi Informasi bootcamp"
               required
             ></v-text-field>
@@ -197,10 +194,11 @@
 
         <v-row>
           <v-col>
-            <v-file-input :rules="inputVal" multiple label="Upload your CV"></v-file-input>
+            <v-file-input :rules="inputVal" multiple label="Upload your CV*"></v-file-input>
           </v-col>
         </v-row>
 
+        <small>*wajib diisi</small>
         <v-btn class="mr-4" @click="submit">submit</v-btn>
       </v-form>
     </v-container>
@@ -217,7 +215,6 @@ export default {
       // select
       kelas: ["frontend", "backend"],
       pendidikanArr: ["S1", "S2", "S3", "Lainnya"],
-      semesterArr: ["semester 7", "semester 8"],
 
       // data
       data: {
@@ -256,7 +253,6 @@ export default {
       alamatVal: [v => !!v || "required"],
       pendidikanVal: [v => !!v || "required"],
       namakampusVal: [v => !!v || "required"],
-      semesterVal: [v => !!v || "required"],
       alamatkampusVal: [v => !!v || "required"],
       alasanikutVal: [v => !!v || "required"],
       menyelesaikanVal: [v => !!v || "required"],
