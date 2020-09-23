@@ -1,8 +1,6 @@
 <template>
   <div>
-      <h1>Formulir</h1>
       <formRegister/>
-      <router-link to="/register/syarat">back</router-link>
   </div>
 </template>
 

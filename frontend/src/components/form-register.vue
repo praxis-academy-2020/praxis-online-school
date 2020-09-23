@@ -1,6 +1,11 @@
 <template>
   <div>
     <v-container>
+      <v-row>
+        <v-col class="text-center">
+          <h1>Registrasi Praxis Academy</h1>
+        </v-col>
+      </v-row>
       <v-form ref="form" lazy-validation>
         <v-row>
           <v-col cols="12" sm="6">
@@ -174,11 +179,11 @@
           <v-col>
             <p>Mengetahui informasi bootcamp dari:</p>
             <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="Instagram" value="Instagram"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="Twitter" value="Twitter"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="WhatsApp" value="WhatsApp"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="LinkedIn" value="LinkedIn"></v-checkbox>
+            <v-checkbox v-model="bootcamp" label="Teman" value="Teman"></v-checkbox>
           </v-col>
         </v-row>
 
@@ -199,7 +204,16 @@
         </v-row>
 
         <small>*wajib diisi</small>
-        <v-btn class="mr-4" @click="submit">submit</v-btn>
+
+        <v-row class="mt-15">
+          <v-col class="d-flex justify-center">
+          <router-link to="/register/syarat" class="text-decoration-none">
+            <v-btn class="mr-4">back</v-btn>
+          </router-link>
+
+          <v-btn class="mr-4" @click="submit">submit</v-btn>
+          </v-col>
+        </v-row>
       </v-form>
     </v-container>
   </div>
