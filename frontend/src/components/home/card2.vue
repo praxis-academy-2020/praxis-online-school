@@ -1,10 +1,10 @@
 <template>
     <v-container>
-         <div class="mt-15 text-center">
+         <div class="mt-1 text-center">
       <h1>KARYA KITA</h1>
     </div><br>
-    <v-row>
-      <v-col cols="12" sm="6" md="4">
+    <v-row class="ml-15 mr-15">
+      <v-col cols="12" sm="6" md="4" >
         <kartu 
         :poto="g1" 
         judul="JOBDEV"   

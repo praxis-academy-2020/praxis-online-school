@@ -4,7 +4,7 @@
     <v-col>
       <v-card class="mx-auto" max-width="200" :elevation="4" >
         <v-img max-height="100" :src="poto"></v-img>
-        <h3 class="mt-7 mb-7 text-center">{{judul}}</h3>
+        <h5 class="mt-7 mb-7 text-center">{{judul}}</h5>
         
         
          <v-row justify="center" class="pb-5">
@@ -40,11 +40,11 @@
              <div class="solid"></div>
            </v-col>
           <v-col cols="5" class="text-center mar">
-             <h4>Nama Team: </h4>
-             <h4>{{namateam}}</h4><br>
-              <h2>Deskripsi Karya: </h2>
+             
+             <h2>{{judul}}</h2><br>
+              <h2>Deskripsi : </h2>
             <p>{{deskripsii}}</p><br>
-             <a :href="link" target="_blank" class="text-decoraton-none" ><v-btn  color="#112d4e" class="mx-auto center huruf">GITHUB</v-btn></a>
+             <a :href="link" target="_blank" class="text-decoraton-none" ><v-btn  color="#112d4e" class="mx-auto center huruf">DAFTAR</v-btn></a>
           </v-col>
           
          </v-row>
