@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-card class="mx-auto overflow-hidden" height="100%">
+    <v-card class="mx-auto overflow-hidden" height="100%" >
       <!-- dekstop -->
-      <v-app-bar color="blue lighten-2" dark fixed>
+      <v-app-bar color="blue lighten-2" dark  fixed inverted-scroll    >
         <router-link to="/" class="text-decoration-none">
           <v-toolbar-title>
             <v-img :src="logo" width="50" />
@@ -56,7 +56,7 @@
 
         <v-app-bar-nav-icon class="hidden-sm-and-up" @click="sideNav = true"></v-app-bar-nav-icon>
       </v-app-bar>
-
+      
       <!-- mobile -->
       <v-navigation-drawer v-model="sideNav" right fixed temporary>
         <v-list-item>
@@ -95,6 +95,7 @@
         </v-list>
       </v-navigation-drawer>
     </v-card>
+    
   </div>
 </template>
 
