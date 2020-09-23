@@ -1,17 +1,19 @@
 <template>
   <div>
     <navbarHome/>
-    <h1>Register</h1>
     <router-view></router-view>
+    <foot/>
   </div>
 </template>
 
 <script>
 import navbarHome from "@/components/navbar/navbar-home.vue"
+import foot from "@/components/footer/footer-home.vue"
 
 export default {
   components: {
-    navbarHome
+    navbarHome,
+    foot
   }
 }
 </script>
