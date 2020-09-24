@@ -192,13 +192,19 @@
           </v-col>
         </v-row>
 
-        <v-row>
+        <v-row v-show="false">
           <v-col>
             <v-file-input multiple label="Upload your CV*"></v-file-input>
           </v-col>
         </v-row>
 
         <small>*wajib diisi</small>
+
+        <div v-show="isError">
+          <v-row class="d-flex justify-center">
+            <span class="red--text">Tolong masukan data dengan benar</span>
+          </v-row>
+        </div>
 
         <v-row class="mt-15">
           <v-col class="d-flex justify-center">
@@ -216,13 +222,14 @@
 
 <script>
 import { mapGetters } from "vuex";
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   data: () => {
     return {
       // boolean
       referensiBoolean: false,
+      isError: false,
 
       // select
       kelas: ["frontend", "backend"],
@@ -275,17 +282,20 @@ export default {
     };
   },
   methods: {
-    submit: function() {
-      console.log(this.data);
+    submit: async function() {
       if (this.$refs.form.validate()) {
-        axios
+        await axios
           .post(`http://192.168.1.4:8080/praxis/murid/post`, this.data)
           .then(res => console.log(res))
           .catch(err => console.log(err));
         console.log(this.gettersApiPeserta);
-        this.$swal("josss!");
+        await this.$swal("josss!");
+        this.$router.push({name: "Home"})
       } else {
-        alert("error cuy");
+        this.isError = true;
+        setTimeout(() => {
+          this.isError = false;
+        }, 3000);
       }
     }
   },

@@ -1,11 +1,12 @@
 <template>
-  <v-simple-table fixed-header height="300px">
+  <v-simple-table fixed-header height="100%">
     <template v-slot:default>
       <thead>
         <tr>
           <th class="text-left">No</th>
           <th class="text-left">Name</th>
           <th class="text-left">Kampus</th>
+          <th class="text-left">Kelas</th>
         </tr>
       </thead>
 
@@ -15,6 +16,7 @@
           <td>{{ index + 1 }}</td>
           <td>{{ item.nama }}</td>
           <td>{{item.namaKampus}}</td>
+          <td>{{item.program}}</td>
         </tr>
       </tbody>
 
@@ -31,16 +33,11 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex"
+import { mapGetters } from "vuex";
 
 export default {
-    computed: {
-        ...mapGetters([
-            'gettersApiPeserta'
-        ])
-    },
-    mounted(){
-      console.log("table", this.gettersApiPeserta)
-    }
-}
+  computed: {
+    ...mapGetters(["gettersApiPeserta"])
+  }
+};
 </script>
