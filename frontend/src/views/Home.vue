@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbarHome/>
+    <navbarHome :isInverted="true" />
     <corosel/>
     <cardss/>
     <abouts/>

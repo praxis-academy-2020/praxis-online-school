@@ -1,5 +1,5 @@
 <template>
-  <div>
+ <div class="mt-15">
     <v-container>
       <v-img src="@/assets/p.png" class="center"></v-img>
       <h1 class="text-center mb-10 mt-5">Pendaftaran Praxis Academy</h1>
@@ -28,8 +28,6 @@
       <p>Terima kasih.</p>
       <v-btn color="primary" href="/register/formulir">next</v-btn>
     </v-container>
-      
-      
   </div>
 </template>
 
