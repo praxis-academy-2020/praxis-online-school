@@ -8,16 +8,12 @@ concern tinggi terhadap proses pendidikan.</h4>
     </v-col>
   </v-row>
    <v-row class="text-center mt-10" >
-      <v-col cols="6"  >
-        <v-img src="@/assets/profil.png" style="width:150px;" class="center"></v-img>
+      <v-col cols="12"  >
+        <v-img src="https://praxisacademy.id/img/pakabdullah1.png" style="width:150px;" class="center"></v-img>
         <h4>Abdullah Soedarmo</h4>
         <h6>Head of Praxis Academy</h6>
         </v-col>
-      <v-col cols="6"  >
-         <v-img src="@/assets/profil.png" style="width:150px"  class="center"></v-img>
-        <h4>Aaila Kika Syafii Mustain</h4>
-        <h6>Head of Bussiness Development</h6>
-      </v-col>
+     
     </v-row>
      <v-row  class="text-center" >
       <v-col cols="4" >
