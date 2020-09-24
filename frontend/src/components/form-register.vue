@@ -203,10 +203,10 @@
         <v-row class="mt-15">
           <v-col class="d-flex justify-center">
             <router-link to="/register/syarat" class="text-decoration-none">
-              <v-btn class="mr-4">back</v-btn>
+              <v-btn color="#112d4e" class="white--text mr-4">back</v-btn>
             </router-link>
 
-            <v-btn class="mr-4" @click="submit">submit</v-btn>
+            <v-btn color="#112d4e" class="white--text mr-4" @click="submit">submit</v-btn>
           </v-col>
         </v-row>
       </v-form>

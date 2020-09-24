@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbarHome/>
+    <navbarHome :isInverted="false" />
     <router-view></router-view>
     <foot/>
   </div>

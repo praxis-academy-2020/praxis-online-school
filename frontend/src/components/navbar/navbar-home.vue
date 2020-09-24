@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-card class="mx-auto overflow-hidden ukuran"  >
+    <v-card class="mx-auto overflow-hidden ukuran">
       <!-- dekstop -->
-      <v-app-bar color="primary " dark  fixed inverted-scroll    >
+      <v-app-bar color="primary" dark fixed :inverted-scroll="isInverted">
         <router-link to="/" class="text-decoration-none">
           <v-toolbar-title>
             <v-img :src="logo" width="50" />
@@ -11,7 +11,7 @@
 
         <v-spacer></v-spacer>
 
-        <div class="mr-5 hidden-xs-only ">
+        <div class="mr-5 hidden-xs-only">
           <v-menu left bottom>
             <template v-slot:activator="{ on, attrs }">
               <div v-bind="attrs" v-on="on">
@@ -62,7 +62,7 @@
 
         <v-app-bar-nav-icon class="hidden-sm-and-up" @click="sideNav = true"></v-app-bar-nav-icon>
       </v-app-bar>
-      
+
       <!-- mobile -->
       <v-navigation-drawer v-model="sideNav" right fixed temporary>
         <v-list-item>
@@ -106,14 +106,13 @@
 
             <router-link to="/register/syarat" class="text-decoration-none ukurann">
               <v-list-item>
-                <v-list-item-title class="black--text ">Bootcamp</v-list-item-title>
+                <v-list-item-title class="black--text">Bootcamp</v-list-item-title>
               </v-list-item>
             </router-link>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
     </v-card>
-    
   </div>
 </template>
 
@@ -126,17 +125,18 @@ export default {
       sideNav: false,
       logo
     };
-  }
+  },
+  props: ['isInverted']
 };
 </script>
 <style scoped>
-  .ukuran{
-    font-size: 12px;
-  }
-  .ukurann{
-    color: blanchedalmond;
-  }
-  .ukurann:hover{
-    color: red;
-  }
+.ukuran {
+  font-size: 12px;
+}
+.ukurann {
+  color: blanchedalmond;
+}
+.ukurann:hover {
+  color: red;
+}
 </style>
