@@ -11,39 +11,25 @@ export default new Vuex.Store({
     peserta: []
   },
   getters: {
-    // getPeserta: function(state){
-    //   return state.peserta
-    // },
     gettersApiPeserta: function(state){
       return state.peserta
     }
   },
   mutations: {
-    // addPeserta: function(state, payload){
-    //   return state.peserta.push(payload)
-    // },
-    getApiPeserta: function(){
+    getApiPeserta: function(state){
       axios(`http://${IP}/praxis/murid/get`)
       .then(res => res.data)
-      .then(res => console.log(res))
+      .then(res => {
+        state.peserta = res
+        console.log("get api", res)
+      })
       .catch(err => console.log(err))
-    },
-    // postApiPeserta: function(state){
-    //   axios.post(`http://${IP}/praxis/murid/post`, state.peserta)
-    //   .then(res => console.log(res))
-    //   .catch(err => console.log(err))
-    // }
+    }
   },
   actions: {
-    // addPeserta: function({commit}, payload){
-    //   commit('addPeserta', payload)
-    // },
     getApiPeserta: function({commit}){
       commit('getApiPeserta')
-    },
-    // postApiPeserta: function({commit}){
-    //   commit('postApiPeserta')
-    // }
+    }
   },
   modules: {
   }

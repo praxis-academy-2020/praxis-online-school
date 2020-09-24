@@ -8,11 +8,22 @@
           <th class="text-left">Kampus</th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="(item, index) in getApiPeserta" :key="item.id">
+
+      <!-- data -->
+      <tbody v-if="gettersApiPeserta.length > 0">
+        <tr v-for="(item, index) in gettersApiPeserta" :key="item.id">
           <td>{{ index + 1 }}</td>
           <td>{{ item.nama }}</td>
           <td>{{item.namaKampus}}</td>
+        </tr>
+      </tbody>
+
+      <!-- kosong -->
+      <tbody v-else>
+        <tr>
+          <td>none</td>
+          <td>none</td>
+          <td>none</td>
         </tr>
       </tbody>
     </template>
@@ -25,8 +36,11 @@ import {mapGetters} from "vuex"
 export default {
     computed: {
         ...mapGetters([
-            'getApiPeserta'
+            'gettersApiPeserta'
         ])
+    },
+    mounted(){
+      console.log("table", this.gettersApiPeserta)
     }
 }
 </script>
