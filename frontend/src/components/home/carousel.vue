@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import gmbhome1 from "@/assets/carousel/carouselhome1.jpg";
+import gmbhome1 from "@/assets/carousel/CUR1.png";
 import gmbhome2 from "@/assets/carousel/carouselhome2.jpg";
 import gmbhome3 from "@/assets/carousel/carouselhome3.jpg";
 export default {
