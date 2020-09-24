@@ -1,14 +1,48 @@
 <template>
     <v-container class="mt-15 mb-15">
       <v-row >
-      <v-col cols="8" style="background-color:white " class="text-justify" >
-      <h1>Sekilas tentang kami</h1>
-      <h4>Didirikan pada tahun 2017, ENIGMA CAMP pada awalnya merupakan salah satu anak perusahaan PT. Square Techno Indonesia (STI) sampai di tahun 2019 berkembang menjadi sebuah perusahaan baru, PT. Enigma Cipta Humanika.
-Enigma Camp bergerak dalam bidang IT Bootcamp dan pengelolaan talent IT. Kami telah berkecimpung dalam bidang informasi teknologi sejak tiga tahun terakhir dan daftar klien kami mencakup perusahaan ternama. Kami bekerja berdasarkan pengalaman dalam mengembangkan software engineer yang dapat mendukung bisnis anda...</h4>
-    </v-col>
-    <v-col cols="4" style="background-color:red " >
-      hahaha
+      <v-col cols="12" style="background-color:white " class="text-justify" >
+      <h1 class="text-center">TEAM KAMI</h1>
+      <h4  class="text-center">Tim kami terdiri atas praktisi industri software enterprise serta akademisi yang mempunyai
+concern tinggi terhadap proses pendidikan.</h4>
     </v-col>
   </v-row>
+   <v-row class="text-center mt-10" >
+      <v-col cols="6"  >
+        <v-img src="@/assets/profil.png" style="width:150px;" class="center"></v-img>
+        <h4>Abdullah Soedarmo</h4>
+        <h6>Head of Praxis Academy</h6>
+        </v-col>
+      <v-col cols="6"  >
+         <v-img src="@/assets/profil.png" style="width:150px"  class="center"></v-img>
+        <h4>Aaila Kika Syafii Mustain</h4>
+        <h6>Head of Bussiness Development</h6>
+      </v-col>
+    </v-row>
+     <v-row  class="text-center" >
+      <v-col cols="4" >
+        <v-img src="@/assets/profil.png" style="width:150px"  class="center"></v-img>
+        <h4>Hadi Hidayat Hammurabi</h4>
+        <h6>Mentor</h6>
+      </v-col>
+      <v-col cols="4" >
+         <v-img src="@/assets/profil.png" style="width:150px"  class="center"></v-img>
+        <h4>Muhammad Akbar H</h4>
+        <h6>Mentor</h6>
+      </v-col>
+      <v-col cols="4" >
+         <v-img src="@/assets/profil.png" style="width:150px"  class="center"></v-img>
+        <h4>Hendi Saputra</h4>
+        <h6>Mentor</h6>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
+<style scoped>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>

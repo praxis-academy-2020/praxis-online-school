@@ -44,7 +44,7 @@
              <h2>{{judul}}</h2><br>
               <h2>Deskripsi : </h2>
             <p>{{deskripsii}}</p><br>
-             <a :href="link" target="_blank" class="text-decoraton-none" ><v-btn  color="#112d4e" class="mx-auto center huruf">DAFTAR</v-btn></a>
+             <a :href="link" target="_blank"  ><v-btn  color="#112d4e" class="mx-auto center huruf text-decoration-none">DAFTAR</v-btn></a>
           </v-col>
           
          </v-row>
