@@ -9,7 +9,7 @@
       <v-form ref="form" lazy-validation>
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.name" label="Name*" :rules="nameVal" required></v-text-field>
+            <v-text-field v-model="data.nama" label="Name*" :rules="nameVal" required></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-select
@@ -24,13 +24,13 @@
 
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.email" :rules="emailVal" label="Email*" required></v-text-field>
+            <v-text-field v-model="data.emailUser" :rules="emailVal" label="Email*" required></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-text-field
-              v-model="data.tempatLahir"
+              v-model="data.tempatTanggalLahir"
               :rules="tempatlahirVal"
-              label="Tempat lahir*"
+              label="Tempat tanggal lahir*"
               required
             ></v-text-field>
           </v-col>
@@ -38,15 +38,10 @@
 
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field
-              v-model="data.tanggalLahir"
-              :rules="tanggallahirVal"
-              label="Tanggal lahir*"
-              required
-            ></v-text-field>
+            <v-text-field v-model="data.status" :rules="status" label="Status*" required></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.nomorHP" :rules="nomorhpVal" label="Nomor HP*" required></v-text-field>
+            <v-text-field v-model="data.nomorHape" :rules="nomorhpVal" label="Nomor HP*" required></v-text-field>
           </v-col>
         </v-row>
 
@@ -145,7 +140,7 @@
         <v-row>
           <v-col>
             <p>Apakah anda bersedia menyelesaikan pendidikan sampai selesai?*</p>
-            <v-radio-group :rules="menyelesaikanVal" v-model="menyelesaikan">
+            <v-radio-group :rules="menyelesaikanVal" v-model="data.komitmen">
               <v-radio label="Ya" value="Ya"></v-radio>
               <v-radio label="Tidak" value="Tidak"></v-radio>
               <v-radio label="Mungkin" value="Mungkin"></v-radio>
@@ -156,7 +151,7 @@
         <v-row>
           <v-col>
             <p>Apakah anda bersedia memberikan surat referensi?*</p>
-            <v-radio-group :rules="referensiVal" v-model="referensi">
+            <v-radio-group :rules="referensiVal" v-model="data.referensi">
               <v-radio label="Ya" value="Ya"></v-radio>
               <v-radio label="Tidak" value="Tidak"></v-radio>
               <v-radio label="Mungkin" value="Mungkin"></v-radio>
@@ -178,12 +173,12 @@
         <v-row>
           <v-col>
             <p>Mengetahui informasi bootcamp dari:</p>
-            <v-checkbox v-model="bootcamp" label="Facebook" value="Facebook"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="Instagram" value="Instagram"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="Twitter" value="Twitter"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="WhatsApp" value="WhatsApp"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="LinkedIn" value="LinkedIn"></v-checkbox>
-            <v-checkbox v-model="bootcamp" label="Teman" value="Teman"></v-checkbox>
+            <v-checkbox v-model="data.bootcamp" label="Facebook" value="Facebook"></v-checkbox>
+            <v-checkbox v-model="data.bootcamp" label="Instagram" value="Instagram"></v-checkbox>
+            <v-checkbox v-model="data.bootcamp" label="Twitter" value="Twitter"></v-checkbox>
+            <v-checkbox v-model="data.bootcamp" label="WhatsApp" value="WhatsApp"></v-checkbox>
+            <v-checkbox v-model="data.bootcamp" label="LinkedIn" value="LinkedIn"></v-checkbox>
+            <v-checkbox v-model="data.bootcamp" label="Teman" value="Teman"></v-checkbox>
           </v-col>
         </v-row>
 
@@ -199,7 +194,7 @@
 
         <v-row>
           <v-col>
-            <v-file-input :rules="inputVal" multiple label="Upload your CV*"></v-file-input>
+            <v-file-input multiple label="Upload your CV*"></v-file-input>
           </v-col>
         </v-row>
 
@@ -207,11 +202,11 @@
 
         <v-row class="mt-15">
           <v-col class="d-flex justify-center">
-          <router-link to="/register/syarat" class="text-decoration-none">
-            <v-btn class="mr-4">back</v-btn>
-          </router-link>
+            <router-link to="/register/syarat" class="text-decoration-none">
+              <v-btn class="mr-4">back</v-btn>
+            </router-link>
 
-          <v-btn class="mr-4" @click="submit">submit</v-btn>
+            <v-btn class="mr-4" @click="submit">submit</v-btn>
           </v-col>
         </v-row>
       </v-form>
@@ -220,6 +215,9 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import axios from 'axios'
+
 export default {
   data: () => {
     return {
@@ -232,25 +230,26 @@ export default {
 
       // data
       data: {
-        name: "",
-        email: null,
-        program: null,
-        tempatLahir: null,
-        tanggalLahir: null,
-        nomorHP: null,
-        kotaAsal: null,
-        alamat: null,
-        pendidikan: null,
-        namaKampus: null,
-        semester: null,
-        alamatKampus: null,
-        pengalamanKerja: null,
-        pengalamanProject: null,
-        alasanIkut: null,
-        menyelesainkan: null,
-        referensi: null,
-        mediaSosial: null,
-        bootcamp: []
+        nama: "",
+        emailUser: "",
+        program: "",
+        tempatTanggalLahir: "",
+        status: "",
+        nomorHape: "",
+        kotaAsal: "",
+        alamat: "",
+        pendidikan: "",
+        namaKampus: "",
+        semester: "",
+        alamatKampus: "",
+        pengalamanKerja: "",
+        pengalamanProject: "",
+        alasanIkut: "",
+        komitmen: "",
+        referensi: "",
+        mediaSosial: "",
+        bootcamp: "",
+        nomorKelas: 101
       },
 
       // validate
@@ -262,7 +261,7 @@ export default {
       ],
       tempatlahirVal: [v => !!v || "required"],
       kotaasalVal: [v => !!v || "required"],
-      tanggallahirVal: [v => !!v || "required"],
+      status: [v => !!v || "required"],
       nomorhpVal: [v => !!v || "required"],
       alamatVal: [v => !!v || "required"],
       pendidikanVal: [v => !!v || "required"],
@@ -271,15 +270,27 @@ export default {
       alasanikutVal: [v => !!v || "required"],
       menyelesaikanVal: [v => !!v || "required"],
       referensiVal: [v => !!v || "required"],
-      mediasosialVal: [v => !!v || "required"],
-      inputVal: [v => !!v || "required"]
+      mediasosialVal: [v => !!v || "required"]
+      // inputVal: [v => !!v || "required"]
     };
   },
   methods: {
     submit: function() {
-      if (this.$refs.form.validate()) console.log(this.data);
-      else alert("error cuy");
+      console.log(this.data);
+      if (this.$refs.form.validate()) {
+        axios
+          .post(`http://192.168.1.4:8080/praxis/murid/post`, this.data)
+          .then(res => console.log(res))
+          .catch(err => console.log(err));
+        console.log(this.gettersApiPeserta);
+        this.$swal("josss!");
+      } else {
+        alert("error cuy");
+      }
     }
+  },
+  computed: {
+    ...mapGetters(["gettersApiPeserta"])
   }
 };
 </script>
