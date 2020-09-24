@@ -289,7 +289,10 @@ export default {
           .then(res => console.log(res))
           .catch(err => console.log(err));
         console.log(this.gettersApiPeserta);
-        await this.$swal("josss!");
+        await this.$swal({
+          icon: "success",
+          title: "Pendaftaran berhasil"
+        });
         this.$router.push({name: "Home"})
       } else {
         this.isError = true;

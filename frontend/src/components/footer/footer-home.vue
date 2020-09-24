@@ -10,7 +10,7 @@
         </v-col>
 
         <v-col cols="12" sm="4" md="3">
-          <h3 class="warna mb-5">JOBDEV</h3>
+          <h3 class="warna mb-5">PRAXIS ACADEMY</h3>
           <p class="warna">Tentang Kami</p>
           <p class="warna">Bantuan</p>
           <p class="warna">Berkarir bersama Kami</p>
