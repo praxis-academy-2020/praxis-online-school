@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" app clipped>
+    <v-navigation-drawer app clipped>
       <v-list dense>
         <v-list-item link>
           <v-list-item-action>

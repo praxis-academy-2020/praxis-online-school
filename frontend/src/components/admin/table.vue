@@ -7,6 +7,7 @@
           <th class="text-left">Name</th>
           <th class="text-left">Kampus</th>
           <th class="text-left">Kelas</th>
+          <th class="text-left">Files</th>
         </tr>
       </thead>
 
@@ -17,6 +18,7 @@
           <td>{{ item.nama }}</td>
           <td>{{item.namaKampus}}</td>
           <td>{{item.program}}</td>
+          <td>{{item.inputFiles}}</td>
         </tr>
       </tbody>
 

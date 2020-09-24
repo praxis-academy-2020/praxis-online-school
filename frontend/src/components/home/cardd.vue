@@ -2,7 +2,7 @@
   <div>
     <!-- card -->
     <v-col>
-      <v-card class="mx-auto" max-width="200"  :elevation="4">
+      <v-card class="mx-auto" max-width="200" :elevation="4">
         <v-img max-height="80" :src="poto"></v-img>
         <h5 class="mt-7 mb-7 text-center">{{judul}}</h5>
 
@@ -23,21 +23,21 @@
               <!-- modal -->
               <v-container>
                 <v-row>
-                  <v-col class="d-flex justify-center" cols="6">
+                  <v-col class="d-flex justify-center" cols="12" sm="6">
                     <v-img :src="poto" max-width="400" class="ukurann"></v-img>
                   </v-col>
-                  <v-col cols="1">
-                    <div class="solid"></div>
-                  </v-col>
-                  <v-col cols="5" class="text-center mar">
-                    <h2>{{judul}}</h2>
-                    <br />
-                    <h2>Deskripsi :</h2>
-                    <p>{{deskripsii}}</p>
-                    <br />
-                    <a :href="link" target="_blank" class="text-decoraton-none">
-                      <v-btn color="#112d4e" class="mx-auto center huruf">DAFTAR</v-btn>
-                    </a>
+
+                  <v-col cols="12" sm="6" class="text-center mt-5 mb-5">
+                    <div>
+                      <h2>{{judul}}</h2>
+                      <br />
+                      <h2>Deskripsi :</h2>
+                      <p>{{deskripsii}}</p>
+                      <br />
+                      <router-link to="/register/syarat" class="text-decoration-none">
+                        <v-btn color="#112d4e" class="mx-auto center huruf">DAFTAR</v-btn>
+                      </router-link>
+                    </div>
                   </v-col>
                 </v-row>
               </v-container>
@@ -72,9 +72,6 @@ export default {
 <style  scoped>
 .huruf {
   color: white;
-}
-.mar {
-  margin-top: 10%;
 }
 .ukurann {
   margin-top: 20%;

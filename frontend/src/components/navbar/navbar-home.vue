@@ -21,22 +21,22 @@
 
             <v-list>
               <v-list-item>
-                <v-list-item-title>Frontend</v-list-item-title>
+                <v-list-item-title>Fullstack developer</v-list-item-title>
               </v-list-item>
               <v-list-item>
-                <v-list-item-title>Backend</v-list-item-title>
+                <v-list-item-title>Enterprise Python developer</v-list-item-title>
               </v-list-item>
               <v-list-item>
-                <v-list-item-title>Fullstack</v-list-item-title>
+                <v-list-item-title>Frontend developer</v-list-item-title>
               </v-list-item>
               <v-list-item>
-                <v-list-item-title>Python</v-list-item-title>
+                <v-list-item-title>Mobile developer</v-list-item-title>
               </v-list-item>
               <v-list-item>
-                <v-list-item-title>Mobile</v-list-item-title>
+                <v-list-item-title>Nodejs programming</v-list-item-title>
               </v-list-item>
               <v-list-item>
-                <v-list-item-title>Nodejs</v-list-item-title>
+                <v-list-item-title>UI/UX Designer</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -44,13 +44,13 @@
 
         <div class="mr-5 hidden-xs-only">
           <router-link to="/creation" class="text-decoration-none">
-            <span class="white--text">Creation</span>
+            <span class="white--text">Karya</span>
           </router-link>
         </div>
 
         <div class="mr-5 hidden-xs-only">
           <router-link to="/activity" class="text-decoration-none">
-            <span class="white--text">Activity</span>
+            <span class="white--text">Kegiatan</span>
           </router-link>
         </div>
 
@@ -89,18 +89,18 @@
         <v-list nav dense>
           <v-list-item-group>
             <v-list-item>
-              <v-list-item-title class="ukurann">Program</v-list-item-title>
+              <v-list-item-title>Program</v-list-item-title>
             </v-list-item>
 
             <router-link to="/creation" class="text-decoration-none">
               <v-list-item>
-                <v-list-item-title class="black--text ukurann">Creation</v-list-item-title>
+                <v-list-item-title class="black--text ukurann">Karya</v-list-item-title>
               </v-list-item>
             </router-link>
 
             <router-link to="/activity" class="text-decoration-none">
               <v-list-item>
-                <v-list-item-title class="black--text ukurann">Activity</v-list-item-title>
+                <v-list-item-title class="black--text ukurann">Kegiatan</v-list-item-title>
               </v-list-item>
             </router-link>
 
@@ -132,11 +132,5 @@ export default {
 <style scoped>
 .ukuran {
   font-size: 12px;
-}
-.ukurann {
-  color: blanchedalmond;
-}
-.ukurann:hover {
-  color: red;
 }
 </style>

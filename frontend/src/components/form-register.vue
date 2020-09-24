@@ -192,9 +192,9 @@
           </v-col>
         </v-row>
 
-        <v-row v-show="false">
+        <v-row v-show="true">
           <v-col>
-            <v-file-input multiple label="Upload your CV*"></v-file-input>
+            <v-file-input v-model="data.inputFiles" multiple label="Upload your CV*"></v-file-input>
           </v-col>
         </v-row>
 
@@ -256,7 +256,8 @@ export default {
         referensi: "",
         mediaSosial: "",
         bootcamp: "",
-        nomorKelas: 101
+        nomorKelas: 101,
+        inputFiles: null
       },
 
       // validate
@@ -283,9 +284,18 @@ export default {
   },
   methods: {
     submit: async function() {
+      // let a = new FormData()
+      // Object.keys(this.data).forEach((nama) => {
+      //   a.append(nama, this.data[nama]);
+      // })
+
       if (this.$refs.form.validate()) {
         await axios
-          .post(`http://192.168.1.4:8080/praxis/murid/post`, this.data)
+          .post(`http://192.168.1.4:8080/praxis/murid/post`, this.data
+          // { headers: {
+          //     'Content-Type': 'multipart/form-data'
+          // }}
+          )
           .then(res => console.log(res))
           .catch(err => console.log(err));
         console.log(this.gettersApiPeserta);
