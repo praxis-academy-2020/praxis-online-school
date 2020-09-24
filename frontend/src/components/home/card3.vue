@@ -7,13 +7,13 @@
     </div><br>
     <v-row>
       <v-col cols="12" sm="6" md="4">
-        <kartu :poto="back" judul="Enterprise Full Stack Developer" link="https://docs.google.com/file/d/0B3UxDd4duYHuamc5NUhZSGlYcGM/edit" deskripsii="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sit praesentium laborum eligendi dolore, nemo, earum placeat aliquid accusantium impedit dolorum quos ipsum a quibusdam velit soluta dicta? Dolores, dignissimos." />
+        <kartu :poto="back" judul=" Full Stack Developer" link="https://docs.google.com/file/d/0B3UxDd4duYHuamc5NUhZSGlYcGM/edit" deskripsii="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sit praesentium laborum eligendi dolore, nemo, earum placeat aliquid accusantium impedit dolorum quos ipsum a quibusdam velit soluta dicta? Dolores, dignissimos." />
       </v-col>
       <v-col cols="12" sm="6" md="4">
         <kartu :poto="python" judul="Enterprise Python Developer" link="https://vuejs.id/" deskripsi="Belajar framework Vue JS dasar" deskripsii="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sit praesentium laborum eligendi dolore, nemo, earum placeat aliquid accusantium impedit dolorum quos ipsum a quibusdam velit soluta dicta? Dolores, dignissimos." />
       </v-col>
       <v-col cols="12" sm="6" md="4">
-        <kartu :poto="front" judul="Enterprise Front End  Developer" link=" https://drive.google.com/file/d/0BxK8qTUoVVLUS1B6ZzN5SGEtTHc/edit" deskripsii="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sit praesentium laborum eligendi dolore, nemo, earum placeat aliquid accusantium impedit dolorum quos ipsum a quibusdam velit soluta dicta? Dolores, dignissimos." />
+        <kartu :poto="front" judul=" Front End  Developer" link=" https://drive.google.com/file/d/0BxK8qTUoVVLUS1B6ZzN5SGEtTHc/edit" deskripsii="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sit praesentium laborum eligendi dolore, nemo, earum placeat aliquid accusantium impedit dolorum quos ipsum a quibusdam velit soluta dicta? Dolores, dignissimos." />
       </v-col>
        <v-col cols="12" sm="6" md="4">
         <kartu :poto="mobile" judul="Mobile Application Developer" link="https://docs.google.com/file/d/0B3UxDd4duYHuamc5NUhZSGlYcGM/edit" deskripsii="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sit praesentium laborum eligendi dolore, nemo, earum placeat aliquid accusantium impedit dolorum quos ipsum a quibusdam velit soluta dicta? Dolores, dignissimos." />

@@ -5,9 +5,12 @@
 </template>
 
 <script>
-import gmbhome1 from "@/assets/carousel/CUR1.png";
-import gmbhome2 from "@/assets/carousel/carouselhome2.jpg";
-import gmbhome3 from "@/assets/carousel/carouselhome3.jpg";
+import gmbhome1 from "@/assets/carousel/CUR2.png";
+import gmbhome2 from "@/assets/carousel/CUR1.png";
+import gmbhome3 from "@/assets/carousel/CUR4.png";
+import gmbhome4 from "@/assets/carousel/CUR3.png";
+import gmbhome5 from "@/assets/carousel/CUR5.png";
+import gmbhome6 from "@/assets/carousel/CUR6.png";
 export default {
     data(){
         return{
@@ -20,6 +23,15 @@ export default {
         },
         {
           src: gmbhome3
+        },
+         {
+          src: gmbhome4
+        },
+        {
+          src: gmbhome5
+        },
+        {
+          src: gmbhome6
         }
       ]
         }

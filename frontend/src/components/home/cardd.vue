@@ -2,8 +2,8 @@
   <div>
     <!-- card -->
     <v-col>
-      <v-card class="mx-auto" max-width="200" :elevation="4">
-        <v-img max-height="100" :src="poto"></v-img>
+      <v-card class="mx-auto" max-width="200"  :elevation="4">
+        <v-img max-height="80" :src="poto"></v-img>
         <h5 class="mt-7 mb-7 text-center">{{judul}}</h5>
 
         <v-row justify="center" class="pb-5">
