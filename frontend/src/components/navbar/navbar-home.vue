@@ -2,7 +2,7 @@
   <div>
     <v-card class="mx-auto overflow-hidden ukuran"  >
       <!-- dekstop -->
-      <v-app-bar color="blue lighten-2" dark  fixed inverted-scroll    >
+      <v-app-bar color="primary " dark  fixed inverted-scroll    >
         <router-link to="/" class="text-decoration-none">
           <v-toolbar-title>
             <v-img :src="logo" width="50" />
