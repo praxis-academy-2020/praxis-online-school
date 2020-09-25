@@ -26,17 +26,17 @@
 
     <v-row class="text-center">
       <v-col cols="12" sm="4">
-        <v-img src="@/assets/profil.png" width="150" class="center"></v-img>
+        <v-img src="@/assets/profil/robi.png" width="200" class="center"></v-img>
         <h4>Hadi Hidayat Hammurabi</h4>
         <h6>Mentor</h6>
       </v-col>
       <v-col cols="12" sm="4">
-        <v-img src="@/assets/profil.png" width="150" class="center"></v-img>
+        <v-img src="@/assets/profil/akbar.png" width="200" class="center"></v-img>
         <h4>Muhammad Akbar H</h4>
         <h6>Mentor</h6>
       </v-col>
       <v-col cols="12" sm="4">
-        <v-img src="@/assets/profil.png" width="150" class="center"></v-img>
+        <v-img src="@/assets/profil/hendi.png" width="200" class="center"></v-img>
         <h4>Hendi Saputra</h4>
         <h6>Mentor</h6>
       </v-col>
