@@ -301,7 +301,7 @@ export default {
         console.log(this.gettersApiPeserta);
         await this.$swal({
           icon: "success",
-          title: "Pendaftaran berhasil"
+          title: "Pendaftaran berhasil "
         });
         this.$router.push({name: "Home"})
       } else {
