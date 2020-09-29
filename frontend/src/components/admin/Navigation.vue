@@ -1,6 +1,20 @@
 <template>
   <div>
-    <v-navigation-drawer app>
+    <!-- dekstop -->
+    <v-app-bar class="d-sm-none" color="primary" dark fixed>
+      <v-app-bar-nav-icon @click="isNav = true"></v-app-bar-nav-icon>
+
+      <router-link to="/" class="text-decoration-none">
+        <v-toolbar-title>
+          <h1>Duarr</h1>
+        </v-toolbar-title>
+      </router-link>
+
+      <v-spacer></v-spacer>
+    </v-app-bar>
+
+    <!-- mobile -->
+    <v-navigation-drawer v-model="isNav" app>
       <v-list dense>
         <v-list-item link>
           <v-list-item-icon>
@@ -32,9 +46,14 @@
 
 <script>
 export default {
+  data: () => {
+    return {
+      isNav: false
+    };
+  },
   methods: {
-    logout: function(){
-      return this.$router.push({name: "Home"})
+    logout: function() {
+      return this.$router.push({ name: "Home" });
     }
   }
 };

@@ -1,6 +1,6 @@
 <template>
   <v-container class="mt-15 mb-15">
-    <v-row class="d-flex flex-column-reverse flex-lg-row">
+    <v-row class="d-flex flex-column-reverse flex-md-row">
       <v-col cols="12" lg="6" class="align-self-center">
         <div class="text-center">
           <h1>Sekilas tentang kami</h1>
