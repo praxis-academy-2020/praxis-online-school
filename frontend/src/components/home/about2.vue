@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-15 mb-15">
+  <v-container class="mt-15 mb-15 " >
     <v-row>
       <v-col>
         <div class="text-center">
@@ -52,4 +52,5 @@
   margin-right: auto;
   width: 50%;
 }
+
 </style>
