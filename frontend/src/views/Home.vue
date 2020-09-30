@@ -2,8 +2,10 @@
   <div>
     <navbarHome :isInverted="true" />
     <corosel/>
-    <cardss/>
+    <fas/>
+    
     <abouts/>
+    <cardss/>
     <paralx/>
     <aboutss/>
     <cardsss/>
@@ -24,6 +26,7 @@ import slidee from "@/components/home/slide.vue"
 import paralx from "@/components/home/paralax.vue"
 import daftarkuy from "@/components/home/daftar.vue"
 import foot from "@/components/footer/footer-home.vue"
+import fas from "@/components/home/fasilitas.vue"
 
 export default {
   name: 'Home',
@@ -38,7 +41,8 @@ export default {
     paralx,
     aboutss,
     daftarkuy,
-    foot
+    foot,
+    fas
   }
 }
 </script>
