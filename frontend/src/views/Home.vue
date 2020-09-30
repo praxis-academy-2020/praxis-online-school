@@ -28,9 +28,10 @@ import daftarkuy from "@/components/home/daftar.vue"
 import foot from "@/components/footer/footer-home.vue"
 import fas from "@/components/home/fasilitas.vue"
 
+
 export default {
-  name: 'Home',
-  
+  name: "Home",
+
   components: {
     navbarHome,
     slidee,
@@ -43,6 +44,9 @@ export default {
     daftarkuy,
     foot,
     fas
+  },
+  mounted() {
+    scrollTo(0, 0);
   }
-}
+};
 </script>

@@ -59,7 +59,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted(){
+    scrollTo(0, 0)
+  }
+};
 </script>
 
 <style scoped>

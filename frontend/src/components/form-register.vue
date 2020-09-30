@@ -27,18 +27,33 @@
             <v-text-field v-model="data.emailUser" :rules="emailVal" label="Email*" required></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
-            <v-text-field
-              v-model="data.tempatTanggalLahir"
+            <v-menu
+              v-model="tanggal"
+              :close-on-content-click="false"
+              :nudge-right="40"
+              transition="scale-transition"
+              offset-y
               :rules="tempatlahirVal"
-              label="Tempat tanggal lahir*"
+              min-width="290px"
               required
-            ></v-text-field>
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  v-model="data.tanggalLahir"
+                  label="Picker without buttons"
+                  readonly
+                  v-bind="attrs"
+                  v-on="on"
+                ></v-text-field>
+              </template>
+              <v-date-picker v-model="data.tanggalLahir" @input="tanggal = false"></v-date-picker>
+            </v-menu>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.status" :rules="status" label="Status*" required></v-text-field>
+            <v-text-field v-model="data.tempatLahir" :rules="status" label="Tempat lahir*" required></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-text-field v-model="data.nomorHape" :rules="nomorhpVal" label="Nomor HP*" required></v-text-field>
@@ -192,7 +207,7 @@
           </v-col>
         </v-row>
 
-        <v-row v-show="true">
+        <v-row v-show="false">
           <v-col>
             <v-file-input v-model="data.inputFiles" multiple label="Upload your CV*"></v-file-input>
           </v-col>
@@ -230,18 +245,35 @@ export default {
       // boolean
       referensiBoolean: false,
       isError: false,
+      tanggal: false,
 
       // select
-      kelas: ["frontend", "backend"],
-      pendidikanArr: ["S1", "S2", "S3", "Lainnya"],
+      kelas: [
+        "frontend developer",
+        "fullstack developer",
+        "python developer",
+        "mobile developer",
+        "nodejs developer"
+      ],
+      pendidikanArr: [
+        "SMK",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "S1",
+        "S2",
+        "S3",
+        "Lainnya"
+      ],
 
       // data
       data: {
         nama: "",
         emailUser: "",
         program: "",
-        tempatTanggalLahir: "",
-        status: "",
+        tanggalLahir: new Date().toISOString().substr(0, 10),
+        tempatLahir: "",
         nomorHape: "",
         kotaAsal: "",
         alamat: "",
@@ -291,10 +323,12 @@ export default {
 
       if (this.$refs.form.validate()) {
         await axios
-          .post(`http://192.168.1.4:8080/praxis/murid/post`, this.data
-          // { headers: {
-          //     'Content-Type': 'multipart/form-data'
-          // }}
+          .post(
+            `http://192.168.1.4:8080/praxis/murid/post`,
+            this.data
+            // { headers: {
+            //     'Content-Type': 'multipart/form-data'
+            // }}
           )
           .then(res => console.log(res))
           .catch(err => console.log(err));
@@ -303,7 +337,7 @@ export default {
           icon: "success",
           title: "Pendaftaran berhasil "
         });
-        this.$router.push({name: "Home"})
+        this.$router.push({ name: "Home" });
       } else {
         this.isError = true;
         setTimeout(() => {

@@ -3,6 +3,7 @@
     <v-row class="d-flex flex-column-reverse flex-sm-row">
       <v-col cols="2"></v-col>
       <v-col cols="12" sm="8" class="align-self-center">
+
         <div class="text-center">
           <h1>Sekilas tentang kami</h1>
           <h4>Praxis Academy</h4>

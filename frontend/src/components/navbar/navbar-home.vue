@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="navbarr">
     <v-card class="mx-auto overflow-hidden ukuran">
       <!-- dekstop -->
       <v-app-bar color="primary" dark fixed :inverted-scroll="isInverted">

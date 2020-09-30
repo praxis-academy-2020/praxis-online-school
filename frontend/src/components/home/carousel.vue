@@ -1,7 +1,15 @@
 <template>
-    <v-carousel class="mb-10" cycle height="400" hide-delimiter-background show-arrows-on-hover>
+  <div>
+    <v-carousel
+      class="mb-10"
+      cycle
+      height="400"
+      hide-delimiter-background
+      show-arrows-on-hover
+    >
       <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src"></v-carousel-item>
     </v-carousel>
+  </div>
 </template>
 
 <script>
@@ -12,9 +20,9 @@ import gmbhome4 from "@/assets/carousel/CUR3.png";
 import gmbhome5 from "@/assets/carousel/CUR5.png";
 import gmbhome6 from "@/assets/carousel/CUR6.png";
 export default {
-    data(){
-        return{
-            items:[
+  data() {
+    return {
+      items: [
         {
           src: gmbhome1
         },
@@ -24,7 +32,7 @@ export default {
         {
           src: gmbhome3
         },
-         {
+        {
           src: gmbhome4
         },
         {
@@ -34,7 +42,7 @@ export default {
           src: gmbhome6
         }
       ]
-        }
-    }
-}
+    };
+  }
+};
 </script>
