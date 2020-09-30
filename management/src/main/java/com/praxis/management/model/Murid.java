@@ -35,7 +35,7 @@ public class Murid {
 
     private String program;
 
-    private String tempatLahir;
+    private String tempatTanggalLahir;
     
     private String kotaAsal;
 
@@ -55,7 +55,7 @@ public class Murid {
 
     private String alasanIkut;
 
-    private String menyelesaikan;
+    private String komitmen;
 
     private String referensi;
 
@@ -136,12 +136,12 @@ public class Murid {
         return program;
     }
 
-    public void setTempatLahir(String tempatLahir){
-        this.tempatLahir = tempatLahir;
+    public void setTempatTanggalLahir(String tempatTanggalLahir){
+        this.tempatTanggalLahir = tempatTanggalLahir;
     }
 
-    public String getTempatLahir(){
-        return tempatLahir;
+    public String getTempatTanggalLahir(){
+        return tempatTanggalLahir;
     }
 
     public void setKotaAsal(String kotaAsal){
@@ -208,12 +208,12 @@ public class Murid {
         return alasanIkut;
     }
     
-    public void setMenyelesaikan(String menyelesaikan){
-        this.menyelesaikan = menyelesaikan;
+    public void setKomitmen(String komitmen){
+        this.komitmen = komitmen;
     }
 
-    public String getMenyelesaikan(){
-        return menyelesaikan;
+    public String getKomitmen(){
+        return komitmen;
     }
 
     public void setReferensi(String referensi){
