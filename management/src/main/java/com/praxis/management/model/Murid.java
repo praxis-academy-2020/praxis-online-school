@@ -25,7 +25,7 @@ public class Murid {
 
     private String namaUser;
 
-    private String statusUser;
+    private String tempatLahir;
     
     private Long nomorKelas;
 
@@ -35,7 +35,7 @@ public class Murid {
 
     private String program;
 
-    private String tempatTanggalLahir;
+    private String tanggalLahir;
     
     private String kotaAsal;
 
@@ -76,32 +76,33 @@ public class Murid {
     //@Column(name = "nomorSekolah", update="false")
     // private Long nomorSekolah;
 
-    @ManyToOne
-    @JoinColumn(name = "nomorKelas", referencedColumnName="nomorKelas", insertable = false, updatable = false)
-    private Kelas kelas;
+//    @ManyToOne
+//    @JoinColumn(name = "nomorKelas", referencedColumnName="nomorKelas", insertable = false, updatable = false)
+//    private Kelas kelas;
 
-    public Long getId() {
+
+    public Long getUserId() {
         return userId;
     }
 
-    public void setId(Long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public String getNama() {
+    public String getNamaUser() {
         return namaUser;
     }
 
-    public void setNama(String namaUser) {
+    public void setNamaUser(String namaUser) {
         this.namaUser = namaUser;
     }
 
-    public String getStatus() {
-        return statusUser;
+    public String getTempatLahir() {
+        return tempatLahir;
     }
 
-    public void setStatus(String statusUser) {
-        this.statusUser = statusUser;
+    public void setTempatLahir(String tempatLahir) {
+        this.tempatLahir = tempatLahir;
     }
 
     public Long getNomorKelas() {
@@ -112,141 +113,149 @@ public class Murid {
         this.nomorKelas = nomorKelas;
     }
 
-    public void setEmailUser(String emailUser){
-        this.emailUser = emailUser;
-    }
-
-    public String getEmailUser(){
-        return emailUser;
-    }
-
-    public void setNomorHape(String nomorHape){
-        this.nomorHape = nomorHape;
-    }
-
-    public String getNomorHape(){
+    public String getNomorHape() {
         return nomorHape;
     }
 
-    public void setProgram(String program){
-        this.program = program;
+    public void setNomorHape(String nomorHape) {
+        this.nomorHape = nomorHape;
     }
 
-    public String getProgram(){
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
+    }
+
+    public String getProgram() {
         return program;
     }
 
-    public void setTempatTanggalLahir(String tempatTanggalLahir){
-        this.tempatTanggalLahir = tempatTanggalLahir;
+    public void setProgram(String program) {
+        this.program = program;
     }
 
-    public String getTempatTanggalLahir(){
-        return tempatTanggalLahir;
+    public String getTanggalLahir() {
+        return tanggalLahir;
     }
 
-    public void setKotaAsal(String kotaAsal){
-        this.kotaAsal = kotaAsal;
+    public void setTanggalLahir(String tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
     }
 
-    public String getKotaAsal(){
+    public String getKotaAsal() {
         return kotaAsal;
     }
 
-    public void setAlamat(String alamat){
-        this.alamat = alamat;
+    public void setKotaAsal(String kotaAsal) {
+        this.kotaAsal = kotaAsal;
     }
 
-    public String getAlamat(){
+    public String getAlamat() {
         return alamat;
     }
 
-    public void setPendidikan(String pendidikan){
-        this.pendidikan = pendidikan;
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 
-    public String getPendidikan(){
+    public String getPendidikan() {
         return pendidikan;
     }
 
-    public void setNamaKampus(String namaKampus){
+    public void setPendidikan(String pendidikan) {
+        this.pendidikan = pendidikan;
+    }
+
+    public String getNamaKampus() {
+        return namaKampus;
+    }
+
+    public void setNamaKampus(String namaKampus) {
         this.namaKampus = namaKampus;
     }
 
-    public String getNamaKampus(){
-        return namaKampus;
-    }
-    
-    public void setSemester(String semester){
-        this.semester = semester;
-    }
-
-    public String getSemester(){
+    public String getSemester() {
         return semester;
     }
 
-    public void setAlamatKampus(String alamatKampus){
-        this.alamatKampus = alamatKampus;
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 
-    public String getAlamatKampus(){
+    public String getAlamatKampus() {
         return alamatKampus;
     }
 
-    public void setPengalamanKerja(String pengalamanKerja){
+    public void setAlamatKampus(String alamatKampus) {
+        this.alamatKampus = alamatKampus;
+    }
+
+    public String getPengalamanKerja() {
+        return pengalamanKerja;
+    }
+
+    public void setPengalamanKerja(String pengalamanKerja) {
         this.pengalamanKerja = pengalamanKerja;
     }
 
-    public String getPengalamanKerja(){
-        return pengalamanKerja;
+    public String getPengalamanProject() {
+        return pengalamanProject;
     }
-    
-    public void setAlasanIkut(String alasanIkut){
+
+    public void setPengalamanProject(String pengalamanProject) {
+        this.pengalamanProject = pengalamanProject;
+    }
+
+    public String getAlasanIkut() {
+        return alasanIkut;
+    }
+
+    public void setAlasanIkut(String alasanIkut) {
         this.alasanIkut = alasanIkut;
     }
 
-    public String getAlasanIkut(){
-        return alasanIkut;
-    }
-    
-    public void setKomitmen(String komitmen){
-        this.komitmen = komitmen;
-    }
-
-    public String getKomitmen(){
+    public String getKomitmen() {
         return komitmen;
     }
 
-    public void setReferensi(String referensi){
-        this.referensi = referensi;
+    public void setKomitmen(String komitmen) {
+        this.komitmen = komitmen;
     }
 
-    public String getReferensi(){
+    public String getReferensi() {
         return referensi;
     }
 
-    public void setMediaSosial(String mediaSosial){
-        this.mediaSosial = mediaSosial;
+    public void setReferensi(String referensi) {
+        this.referensi = referensi;
     }
 
-    public String getMediaSosial(){
+    public String getMediaSosial() {
         return mediaSosial;
     }
 
-    public void setBootcamp(String bootCamp){
-        this.bootCamp = bootCamp;
+    public void setMediaSosial(String mediaSosial) {
+        this.mediaSosial = mediaSosial;
     }
 
-    public String getBootcamp(){
+    public String getBootCamp() {
         return bootCamp;
     }
 
-    public void setKelas(Kelas kelas){
-        this.kelas = kelas;
+    public void setBootCamp(String bootCamp) {
+        this.bootCamp = bootCamp;
     }
 
-    public Kelas getKelas(){
-        return kelas;
-    }
+//    public void setKelas(Kelas kelas){
+//        this.kelas = kelas;
+//    }
+//
+//    public Kelas getKelas(){
+//        return kelas;
+//    }
 
 
 }

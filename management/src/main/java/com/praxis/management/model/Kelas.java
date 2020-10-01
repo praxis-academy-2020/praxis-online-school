@@ -35,13 +35,13 @@ public class Kelas {
 
 
     //Relasi dengan Murid
-    @OneToMany(targetEntity=Murid.class, mappedBy="kelas",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Murid> murid;
-
-    //Relasi dengan Mentor
-    @ManyToOne
-    @JoinColumn(name = "idMentor", referencedColumnName="nomorMentor", insertable = false, updatable = false)
-    private Mentor mentor;
+//    @OneToMany(targetEntity=Murid.class, mappedBy="kelas",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<Murid> murid;
+//
+//    //Relasi dengan Mentor
+//    @ManyToOne
+//    @JoinColumn(name = "idMentor", referencedColumnName="nomorMentor", insertable = false, updatable = false)
+//    private Mentor mentor;
 
 
     private Long idMentor;
@@ -96,11 +96,11 @@ public class Kelas {
         return idMentor;
     }
 
-    public void setMentor(Mentor mentor){
-        this.mentor = mentor;
-    }
-
-    public Mentor getMentor(){
-        return mentor;
-    }
+//    public void setMentor(Mentor mentor){
+//        this.mentor = mentor;
+//    }
+//
+//    public Mentor getMentor(){
+//        return mentor;
+//    }
 }

@@ -10,20 +10,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-
+@CrossOrigin
 @RestController
 @RequestMapping("/praxis/murid")
 public class MuridController{
@@ -35,6 +26,7 @@ public class MuridController{
     public List<Murid> getAllUsers(){
         return muridRepository.findAll();
     }
+    
 
     @GetMapping("/get/{id}")
     public @ResponseBody Optional<Murid> getId(@PathVariable("id") Long userId) {
@@ -42,7 +34,7 @@ public class MuridController{
       }
 
     @PostMapping("/post")
-    public @ResponseBody Murid createUser(@RequestBody Murid murid){
+    public @ResponseBody Murid createUser(@RequestBody  Murid murid){
         return muridRepository.save(murid);
     }
 
@@ -52,17 +44,17 @@ public class MuridController{
     public Murid updateUser(@RequestBody Murid newUser, @PathVariable Long userId){
         return muridRepository.findByUserId(userId).map(
             user -> {
-            user.setNama(newUser.getNama());
-            user.setStatus(newUser.getStatus());
+//            user.setNama(newUser.getNama());
+//            user.setStatus(newUser.getStatus());
             user.setEmailUser(newUser.getEmailUser());
             user.setNomorHape(newUser.getNomorHape());
             user.setNomorKelas(newUser.getNomorKelas());
-            user.setKelas(newUser.getKelas());
+           // user.setKelas(newUser.getKelas());
             return muridRepository.save(user);
 
         }).orElseGet(() -> {
           //   newUser.setId(userId);
-          newUser.setId(userId);
+          newUser.setUserId(userId);
           return muridRepository.save(newUser);
         });
     }
