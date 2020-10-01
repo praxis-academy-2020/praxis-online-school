@@ -35,6 +35,7 @@ public class MuridController{
     public List<Murid> getAllUsers(){
         return muridRepository.findAll();
     }
+    
 
     @GetMapping("/get/{id}")
     public @ResponseBody Optional<Murid> getId(@PathVariable("id") Long userId) {

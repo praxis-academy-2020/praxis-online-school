@@ -85,8 +85,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**")
                 .permitAll()
+                .antMatchers(HttpMethod.POST, "/praxis/murid/*")// simbol bintang menunjukan letak dari path
+                .permitAll()
+                //mencoba akses semua open untuk guess
+                //.antMatchers("/praxis/murid/*").permitAll()
+
                 .anyRequest()
                 .authenticated();
+
+               
 
         // Add our custom JWT security filter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
