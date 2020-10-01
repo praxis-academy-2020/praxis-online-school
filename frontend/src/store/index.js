@@ -4,16 +4,41 @@ import axios from "axios"
 
 Vue.use(Vuex)
 
-let IP = '192.168.1.35:8081'
+let IP = '192.168.1.32:8080'
 
 export default new Vuex.Store({
   state: {
     peserta: [],
-    search: ''
+    karya: [
+      {
+        id: 1,
+        title: "title",
+        deskripsi: "diskripsi",
+        github: 'github',
+        anggota: ['1', '2', '3']
+      },
+      {
+        id: 2,
+        title: "title",
+        deskripsi: "diskripsi",
+        github: 'github',
+        anggota: ['1', '2', '3']
+      },
+      {
+        id: 3,
+        title: "title",
+        deskripsi: "diskripsi",
+        github: 'github',
+        anggota: ['1', '2', '3']
+      }
+    ]
   },
   getters: {
     gettersApiPeserta: function(state){
       return state.peserta
+    },
+    gettersKarya: function(state){
+      return state.karya
     }
   },
   mutations: {

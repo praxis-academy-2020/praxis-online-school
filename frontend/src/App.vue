@@ -16,9 +16,6 @@ export default {
   },
 
   data: () => ({
-  }),
-  mounted(){
-    this.$store.dispatch('getApiPeserta')
-  }
+  })
 };
 </script>

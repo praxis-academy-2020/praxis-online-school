@@ -188,12 +188,12 @@
         <v-row>
           <v-col>
             <p>Mengetahui informasi bootcamp dari:</p>
-            <v-checkbox v-model="data.bootcamp" label="Facebook" value="Facebook"></v-checkbox>
-            <v-checkbox v-model="data.bootcamp" label="Instagram" value="Instagram"></v-checkbox>
-            <v-checkbox v-model="data.bootcamp" label="Twitter" value="Twitter"></v-checkbox>
-            <v-checkbox v-model="data.bootcamp" label="WhatsApp" value="WhatsApp"></v-checkbox>
-            <v-checkbox v-model="data.bootcamp" label="LinkedIn" value="LinkedIn"></v-checkbox>
-            <v-checkbox v-model="data.bootcamp" label="Teman" value="Teman"></v-checkbox>
+            <v-checkbox v-model="data.bootCamp" label="Facebook" value="Facebook"></v-checkbox>
+            <v-checkbox v-model="data.bootCamp" label="Instagram" value="Instagram"></v-checkbox>
+            <v-checkbox v-model="data.bootCamp" label="Twitter" value="Twitter"></v-checkbox>
+            <v-checkbox v-model="data.bootCamp" label="WhatsApp" value="WhatsApp"></v-checkbox>
+            <v-checkbox v-model="data.bootCamp" label="LinkedIn" value="LinkedIn"></v-checkbox>
+            <v-checkbox v-model="data.bootCamp" label="Teman" value="Teman"></v-checkbox>
           </v-col>
         </v-row>
 
@@ -237,7 +237,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   data: () => {
@@ -287,9 +287,9 @@ export default {
         komitmen: "",
         referensi: "",
         mediaSosial: "",
-        bootcamp: "",
-        nomorKelas: 101,
-        inputFiles: null
+        bootCamp: "",
+        nomorKelas: 0
+        // inputFiles: null
       },
 
       // validate
@@ -315,29 +315,21 @@ export default {
     };
   },
   methods: {
-    submit: async function() {
-      // let a = new FormData()
-      // Object.keys(this.data).forEach((nama) => {
-      //   a.append(nama, this.data[nama]);
-      // })
+    submit: function() {
+      console.log(this.data);
 
       if (this.$refs.form.validate()) {
-        await axios
-          .post(
-            `http://192.168.1.4:8080/praxis/murid/post`,
-            this.data
-            // { headers: {
-            //     'Content-Type': 'multipart/form-data'
-            // }}
-          )
-          .then(res => console.log(res))
-          .catch(err => console.log(err));
-        console.log(this.gettersApiPeserta);
-        await this.$swal({
-          icon: "success",
-          title: "Pendaftaran berhasil "
-        });
-        this.$router.push({ name: "Home" });
+        // axios
+        //   .post("http://192.168.1.32:8080/praxis/murid/post", this.data)
+          // .then(res => res.data())
+          // .then(res => console.log(res))
+          // .catch(err => console.log(err));
+        fetch('http://192.168.1.32:8080/praxis/murid/post', {
+          method: 'POST'
+        }, this.data)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
       } else {
         this.isError = true;
         setTimeout(() => {

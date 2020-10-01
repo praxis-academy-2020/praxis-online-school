@@ -62,11 +62,12 @@ export default {
     login: function() {
       if (this.$refs.form.validate()) {
         axios
-          .post("http://192.168.1.35:8081/api/auth/signin", this.form)
+          .post("http://192.168.1.32:8080/api/auth/signin", this.form)
           .then(res => {
             console.log(res);
+            localStorage.setItem(res.data.tokenType, res.data.accessToken);
             this.$swal("juoossss");
-            this.$router.push({ name: "Admin/dashboard" });
+            this.$router.push({ name: "Admin" });
           })
           .catch(err => {
             console.log(err)
