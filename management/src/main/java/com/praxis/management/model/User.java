@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
@@ -18,7 +19,6 @@ import javax.persistence.*;
                 "email"
         })
 })
-
 public class User extends DateAudit{
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
