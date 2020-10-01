@@ -13,16 +13,18 @@
               <v-card-text>
                 <v-form ref="form">
                   <v-text-field
-                  label="Username"
-                  name="username"
-                  prepend-icon="mdi-account"
-                  type="text"
-                  :rules="nameVal"
+                    label="Username"
+                    name="username"
+                    v-model="form.usernameOrEmail"
+                    prepend-icon="mdi-account"
+                    type="text"
+                    :rules="nameVal"
                   ></v-text-field>
 
                   <v-text-field
                     id="password"
                     label="Password"
+                    v-model="form.password"
                     name="password"
                     prepend-icon="mdi-lock"
                     type="password"
@@ -43,20 +45,35 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data: () => {
     return {
+      form: {
+        usernameOrEmail: "",
+        password: ""
+      },
       nameVal: [v => !!v || "required"],
       passwordVal: [v => !!v || "required"]
-    }
+    };
   },
   methods: {
-    login: function(){
-      if(this.$refs.form.validate()){
-        this.$swal("juoossss")
-        this.$router.push({name: "Admin"})
-      }else{
-        this.$swal('tetotttt')
+    login: function() {
+      if (this.$refs.form.validate()) {
+        axios
+          .post("http://192.168.1.35:8081/api/auth/signin", this.form)
+          .then(res => {
+            console.log(res);
+            this.$swal("juoossss");
+            this.$router.push({ name: "Admin/dashboard" });
+          })
+          .catch(err => {
+            console.log(err)
+            alert('err')
+          })
+      } else {
+        this.$swal("tetotttt");
       }
     }
   }

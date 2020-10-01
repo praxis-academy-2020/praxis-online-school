@@ -50,7 +50,19 @@ const routes = [
   {
     path: '/admin',
     name: 'Admin',
-    component: () => import('../views/Admin.vue')
+    component: () => import('../views/admin/Admin.vue'),
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('../views/admin/Dashboard.vue')
+      },
+      {
+        path: 'tambah-karya',
+        name: 'Tambah-karya',
+        component: () => import('../views/admin/Tambah-karya.vue')
+      }
+    ]
   }
 ]
 

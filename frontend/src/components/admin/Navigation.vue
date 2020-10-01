@@ -1,38 +1,28 @@
 <template>
   <div>
-    <!-- dekstop -->
-    <v-app-bar class="d-sm-none" color="primary" dark fixed>
-      <v-app-bar-nav-icon @click="isNav = true"></v-app-bar-nav-icon>
-
-      <router-link to="/" class="text-decoration-none">
-        <v-toolbar-title>
-          <h1>Duarr</h1>
-        </v-toolbar-title>
-      </router-link>
-
-      <v-spacer></v-spacer>
-    </v-app-bar>
-
-    <!-- mobile -->
-    <v-navigation-drawer v-model="isNav" app>
+    <v-navigation-drawer permanent app>
       <v-list dense>
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>Dashboard</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <router-link to="/admin/dashboard" class="text-decoration-none">
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-view-dashboard</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Dashboard</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
 
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>Setting</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <router-link to="/admin/tambah-karya" class="text-decoration-none">
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-view-grid-plus</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Tambah karya</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
       </v-list>
 
       <template v-slot:append>
@@ -46,11 +36,6 @@
 
 <script>
 export default {
-  data: () => {
-    return {
-      isNav: false
-    };
-  },
   methods: {
     logout: function() {
       return this.$router.push({ name: "Home" });

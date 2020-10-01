@@ -4,7 +4,7 @@ import axios from "axios"
 
 Vue.use(Vuex)
 
-let IP = '192.168.1.4:8080'
+let IP = '192.168.1.35:8081'
 
 export default new Vuex.Store({
   state: {
