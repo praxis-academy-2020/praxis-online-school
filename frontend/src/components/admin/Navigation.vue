@@ -13,6 +13,17 @@
           </v-list-item>
         </router-link>
 
+        <router-link to="/admin/Tampil-table" class="text-decoration-none">
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-view-grid-plus</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Tampil Table</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+
         <router-link to="/admin/tambah-karya" class="text-decoration-none">
           <v-list-item link>
             <v-list-item-icon>
@@ -23,8 +34,9 @@
             </v-list-item-content>
           </v-list-item>
         </router-link>
-      </v-list>
 
+         
+      </v-list>
       <template v-slot:append>
         <div class="pa-3 d-flex justify-center">
           <v-btn color="error" @click="logout">Logout</v-btn>

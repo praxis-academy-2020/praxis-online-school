@@ -61,6 +61,11 @@ const routes = [
         path: 'tambah-karya',
         name: 'Tambah-karya',
         component: () => import('../views/admin/Tambah-karya.vue')
+      },
+      {
+        path: 'tampil-table',
+        name: 'Tampil-table',
+        component: () => import('../views/admin/Tampil-table.vue')
       }
     ]
   }
