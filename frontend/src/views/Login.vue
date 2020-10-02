@@ -66,16 +66,24 @@ export default {
           .then(res => {
             console.log(res);
             localStorage.setItem(res.data.tokenType, res.data.accessToken);
+            this.$store.state.token = res.data.accessToken;
             this.$swal("juoossss");
-            this.$router.push({ name: "Admin" });
+            this.$router.push({ name: "Dashboard" });
           })
           .catch(err => {
-            console.log(err)
-            alert('err')
-          })
+            console.log(err);
+            alert("err");
+          });
       } else {
         this.$swal("tetotttt");
       }
+    }
+  },
+  beforeMount() {
+    if (!localStorage.getItem("Bearer")) {
+      scrollTo(0, 0);
+    } else {
+      this.$router.push({ name: "Dashboard" });
     }
   }
 };

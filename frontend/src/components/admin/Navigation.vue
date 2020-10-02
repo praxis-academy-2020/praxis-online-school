@@ -39,8 +39,6 @@
             </v-list-item-content>
           </v-list-item>
         </router-link>
-
-         
       </v-list>
       <template v-slot:append>
         <div class="pa-3 d-flex justify-center">
@@ -56,6 +54,7 @@ import logo from "@/assets/p.png";
 export default {
   methods: {
     logout: function() {
+      localStorage.removeItem('Bearer');
       return this.$router.push({ name: "Home" });
     }
   },

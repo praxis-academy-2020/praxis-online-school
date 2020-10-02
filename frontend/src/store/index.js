@@ -46,11 +46,17 @@ export default new Vuex.Store({
   },
   mutations: {
     getApiPeserta: function(state){
-      axios(`http://${IP}/praxis/murid/get`)
+      const access = localStorage.getItem('Bearer')
+      console.log('ini token yg dimasukin', access)
+      axios.get(`http://${IP}/praxis/murid/get`, {
+        headers: {
+          "Authorization": "Bearer: " + access
+        }
+      })
       .then(res => res.data)
-      .then(res => {
-        state.peserta = res
-        console.log("get api", res)
+      .then(data => {
+        state.peserta = data
+        console.log("get api", data)
       })
       .catch(err => console.log(err))
     }

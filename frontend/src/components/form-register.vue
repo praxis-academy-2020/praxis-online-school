@@ -9,7 +9,7 @@
       <v-form ref="form" lazy-validation>
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.nama" label="Name*" :rules="nameVal" required></v-text-field>
+            <v-text-field v-model="data.namaUser" label="Name*" :rules="nameVal" required></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-select
@@ -269,7 +269,7 @@ export default {
 
       // data
       data: {
-        nama: "",
+        namaUser: "",
         emailUser: "",
         program: "",
         tanggalLahir: new Date().toISOString().substr(0, 10),
@@ -287,8 +287,7 @@ export default {
         komitmen: "",
         referensi: "",
         mediaSosial: "",
-        bootCamp: "",
-        nomorKelas: 0
+        bootCamp: ""
         // inputFiles: null
       },
 
@@ -315,19 +314,13 @@ export default {
     };
   },
   methods: {
-    submit: function() {
+    submit: async function() {
       console.log(this.data);
 
       if (this.$refs.form.validate()) {
-        // axios
-        //   .post("http://192.168.1.32:8080/praxis/murid/post", this.data)
-          // .then(res => res.data())
-          // .then(res => console.log(res))
-          // .catch(err => console.log(err));
-        fetch('http://192.168.1.32:8080/praxis/murid/post', {
-          method: 'POST'
-        }, this.data)
-        .then(res => res.json())
+        const axios = await import('axios');
+        axios
+          .post("http://192.168.1.32:8080/praxis/murid/post", this.data)
         .then(res => console.log(res))
         .catch(err => console.log(err))
       } else {
