@@ -24,6 +24,9 @@ export default {
       data: function(){
           return this.gettersKarya[this.$route.params.id - 1]
       }
+  },
+  mounted(){
+    scrollTo(0, 0)
   }
 };
 </script>
