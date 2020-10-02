@@ -82,4 +82,14 @@ const router = new VueRouter({
   routes
 })
 
+// router.beforeEach((to,from, next) => {
+//   if (['Home', 'Login', '404', 'Activity', 'Detail', 'Creation', 'Formulir', 'Syarat', 'Register'].includes(name => to.name === name) && localStorage.getItem('Bearer')) {
+//     return next({ name: 'Dashboard' })
+//   }
+//   else if (['Admin', 'Dashboard', 'Tambah-karya', 'Tampil-table'].includes(name => to.name === name) && localStorage.getItem('Bearer') === null) {
+//     return next({ name: '404' })
+//   }
+//   next()
+// })
+
 export default router

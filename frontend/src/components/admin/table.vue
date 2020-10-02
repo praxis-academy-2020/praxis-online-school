@@ -1,10 +1,4 @@
 <template>
-  <!-- <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
-    <template v-slot:item.actions="{ item }">
-      <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
-    </template>
-  </v-data-table>-->
-
   <div>
     <v-card>
       <v-card-title>
@@ -21,8 +15,8 @@
 
       <v-data-table :headers="headers" :items="gettersApiPeserta" :search="search">
         <template v-slot:item.actions="{ item }">
-          <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
-        </template>
+          <v-icon small @click="deleteItem(item.userId)">mdi-delete</v-icon>
+        </template>item
       </v-data-table>
     </v-card>
   </div>
@@ -30,16 +24,17 @@
 
 <script>
 import { mapGetters } from "vuex";
+import axios from "axios";
 
 export default {
   data() {
     return {
       search: "",
       headers: [
-        { text: "ID", value: "id" },
+        { text: "ID", value: "userId" },
         {
           text: "Nama",
-          value: "nama"
+          value: "namaUser"
         },
         { text: "Nama kampus", value: "namaKampus" },
         { text: "Program", value: "program" },
@@ -52,56 +47,24 @@ export default {
     ...mapGetters(["gettersApiPeserta"])
   },
   methods: {
-    deleteItem(item) {
-      alert(item.nama);
+    deleteItem(id) {
+      console.log(id);
+      axios
+        .delete(`http://192.168.1.32:8080/praxis/murid/delete/${id}`, {
+          headers: {
+            Authorization: "Bearer: " + localStorage.getItem("Bearer")
+          }
+        })
+        .then(res => {
+          this.$swal({
+            icon: "success",
+            title: "Berhasil dihapus"
+          });
+          console.log(res);
+          this.$store.dispatch("getApiPeserta");
+        })
+        .catch(err => console.log(err));
     }
   }
 };
-
-// export default {
-//   data: () => ({
-//     headers: [
-//       {
-//         text: "Dessert (100g serving)",
-//         align: "start",
-//         sortable: false,
-//         value: "name"
-//       },
-//       { text: "Calories", value: "calories" },
-//       { text: "Fat (g)", value: "fat" },
-//       { text: "Carbs (g)", value: "carbs" },
-//       { text: "Protein (g)", value: "protein" },
-//       { text: "Actions", value: "actions", sortable: false }
-//     ],
-//     desserts: [
-//       {
-//         name: "Frozen Yogurt",
-//         calories: 159,
-//         fat: 6.0,
-//         carbs: 24,
-//         protein: 4.0
-//       },
-//       {
-//         name: "Ice cream sandwich",
-//         calories: 237,
-//         fat: 9.0,
-//         carbs: 37,
-//         protein: 4.3
-//       },
-//       {
-//         name: "Eclair",
-//         calories: 262,
-//         fat: 16.0,
-//         carbs: 23,
-//         protein: 6.0
-//       }
-//     ]
-//   }),
-
-//   methods: {
-//     deleteItem(item) {
-//       alert(item.name)
-//     }
-//   }
-// };
 </script>
