@@ -1,47 +1,30 @@
 <template>
   <div>
-    <navbarHome />
-    <div class="mt-15">
-      <v-row>
-        <v-col cols="12" sm="6" v-for="(item, index) in gettersKarya" :key="index">
-          <cardd
-            :title="item.title"
-            :src="gambar"
-            :route="item.id"
-          />
-        </v-col>
-      </v-row>
-    </div>
-    <foot />
+    <navbarHome :isInverted="false" />
+    <br><br><br>
+    <cardssss/>
+    
+    <foot/>
   </div>
 </template>
 
 <script>
 import navbarHome from "@/components/navbar/navbar-home.vue";
-import foot from "@/components/footer/footer-home.vue";
-import cardd from "@/components/karya/card.vue";
-import gambar from "@/assets/p.png";
-import { mapGetters } from "vuex";
+
+import cardssss from "@/components/karya/card.vue"
+
+
 
 export default {
-  data: () => {
-    return {
-      gambar
-    }
-  },
+  name: "Home",
+
   components: {
     navbarHome,
-    foot,
-    cardd
+    
+    cardssss
   },
-  computed: {
-    ...mapGetters(["gettersKarya"])
-  },
-  mounted(){
-    scrollTo(0, 0)
+  mounted() {
+    scrollTo(0, 0);
   }
 };
 </script>
-
-<style>
-</style>

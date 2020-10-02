@@ -12,24 +12,27 @@ export default new Vuex.Store({
     karya: [
       {
         id: 1,
-        title: "title",
+        title: "JOB DEV",
         deskripsi: "diskripsi",
         github: 'github',
-        anggota: ['1', '2', '3']
+        anggota: ['1', '2', '3'],
+        src:"https://www.youtube.com/embed/FaAtjbyqGns"
       },
       {
         id: 2,
         title: "title",
         deskripsi: "diskripsi",
         github: 'github',
-        anggota: ['1', '2', '3']
+        anggota: ['1', '2', '3'],
+        src:"https://www.youtube.com/embed/IQw-4JABPCM"
       },
       {
         id: 3,
         title: "title",
         deskripsi: "diskripsi",
         github: 'github',
-        anggota: ['1', '2', '3']
+        anggota: ['1', '2', '3'],
+        src:"https://www.youtube.com/embed/IQw-4JABPCM"
       }
     ]
   },
