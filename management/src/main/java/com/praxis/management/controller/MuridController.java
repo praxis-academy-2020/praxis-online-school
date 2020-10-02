@@ -5,6 +5,7 @@ import com.praxis.management.model.Murid;
 import com.praxis.management.model.Murid;
 import com.praxis.management.repository.MuridRepository;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +35,18 @@ public class MuridController{
       }
 
     @PostMapping("/post")
-    public @ResponseBody Murid createUser(@RequestBody  Murid murid){
+    public @ResponseBody Murid createUser(@RequestBody  Murid murid) throws Exception{
+        String message = "";
+
         return muridRepository.save(murid);
+//        try {
+//
+//        }
+//        catch (IOException ex){
+//
+//            return message;
+//        }
+
     }
 
 
@@ -48,7 +59,7 @@ public class MuridController{
 //            user.setStatus(newUser.getStatus());
             user.setEmailUser(newUser.getEmailUser());
             user.setNomorHape(newUser.getNomorHape());
-            user.setNomorKelas(newUser.getNomorKelas());
+            //user.setNomorKelas(newUser.getNomorKelas());
            // user.setKelas(newUser.getKelas());
             return muridRepository.save(user);
 

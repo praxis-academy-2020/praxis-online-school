@@ -87,6 +87,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.POST, "/praxis/murid/post")// simbol bintang menunjukan letak dari path
                 .permitAll()
+//                .antMatchers(HttpMethod.GET, "/praxis/murid/get").permitAll()
+//                .antMatchers(HttpMethod.DELETE, "/praxis/murid/delete/*").permitAll()
                 //mencoba akses semua open untuk guess
                 //.antMatchers("/praxis/murid/*").permitAll()
 

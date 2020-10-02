@@ -26,8 +26,8 @@ public class Murid {
     private String namaUser;
 
     private String tempatLahir;
-    
-    private Long nomorKelas;
+
+//    private Long nomorKelas;
 
     private String nomorHape;
 
@@ -105,13 +105,13 @@ public class Murid {
         this.tempatLahir = tempatLahir;
     }
 
-    public Long getNomorKelas() {
-        return nomorKelas;
-    }
-
-    public void setNomorKelas(Long nomorKelas) {
-        this.nomorKelas = nomorKelas;
-    }
+//    public Long getNomorKelas() {
+//        return nomorKelas;
+//    }
+//
+//    public void setNomorKelas(Long nomorKelas) {
+//        this.nomorKelas = nomorKelas;
+//    }
 
     public String getNomorHape() {
         return nomorHape;
