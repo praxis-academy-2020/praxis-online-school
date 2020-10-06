@@ -5,8 +5,8 @@
         <div class="text-center">
           <h1>TEAM KAMI</h1>
           <h4>
-            Tim kami terdiri atas praktisi industri software enterprise serta akademisi yang mempunyai
-            concern tinggi terhadap proses pendidikan.
+            Tim kami terdiri atas praktisi industri software enterprise serta akademisi yang mempunyai</h4>
+            <h4>concern tinggi terhadap proses pendidikan.
           </h4>
         </div>
       </v-col>
@@ -28,17 +28,17 @@
       <v-col cols="12" sm="4">
         <v-img src="@/assets/profil/robi.png" width="200" class="center"></v-img>
         <h4>Hadi Hidayat Hammurabi</h4>
-        <h6>Mentor</h6>
+        <h6>Mentor Python</h6>
       </v-col>
       <v-col cols="12" sm="4">
         <v-img src="@/assets/profil/akbar.png" width="200" class="center"></v-img>
         <h4>Muhammad Akbar H</h4>
-        <h6>Mentor</h6>
+        <h6>Mentor Fullstack</h6>
       </v-col>
       <v-col cols="12" sm="4">
         <v-img src="@/assets/profil/hendi.png" width="200" class="center"></v-img>
         <h4>Hendi Saputra</h4>
-        <h6>Mentor</h6>
+        <h6>Mentor Frontend</h6>
       </v-col>
     </v-row>
 

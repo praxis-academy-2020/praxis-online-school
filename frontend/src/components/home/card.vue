@@ -23,18 +23,39 @@
               <!-- modal -->
               <v-container>
                 <v-row>
-                  <v-col class="d-flex justify-center" cols="12" sm="6">
-                    <v-img :src="poto" max-width="400" class="ukurann"></v-img>
+                  <v-col class="d-flex justify-center" cols="12" sm="12">
+                    <!-- <v-img :src="poto" max-width="400" class="ukurann"></v-img> -->
+                    <section>
+                  <iframe  width="560" height="315" :src="vid" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 </section>
                   </v-col>
 
-                  <v-col cols="12" sm="6" class="text-center mt-5 mb-5">
+                  <v-col cols="12" sm="12" class="text-center mt-5 mb-5">
                     <div>
-                      <h4>Nama Team:</h4>
-                      <h4>{{namateam}}</h4>
-                      <br />
-                      <h2>Deskripsi Karya:</h2>
+                       <h2>Deskripsi Karya:</h2>
                       <p>{{deskripsii}}</p>
                       <br />
+                      <h4>Nama Team:</h4>
+                     
+    <v-row class="text-center">
+      <v-col cols="12" sm="4">
+        <v-img src="@/assets/profil/robi.png" width="200" class="center"></v-img>
+        <h4>Hadi Hidayat Hammurabi</h4>
+        <h6>Mentor Python</h6>
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-img src="@/assets/profil/akbar.png" width="200" class="center"></v-img>
+        <h4>Muhammad Akbar H</h4>
+        <h6>Mentor Fullstack</h6>
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-img src="@/assets/profil/hendi.png" width="200" class="center"></v-img>
+        <h4>Hendi Saputra</h4>
+        <h6>Mentor Frontend</h6>
+      </v-col>
+    </v-row>
+                      <br />
+                     
                       <a :href="link" target="_blank" class="text-decoration-none">
                         <v-btn color="#112d4e" class="mx-auto center huruf">GITHUB</v-btn>
                       </a>
@@ -65,9 +86,9 @@ export default {
     "deskripsi",
     "poto",
     "namakarya",
-    "namateam",
     "deskripsii",
-    "link"
+    "link",
+    "vid"
   ]
 };
 </script>
@@ -80,5 +101,11 @@ export default {
   margin-top: 20%;
   height: 200px;
   width: 10px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 </style>
