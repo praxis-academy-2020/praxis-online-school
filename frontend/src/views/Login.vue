@@ -27,7 +27,7 @@
                     v-model="form.password"
                     name="password"
                     prepend-icon="mdi-lock"
-                    type="password"
+                    type="text"
                     :rules="passwordVal"
                   ></v-text-field>
                 </v-form>
@@ -62,7 +62,7 @@ export default {
     login: function() {
       if (this.$refs.form.validate()) {
         axios
-          .post("http://192.168.1.32:8080/api/auth/signin", this.form)
+          .post("http://192.168.1.33:8080/api/auth/signin", this.form)
           .then(res => {
             console.log(res);
             localStorage.setItem(res.data.tokenType, res.data.accessToken);

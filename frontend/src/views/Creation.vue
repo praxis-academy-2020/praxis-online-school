@@ -1,26 +1,22 @@
 <template>
   <div>
     <navbarHome :isInverted="false" />
-    <br><br><br>
-    <cardssss/>
-    
+    <cardssss class="mt-15" />
     <foot/>
   </div>
 </template>
 
 <script>
 import navbarHome from "@/components/navbar/navbar-home.vue";
-
+import foot from "@/components/footer/footer-home.vue"
 import cardssss from "@/components/karya/card.vue"
-
-
 
 export default {
   name: "Home",
 
   components: {
     navbarHome,
-    
+    foot,
     cardssss
   },
   beforeMount() {

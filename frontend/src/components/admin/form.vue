@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1>karya</h1>
     <v-form ref="form" lazy-validation>
       <v-row>
         <v-col>
@@ -38,7 +39,7 @@
       </v-row>
 
       <v-row>
-        <v-col>
+        <v-col class="d-flex justify-center">
           <v-btn depressed color="primary">Mantap</v-btn>
         </v-col>
       </v-row>

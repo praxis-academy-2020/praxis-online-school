@@ -207,7 +207,7 @@
           </v-col>
         </v-row>
 
-        <v-row v-show="false">
+        <v-row>
           <v-col>
             <v-file-input v-model="data.inputFiles" multiple label="Upload your CV*"></v-file-input>
           </v-col>
@@ -237,7 +237,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   data: () => {
@@ -287,8 +287,8 @@ export default {
         komitmen: "",
         referensi: "",
         mediaSosial: "",
-        bootCamp: ""
-        // inputFiles: null
+        bootCamp: "",
+        inputFiles: null
       },
 
       // validate
@@ -309,20 +309,24 @@ export default {
       alasanikutVal: [v => !!v || "required"],
       menyelesaikanVal: [v => !!v || "required"],
       referensiVal: [v => !!v || "required"],
-      mediasosialVal: [v => !!v || "required"]
-      // inputVal: [v => !!v || "required"]
+      mediasosialVal: [v => !!v || "required"],
+      inputVal: [v => !!v || "required"]
     };
   },
   methods: {
     submit: async function() {
-      console.log(this.data);
+      let formData = new formData();
+      
 
       if (this.$refs.form.validate()) {
-        const axios = await import('axios');
         axios
-          .post("http://192.168.1.32:8080/praxis/murid/post", this.data)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+          .post("http://192.168.1.32:8080/praxis/murid/post", this.data, {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          })
+          .then(res => console.log(res))
+          .catch(err => console.log(err));
       } else {
         this.isError = true;
         setTimeout(() => {

@@ -1,6 +1,5 @@
 <template>
-  <div class="text-center mt-5">
-    <h1>karya</h1>
+  <div class="mt-15">
     <fom />
   </div>
 </template>

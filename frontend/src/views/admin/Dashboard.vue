@@ -1,80 +1,13 @@
 <template>
-  <div class="mt-15 ml-15">
-    <h3>
-      <v-icon>mdi-desktop-mac-dashboard</v-icon>DASHBOARD
-    </h3>
-    <br />
+  <div class="mt-15">
+    <h1>
+      <v-icon>mdi-desktop-mac-dashboard</v-icon>Dashboard
+    </h1>
     <v-divider></v-divider>
 
     <v-container>
       <v-row dense>
-        <v-col cols="4">
-          <v-card max-width="350" color="#022c43" dark>
-            <div class="card-body-icon">
-              <font-awesome-icon :icon="crow" size="2x" />
-            </div>
-            <v-card-title class="headline">Frontend Developer</v-card-title>
-            <div class="display-4">80</div>
-
-            <v-card-actions>
-              <v-btn text>Detail >>></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-
-        <v-col cols="4">
-          <v-card max-width="350" color="#115173" dark>
-            <div class="card-body-icon">
-              <font-awesome-icon :icon="crow" size="2x" />
-            </div>
-            <v-card-title class="headline">Frontend Developer</v-card-title>
-            <div class="display-4">80</div>
-
-            <v-card-actions>
-              <v-btn text>Detail >>></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="4">
-          <v-card max-width="350" color="#022c43" dark>
-            <div class="card-body-icon">
-              <font-awesome-icon :icon="crow" size="2x" />
-            </div>
-            <v-card-title class="headline">Frontend Developer</v-card-title>
-            <div class="display-4">80</div>
-
-            <v-card-actions>
-              <v-btn text>Detail >>></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="4">
-          <v-card max-width="350" color="#115173" dark>
-            <div class="card-body-icon">
-              <font-awesome-icon :icon="crow" size="2x" />
-            </div>
-            <v-card-title class="headline">Frontend Developer</v-card-title>
-            <div class="display-4">80</div>
-
-            <v-card-actions>
-              <v-btn text>Detail >>></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="4">
-          <v-card max-width="350" color="#022c43" dark>
-            <div class="card-body-icon">
-              <font-awesome-icon :icon="crow" size="2x" />
-            </div>
-            <v-card-title class="headline">Frontend Developer</v-card-title>
-            <div class="display-4">80</div>
-
-            <v-card-actions>
-              <v-btn text>Detail >>></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="4">
+        <v-col cols="12" sm="6" md="4" v-for="(item, index) in 6" :key="index">
           <v-card max-width="350" color="#115173" dark>
             <div class="card-body-icon">
               <font-awesome-icon :icon="crow" size="2x" />
@@ -104,9 +37,6 @@ export default {
     return {
       crow: faCode
     };
-  },
-  created() {
-    // this.$vuetify.theme.dark = true;
   }
 };
 </script>
