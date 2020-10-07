@@ -1,11 +1,11 @@
 <template>
   <div class="mt-15">
-    <h1>
-      <v-icon>mdi-desktop-mac-dashboard</v-icon>Dashboard
-    </h1>
-    <v-divider></v-divider>
-
     <v-container>
+      <h1>
+        <!-- <v-icon>mdi-desktop-mac-dashboard</v-icon> -->
+        Dashboard
+      </h1>
+
       <v-row dense>
         <v-col cols="12" sm="6" md="4" v-for="(item, index) in 6" :key="index">
           <v-card max-width="350" color="#115173" dark>

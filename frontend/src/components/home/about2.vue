@@ -1,13 +1,11 @@
 <template>
-  <v-container class="mt-15 mb-15 " >
+  <v-container class="mt-15 mb-15">
     <v-row>
       <v-col>
         <div class="text-center">
           <h1>TEAM KAMI</h1>
-          <h4>
-            Tim kami terdiri atas praktisi industri software enterprise serta akademisi yang mempunyai</h4>
-            <h4>concern tinggi terhadap proses pendidikan.
-          </h4>
+          <h4>Tim kami terdiri atas praktisi industri software enterprise serta akademisi yang mempunyai</h4>
+          <h4>concern tinggi terhadap proses pendidikan.</h4>
         </div>
       </v-col>
     </v-row>
@@ -41,7 +39,6 @@
         <h6>Mentor Frontend</h6>
       </v-col>
     </v-row>
-
   </v-container>
 </template>
 
@@ -52,5 +49,4 @@
   margin-right: auto;
   width: 50%;
 }
-
 </style>

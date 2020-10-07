@@ -1,24 +1,26 @@
 <template>
   <div>
-    <v-card>
-      <v-card-title>
-        <h3>Dashboard Admin Praxis academy</h3>
-        <v-spacer></v-spacer>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          single-line
-          hide-details
-        ></v-text-field>
-      </v-card-title>
+    <v-container>
+      <v-card>
+        <v-card-title>
+          <h3>Dashboard Admin Praxis academy</h3>
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
+          ></v-text-field>
+        </v-card-title>
 
-      <v-data-table :headers="headers" :items="gettersApiPeserta" :search="search">
-        <template v-slot:item.actions="{ item }">
-          <v-icon small @click="deleteItem(item.userId)">mdi-delete</v-icon>
-        </template>item
-      </v-data-table>
-    </v-card>
+        <v-data-table :headers="headers" :items="gettersApiPeserta" :search="search">
+          <template v-slot:item.actions="{ item }">
+            <v-icon small @click="deleteItem(item.userId)">mdi-delete</v-icon>
+          </template>item
+        </v-data-table>
+      </v-card>
+    </v-container>
   </div>
 </template>
 
