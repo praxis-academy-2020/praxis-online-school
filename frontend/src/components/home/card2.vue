@@ -7,6 +7,7 @@
       <v-col cols="12" sm="6" md="4">
         <kartu
           :poto="g1"
+          vid='https://www.youtube.com/embed/IQw-4JABPCM'
           judul="JOBDEV"
           namakarya="JOBDEV"
           namateam="walid, Irun"
@@ -16,7 +17,8 @@
       </v-col>
       <v-col cols="12" sm="6" md="4">
         <kartu
-          :poto="g2"
+        :poto="g2"
+          vid='https://www.youtube.com/embed/IQw-4JABPCM'
           judul="Angkringan 4.0"
           namakarya="Angkringan 4.0"
           namateam="Zulfadli, Jembar"
@@ -27,6 +29,7 @@
       <v-col cols="12" sm="6" md="4">
         <kartu
           :poto="g3"
+          vid='https://www.youtube.com/embed/IQw-4JABPCM'
           judul="Praxis Online School"
           namakarya="Praxis Online School"
           namateam="Agung, Aji, Walid, Irun"
@@ -37,6 +40,7 @@
       <v-col cols="12" sm="6" md="4">
         <kartu
           :poto="g4"
+          vid='https://www.youtube.com/embed/IQw-4JABPCM'
           judul="Perpustakaan"
           namakarya="Perpustakaan"
           namateam
@@ -47,6 +51,7 @@
       <v-col cols="12" sm="6" md="4">
         <kartu
           :poto="g5"
+          vid='https://www.youtube.com/embed/IQw-4JABPCM'
           judul="Bank Sampah"
           namakarya="Bank Sampah"
           namateam
@@ -57,11 +62,13 @@
       <v-col cols="12" sm="6" md="4">
         <kartu
           :poto="g6"
+          vid='https://www.youtube.com/embed/IQw-4JABPCM'
           judul="Catatan Keuangan"
           namakarya="Catatan Keuangan"
           namateam
           deskripsii=" "
           link="https://github.com/praxis-academy-2020/catatan-keuangan"
+          
         />
       </v-col>
     </v-row>
