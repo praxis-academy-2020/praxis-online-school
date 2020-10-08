@@ -47,7 +47,7 @@ export default {
     fas,
     silab
   },
-  beforeMount() {
+  beforeCreate() {
     if (!localStorage.getItem("Bearer")) {
       scrollTo(0, 0);
     }else{

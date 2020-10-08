@@ -19,7 +19,7 @@ export default {
     foot,
     cardssss
   },
-  beforeMount() {
+  beforeCreate() {
     if (!localStorage.getItem("Bearer")) {
       scrollTo(0, 0);
     }else{

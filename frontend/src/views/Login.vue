@@ -34,7 +34,14 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" @click="login">Login</v-btn>
+                <div>
+                  <div v-if="isLoading">
+                    <v-progress-circular :width="3" indeterminate color="primary"></v-progress-circular>
+                  </div>
+                  <div v-else>
+                    <v-btn color="primary" @click="login">Login</v-btn>
+                  </div>
+                </div>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -50,6 +57,7 @@ import axios from "axios";
 export default {
   data: () => {
     return {
+      isLoading: false,
       form: {
         usernameOrEmail: "",
         password: ""
@@ -61,6 +69,7 @@ export default {
   methods: {
     login: function() {
       if (this.$refs.form.validate()) {
+        this.isLoading = true;
         axios
           .post("http://192.168.1.33:8080/api/auth/signin", this.form)
           .then(res => {
@@ -71,15 +80,21 @@ export default {
             this.$router.push({ name: "Dashboard" });
           })
           .catch(err => {
-            console.log(err);
-            alert("err");
+            this.isLoading = false;
+            this.$swal({
+              icon: "error",
+              title: err
+            });
           });
       } else {
-        this.$swal("tetotttt");
+        this.$swal({
+          icon: "error",
+          title: "Tet tottt!"
+        });
       }
     }
   },
-  beforeMount() {
+  beforeCreate() {
     if (!localStorage.getItem("Bearer")) {
       scrollTo(0, 0);
     } else {

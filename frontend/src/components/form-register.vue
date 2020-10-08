@@ -209,7 +209,7 @@
 
         <v-row>
           <v-col>
-            <v-file-input v-model="inputFiles" label="Upload your CV*"></v-file-input>
+            <v-file-input v-model="inputFiles" :rules="inputVal" label="Upload your CV*"></v-file-input>
           </v-col>
         </v-row>
 
@@ -221,13 +221,26 @@
           </v-row>
         </div>
 
+        <div v-show="isErrorNetwork">
+          <v-row class="d-flex justify-center">
+            <span class="red--text">Network error</span>
+          </v-row>
+        </div>
+
         <v-row class="mt-15">
           <v-col class="d-flex justify-center">
-            <router-link to="/register/syarat" class="text-decoration-none">
-              <v-btn color="#112d4e" class="white--text mr-4">back</v-btn>
-            </router-link>
+            <div>
+              <div v-if="isLoading">
+                <v-progress-circular indeterminate color="primary"></v-progress-circular>
+              </div>
 
-            <v-btn color="#112d4e" class="white--text mr-4" @click="submit">submit</v-btn>
+              <div v-else>
+                <router-link to="/register/syarat" class="text-decoration-none">
+                  <v-btn color="#112d4e" class="white--text mr-4">back</v-btn>
+                </router-link>
+                <v-btn color="#112d4e" class="white--text mr-4" @click="submit">submit</v-btn>
+              </div>
+            </div>
           </v-col>
         </v-row>
       </v-form>
@@ -245,7 +258,9 @@ export default {
       // boolean
       referensiBoolean: false,
       isError: false,
+      isErrorNetwork: false,
       tanggal: false,
+      isLoading: false,
 
       // select
       kelas: [
@@ -292,32 +307,32 @@ export default {
       inputFiles: [],
 
       // validate
-      // nameVal: [v => v.length >= 3 || "name length is 3 character"],
-      // programVal: [v => !!v || "required"],
-      // emailVal: [
-      //   v => !!v || "E-mail is required",
-      //   v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-      // ],
-      // tempatlahirVal: [v => !!v || "required"],
-      // kotaasalVal: [v => !!v || "required"],
-      // status: [v => !!v || "required"],
-      // nomorhpVal: [v => !!v || "required"],
-      // alamatVal: [v => !!v || "required"],
-      // pendidikanVal: [v => !!v || "required"],
-      // namakampusVal: [v => !!v || "required"],
-      // alamatkampusVal: [v => !!v || "required"],
-      // alasanikutVal: [v => !!v || "required"],
-      // menyelesaikanVal: [v => !!v || "required"],
-      // referensiVal: [v => !!v || "required"],
-      // mediasosialVal: [v => !!v || "required"],
-      // inputVal: [v => !!v || "required"]
+      nameVal: [v => v.length >= 3 || "name length is 3 character"],
+      programVal: [v => !!v || "required"],
+      emailVal: [
+        v => !!v || "E-mail is required",
+        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      ],
+      tempatlahirVal: [v => !!v || "required"],
+      kotaasalVal: [v => !!v || "required"],
+      status: [v => !!v || "required"],
+      nomorhpVal: [v => !!v || "required"],
+      alamatVal: [v => !!v || "required"],
+      pendidikanVal: [v => !!v || "required"],
+      namakampusVal: [v => !!v || "required"],
+      alamatkampusVal: [v => !!v || "required"],
+      alasanikutVal: [v => !!v || "required"],
+      menyelesaikanVal: [v => !!v || "required"],
+      referensiVal: [v => !!v || "required"],
+      mediasosialVal: [v => !!v || "required"],
+      inputVal: [v => !!v || "required"]
     };
   },
   methods: {
     submit: async function() {
       // data file
       let formData = await new FormData();
-      console.log(this.inputFiles)
+      console.log(this.inputFiles);
       formData.append("file", this.inputFiles);
 
       // multi file
@@ -334,6 +349,8 @@ export default {
       // }
 
       if (this.$refs.form.validate()) {
+        this.isLoading = true;
+
         try {
           // data
           let data = await axios.post(
@@ -360,15 +377,20 @@ export default {
             icon: "success",
             title: "Berhasil mendaftar"
           });
-          this.$router.push({name: "Home"})
-        } catch(err) {
-          console.log('try catch ', err)
+          this.$router.push({ name: "Home" });
+        } catch (err) {
+          this.isLoading = false;
+          this.isErrorNetwork = true;
+          setTimeout(() => {
+            this.isErrorNetwork = false;
+          }, 5000);
+          console.log("try catch ", err);
         }
       } else {
         this.isError = true;
         setTimeout(() => {
           this.isError = false;
-        }, 3000);
+        }, 5000);
       }
     }
   },

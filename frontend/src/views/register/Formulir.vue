@@ -1,23 +1,25 @@
 <template>
   <div class="mt-15">
-      <formRegister/>
+    <formRegister />
   </div>
 </template>
 
 <script>
-import formRegister from "@/components/form-register.vue"
-
+import formRegister from "@/components/form-register.vue";
 
 export default {
-    components: {
-        formRegister
-    },
-    mounted(){
-        scrollTo(0, 0)
+  components: {
+    formRegister
+  },
+  beforeCreate() {
+    if (!localStorage.getItem("Bearer")) {
+      scrollTo(0, 0);
+    } else {
+      this.$router.push({ name: "Dashboard" });
     }
-}
+  }
+};
 </script>
 
 <style>
-
 </style>
