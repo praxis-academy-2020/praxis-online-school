@@ -209,7 +209,7 @@
 
         <v-row>
           <v-col>
-            <v-file-input v-model="data.inputFiles" multiple label="Upload your CV*"></v-file-input>
+            <v-file-input v-model="inputFiles" label="Upload your CV*"></v-file-input>
           </v-col>
         </v-row>
 
@@ -287,46 +287,83 @@ export default {
         komitmen: "",
         referensi: "",
         mediaSosial: "",
-        bootCamp: "",
-        inputFiles: null
+        bootCamp: ""
       },
+      inputFiles: [],
 
       // validate
-      nameVal: [v => v.length >= 3 || "name length is 3 character"],
-      programVal: [v => !!v || "required"],
-      emailVal: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-      ],
-      tempatlahirVal: [v => !!v || "required"],
-      kotaasalVal: [v => !!v || "required"],
-      status: [v => !!v || "required"],
-      nomorhpVal: [v => !!v || "required"],
-      alamatVal: [v => !!v || "required"],
-      pendidikanVal: [v => !!v || "required"],
-      namakampusVal: [v => !!v || "required"],
-      alamatkampusVal: [v => !!v || "required"],
-      alasanikutVal: [v => !!v || "required"],
-      menyelesaikanVal: [v => !!v || "required"],
-      referensiVal: [v => !!v || "required"],
-      mediasosialVal: [v => !!v || "required"],
-      inputVal: [v => !!v || "required"]
+      // nameVal: [v => v.length >= 3 || "name length is 3 character"],
+      // programVal: [v => !!v || "required"],
+      // emailVal: [
+      //   v => !!v || "E-mail is required",
+      //   v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      // ],
+      // tempatlahirVal: [v => !!v || "required"],
+      // kotaasalVal: [v => !!v || "required"],
+      // status: [v => !!v || "required"],
+      // nomorhpVal: [v => !!v || "required"],
+      // alamatVal: [v => !!v || "required"],
+      // pendidikanVal: [v => !!v || "required"],
+      // namakampusVal: [v => !!v || "required"],
+      // alamatkampusVal: [v => !!v || "required"],
+      // alasanikutVal: [v => !!v || "required"],
+      // menyelesaikanVal: [v => !!v || "required"],
+      // referensiVal: [v => !!v || "required"],
+      // mediasosialVal: [v => !!v || "required"],
+      // inputVal: [v => !!v || "required"]
     };
   },
   methods: {
     submit: async function() {
-      let formData = new formData();
-      
+      // data file
+      let formData = await new FormData();
+      console.log(this.inputFiles)
+      formData.append("file", this.inputFiles);
+
+      // multi file
+      // for(let i = 0; i < this.inputFiles.length; i++){
+      //   let file = this.inputFiles[i];
+
+      //   formData.append("file", file);
+      // }
+
+      console.log(formData.getAll("file"));
+
+      // for(let [key, value] of formData){
+      //   console.log("for = " + key + value)
+      // }
 
       if (this.$refs.form.validate()) {
-        axios
-          .post("http://192.168.1.32:8080/praxis/murid/post", this.data, {
-            headers: {
-              "Content-Type": "multipart/form-data"
+        try {
+          // data
+          let data = await axios.post(
+            "http://192.168.1.33:8080/praxis/murid/post",
+            this.data
+          );
+
+          // file
+          let file = await axios.post(
+            "http://192.168.1.33:8080/praxis/data/upload",
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              }
             }
-          })
-          .then(res => console.log(res))
-          .catch(err => console.log(err));
+          );
+
+          let pus = await this.$store.state.cv.push(file.data.downloadUri);
+
+          // selesai
+          console.log("selesai ", file.data, data, pus);
+          this.$swal({
+            icon: "success",
+            title: "Berhasil mendaftar"
+          });
+          this.$router.push({name: "Home"})
+        } catch(err) {
+          console.log('try catch ', err)
+        }
       } else {
         this.isError = true;
         setTimeout(() => {

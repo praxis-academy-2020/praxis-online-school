@@ -17,7 +17,7 @@
         <v-data-table :headers="headers" :items="gettersApiPeserta" :search="search">
           <template v-slot:item.actions="{ item }">
             <v-icon small @click="deleteItem(item.userId)">mdi-delete</v-icon>
-          </template>item
+          </template>
         </v-data-table>
       </v-card>
     </v-container>
@@ -41,6 +41,7 @@ export default {
         { text: "Nama kampus", value: "namaKampus" },
         { text: "Program", value: "program" },
         { text: "Email", value: "emailUser" },
+        { text: "CV", value: "cv", sortable: false },
         { text: "Actions", value: "actions", sortable: false }
       ]
     };
@@ -52,7 +53,7 @@ export default {
     deleteItem(id) {
       console.log(id);
       axios
-        .delete(`http://192.168.1.32:8080/praxis/murid/delete/${id}`, {
+        .delete(`http://192.168.1.33:8080/praxis/murid/delete/${id}`, {
           headers: {
             Authorization: "Bearer: " + localStorage.getItem("Bearer")
           }
@@ -67,6 +68,9 @@ export default {
         })
         .catch(err => console.log(err));
     }
+  },
+  mounted(){
+    console.log(this.gettersApiPeserta)
   }
 };
 </script>
