@@ -354,13 +354,13 @@ export default {
         try {
           // data
           let data = await axios.post(
-            "http://192.168.1.33:8080/praxis/murid/post",
+            "http://192.168.43.56:8080/praxis/murid/post",
             this.data
           );
 
           // file
           let file = await axios.post(
-            "http://192.168.1.33:8080/praxis/data/upload",
+            "http://192.168.43.56:8080/praxis/data/upload",
             formData,
             {
               headers: {

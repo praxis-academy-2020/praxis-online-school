@@ -4,8 +4,6 @@ import axios from "axios"
 
 Vue.use(Vuex)
 
-let IP = '192.168.1.33:8080'
-
 export default new Vuex.Store({
   state: {
     cv: [],
@@ -52,7 +50,7 @@ export default new Vuex.Store({
     getApiPeserta: function (state) {
       const access = localStorage.getItem('Bearer')
       console.log('ini token yg dimasukin', access)
-      axios.get(`http://${IP}/praxis/murid/get`, {
+      axios.get(`http://192.168.43.56:8080/praxis/murid/get`, {
         headers: {
           "Authorization": "Bearer: " + access
         }

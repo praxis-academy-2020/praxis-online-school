@@ -53,7 +53,7 @@ export default {
     deleteItem(id) {
       console.log(id);
       axios
-        .delete(`http://192.168.1.33:8080/praxis/murid/delete/${id}`, {
+        .delete(`http://192.168.43.56:8080/praxis/murid/delete/${id}`, {
           headers: {
             Authorization: "Bearer: " + localStorage.getItem("Bearer")
           }
