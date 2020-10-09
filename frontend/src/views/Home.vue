@@ -6,13 +6,13 @@
     <abouts />
     <cardss />
     <paralx />
-    <aboutss />
-    <hr>
+    
     <silab/>
-    <!-- <cardsss /> -->
-    <!-- <slidee /> -->
-    <br><hr>
     <daftarkuy />
+    <!-- <cardsss /> -->
+    <aboutss />
+    
+    
     <foot />
   </div>
 </template>

@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12" sm="12" md="6">
       <h1 class="gambar ml-10">Jadilah Tech Talent Masa Depan!</h1>
-<p class="ml-10 mt-5">Alterra Academy adalah program pelatihan yang memberikan kesempatan bagi IT talent dengan pengalaman 1-2 tahun ataupun pemula untuk menjadi tech talent profesional yang dibutuhkan oleh berbagai perusahaan dengan pembelajaran intensif selama 3 bulan. Khusus untuk batch 6  7, program akan dilaksanakan secara daring.</p>
+<p class="ml-10 mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore provident incidunt in eum! Illum, dignissimos recusandae unde ipsa eaque cupiditate provident nemo sint molestiae cum? Est velit necessitatibus autem eligendi.</p>
 <router-link to="/register/syarat" class="text-decoration-none ml-10">
       <v-btn color="#112d4e" class="mt-3 white--text m">DAFTAR</v-btn>
     </router-link>
