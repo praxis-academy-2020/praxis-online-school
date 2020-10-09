@@ -16,7 +16,8 @@
 
         <v-data-table :headers="headers" :items="gettersApiPeserta" :search="search">
           <template v-slot:item.actions="{ item }">
-            <v-icon small @click="deleteItem(item.userId)">mdi-delete</v-icon>
+            <v-icon class="mr-3" @click="download(id)">mdi-arrow-down-thin-circle-outline</v-icon>
+            <v-icon class="mr-3" @click="deleteItem(item.userId)">mdi-delete</v-icon>
           </template>
         </v-data-table>
       </v-card>
@@ -41,13 +42,16 @@ export default {
         { text: "Nama kampus", value: "namaKampus" },
         { text: "Program", value: "program" },
         { text: "Email", value: "emailUser" },
-        { text: "CV", value: "cv", sortable: false },
+        // { text: "CV", value: "cv", sortable: false },
         { text: "Actions", value: "actions", sortable: false }
       ]
     };
   },
   computed: {
-    ...mapGetters(["gettersApiPeserta"])
+    ...mapGetters([
+      "gettersApiPeserta",
+      "gettersCV"
+      ])
   },
   methods: {
     deleteItem(id) {
@@ -65,6 +69,19 @@ export default {
           });
           console.log(res);
           this.$store.dispatch("getApiPeserta");
+        })
+        .catch(err => console.log(err));
+    },
+    download(id){
+      console.log(id);
+      axios
+        .post(`http://192.168.43.56:8080/praxis/data/download/${id}`, {
+          headers: {
+            Authorization: "Bearer: " + localStorage.getItem("Bearer")
+          }
+        })
+        .then(res => {
+          console.log(res);
         })
         .catch(err => console.log(err));
     }

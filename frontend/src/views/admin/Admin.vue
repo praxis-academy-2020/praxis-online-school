@@ -12,11 +12,12 @@ export default {
   components: {
     navigasi
   },
-  mounted() {
-    this.$store.dispatch("getApiPeserta");
-    console.log("local ", localStorage.getItem("Bearer"));
-  },
   beforeCreate() {
+    this.$store.dispatch("getApiUser");
+    this.$store.dispatch("getApiPeserta");
+    this.$store.dispatch("getApiFiles");
+    console.log("local ", localStorage.getItem("Bearer"));
+    
     if (localStorage.getItem("Bearer")) {
       scrollTo(0, 0);
     } else {

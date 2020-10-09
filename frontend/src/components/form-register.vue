@@ -369,10 +369,10 @@ export default {
             }
           );
 
-          let pus = await this.$store.state.cv.push(file.data.downloadUri);
+          // let pus = await this.$store.state.cv.push(file.data.downloadUri);
 
           // selesai
-          console.log("selesai ", file.data, data, pus);
+          console.log("selesai ", file.data, data);
           this.$swal({
             icon: "success",
             title: "Berhasil mendaftar"

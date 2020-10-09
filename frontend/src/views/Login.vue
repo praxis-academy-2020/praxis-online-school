@@ -27,7 +27,7 @@
                     v-model="form.password"
                     name="password"
                     prepend-icon="mdi-lock"
-                    type="text"
+                    type="password"
                     :rules="passwordVal"
                   ></v-text-field>
                 </v-form>
