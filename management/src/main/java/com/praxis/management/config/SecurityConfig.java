@@ -77,7 +77,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.jpg",
                         "/**/*.html",
                         "/**/*.css",
-                        "/**/*.js")
+                        "/**/*.js",
+                        "**/*.jpeg")
                 .permitAll()
                 .antMatchers("/api/auth/**")
                 .permitAll()
@@ -89,7 +90,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.POST, "/praxis/data/upload")// simbol bintang menunjukan letak dari path
                 .permitAll()
-                .antMatchers(HttpMethod.GET, "/praxis/data/download/*")// simbol bintang menunjukan letak dari path
+                .antMatchers(HttpMethod.GET, "/praxis/data/download/**")// simbol bintang menunjukan letak dari path
                 .permitAll()
 //                .antMatchers(HttpMethod.GET, "/praxis/murid/get").permitAll()
 //                .antMatchers(HttpMethod.DELETE, "/praxis/murid/delete/*").permitAll()

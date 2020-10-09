@@ -1,6 +1,14 @@
 package com.praxis.management.response;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "metadata")
 public class UploadedFileResponse {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer fileNo;
 
     private String fileId;
 
@@ -11,6 +19,14 @@ public class UploadedFileResponse {
     private Boolean uploadStatus;
 
     private String downloadUri;
+
+    public Integer getFileNo() {
+        return fileNo;
+    }
+
+    public void setFileNo(Integer fileNo) {
+        this.fileNo = fileNo;
+    }
 
     public String getFileId() {
         return fileId;

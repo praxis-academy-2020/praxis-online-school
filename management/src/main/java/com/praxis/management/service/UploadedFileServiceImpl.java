@@ -35,6 +35,7 @@ public class UploadedFileServiceImpl implements UploadedFileService{
 
     @Override
     public UploadedFile downloadFile(String fileId) {
+
         return uploadedFileRepository.findById(fileId).get();
     }
 }
