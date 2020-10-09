@@ -5,8 +5,8 @@
       <v-col cols="12" sm="8" class="align-self-center">
 
         <div class="text-center">
-          <h1>Sekilas tentang kami</h1>
-          <h4>Praxis Academy</h4>
+          <h1 >Sekilas tentang kami</h1>
+          <h4 class="mt-5">Praxis Academy</h4>
           <p>
             adalah sekolah pemrograman yang khusus menangani aplikasi level
             <em>enterprise</em>.
@@ -56,6 +56,7 @@
           deskripsii="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sit praesentium laborum eligendi dolore, nemo, earum placeat aliquid accusantium impedit dolorum quos ipsum a quibusdam velit soluta dicta? Dolores, dignissimos."
         />
       </v-col>
+      
      
     </v-row>
   </v-container>
@@ -93,6 +94,6 @@ export default {
 .bb{
   background-color: #00bcd4;
   color: white ;
-  border-radius: 0px 0px 80px 80px;
+  border-radius: 0px 0px 60px 60px;
 }
 </style>
