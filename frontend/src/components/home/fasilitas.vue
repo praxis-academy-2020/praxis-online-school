@@ -38,7 +38,7 @@
          <v-row align="center" justify="center">
              <v-col class="text-center" cols="12" sm="4">
          <router-link to="/register/syarat" class="text-decoration-none">
-      <v-btn color="#112d4e" class="mt-3 white--text">DAFTAR</v-btn>
+      <v-btn color="#112d4e" class="mt-3 white--text m">DAFTAR</v-btn>
     </router-link>
       </v-col>
     </v-row>
@@ -46,5 +46,9 @@
 </template>
 
 <style scoped>
-
+.m{
+  width: 50%;
+  height: 100%;
+  font-size: 107%;
+}
 </style>

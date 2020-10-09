@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1>karya</h1>
     <v-form ref="form" lazy-validation>
       <v-row>
         <v-col>
@@ -25,7 +26,7 @@
         </v-col>
       </v-row>
 
-      <v-row>
+      <!-- <v-row>
         <v-col cols="6">
           <v-text-field v-model="form.anggota.nama" label="Nama anggota" outlined></v-text-field>
         </v-col>
@@ -35,11 +36,11 @@
         <v-col cols="3">
           <v-text-field v-model="form.anggota.github" label="Akun github" outlined></v-text-field>
         </v-col>
-      </v-row>
+      </v-row> -->
 
       <v-row>
-        <v-col>
-          <v-btn depressed color="primary">Mantap</v-btn>
+        <v-col class="d-flex justify-center">
+          <v-btn depressed color="primary">Kirim</v-btn>
         </v-col>
       </v-row>
     </v-form>
@@ -54,11 +55,11 @@ export default {
         title: "",
         deskripsi: "",
         github: "",
-        anggota: {
-          nama: "",
-          medsos: "",
-          github: ""
-        }
+        // anggota: {
+        //   nama: "",
+        //   medsos: "",
+        //   github: ""
+        // }
       }
     };
   }

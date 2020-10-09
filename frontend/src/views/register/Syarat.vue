@@ -60,8 +60,12 @@
 
 <script>
 export default {
-  mounted(){
-    scrollTo(0, 0)
+  beforeCreate() {
+    if (!localStorage.getItem("Bearer")) {
+      scrollTo(0, 0);
+    } else {
+      this.$router.push({ name: "Dashboard" });
+    }
   }
 };
 </script>

@@ -1,24 +1,27 @@
 <template>
   <div>
-    <v-card>
-      <v-card-title>
-        <h3>Dashboard Admin Praxis academy</h3>
-        <v-spacer></v-spacer>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          single-line
-          hide-details
-        ></v-text-field>
-      </v-card-title>
+    <v-container>
+      <v-card>
+        <v-card-title>
+          <h3>Dashboard Admin Praxis academy</h3>
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
+          ></v-text-field>
+        </v-card-title>
 
-      <v-data-table :headers="headers" :items="gettersApiPeserta" :search="search">
-        <template v-slot:item.actions="{ item }">
-          <v-icon small @click="deleteItem(item.userId)">mdi-delete</v-icon>
-        </template>item
-      </v-data-table>
-    </v-card>
+        <v-data-table :headers="headers" :items="gettersApiPeserta" :search="search">
+          <template v-slot:item.actions="{ item }">
+            <v-icon class="mr-3" @click="download(id)">mdi-arrow-down-thin-circle-outline</v-icon>
+            <v-icon class="mr-3" @click="deleteItem(item.userId)">mdi-delete</v-icon>
+          </template>
+        </v-data-table>
+      </v-card>
+    </v-container>
   </div>
 </template>
 
@@ -39,18 +42,22 @@ export default {
         { text: "Nama kampus", value: "namaKampus" },
         { text: "Program", value: "program" },
         { text: "Email", value: "emailUser" },
+        // { text: "CV", value: "cv", sortable: false },
         { text: "Actions", value: "actions", sortable: false }
       ]
     };
   },
   computed: {
-    ...mapGetters(["gettersApiPeserta"])
+    ...mapGetters([
+      "gettersApiPeserta",
+      "gettersCV"
+      ])
   },
   methods: {
     deleteItem(id) {
       console.log(id);
       axios
-        .delete(`http://192.168.1.32:8080/praxis/murid/delete/${id}`, {
+        .delete(`http://192.168.43.56:8080/praxis/murid/delete/${id}`, {
           headers: {
             Authorization: "Bearer: " + localStorage.getItem("Bearer")
           }
@@ -64,7 +71,23 @@ export default {
           this.$store.dispatch("getApiPeserta");
         })
         .catch(err => console.log(err));
+    },
+    download(id){
+      console.log(id);
+      axios
+        .post(`http://192.168.43.56:8080/praxis/data/download/${id}`, {
+          headers: {
+            Authorization: "Bearer: " + localStorage.getItem("Bearer")
+          }
+        })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => console.log(err));
     }
+  },
+  mounted(){
+    console.log(this.gettersApiPeserta)
   }
 };
 </script>
