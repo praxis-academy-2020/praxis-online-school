@@ -2,7 +2,7 @@
   <div>
     <!-- card -->
     <v-col>
-      <v-card class="mx-auto" max-width="200" :elevation="4">
+      <v-card class="mx-auto d" max-width="200" :elevation="4">
         <v-img max-height="80" :src="poto"></v-img>
         <h5 class="mt-7 mb-7 text-center">{{judul}}</h5>
 
@@ -84,5 +84,8 @@ export default {
   width: 0px;
   display: inline-block;
   padding-left: 5px;
+}
+.d{
+  border-radius: 20px;
 }
 </style>

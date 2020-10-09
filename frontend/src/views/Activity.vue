@@ -17,7 +17,7 @@ export default {
     navbarHome,
     foot
   },
-  beforeMount() {
+  beforeCreate() {
     if (!localStorage.getItem("Bearer")) {
       scrollTo(0, 0);
     } else {

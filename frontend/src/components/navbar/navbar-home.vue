@@ -2,7 +2,7 @@
   <div id="navbarr">
     <v-card class="mx-auto overflow-hidden ukuran">
       <!-- dekstop -->
-      <v-app-bar color="primary" dark fixed :inverted-scroll="isInverted">
+      <v-app-bar color="primary" dark fixed >
         <router-link to="/" class="text-decoration-none">
           <v-toolbar-title>
             <v-img :src="logo" width="50" />

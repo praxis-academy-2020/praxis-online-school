@@ -4,10 +4,10 @@ import axios from "axios"
 
 Vue.use(Vuex)
 
-let IP = '192.168.1.32:8080'
-
 export default new Vuex.Store({
   state: {
+    user: "",
+    cv: [],
     peserta: [],
     karya: [
       {
@@ -16,7 +16,7 @@ export default new Vuex.Store({
         deskripsi: "diskripsi",
         github: 'github',
         anggota: ['1', '2', '3'],
-        src:"https://www.youtube.com/embed/FaAtjbyqGns"
+        src: "https://www.youtube.com/embed/FaAtjbyqGns"
       },
       {
         id: 2,
@@ -24,7 +24,7 @@ export default new Vuex.Store({
         deskripsi: "diskripsi",
         github: 'github',
         anggota: ['1', '2', '3'],
-        src:"https://www.youtube.com/embed/IQw-4JABPCM"
+        src: "https://www.youtube.com/embed/IQw-4JABPCM"
       },
       {
         id: 3,
@@ -32,38 +32,94 @@ export default new Vuex.Store({
         deskripsi: "diskripsi",
         github: 'github',
         anggota: ['1', '2', '3'],
-        src:"https://www.youtube.com/embed/IQw-4JABPCM"
+        src: "https://www.youtube.com/embed/IQw-4JABPCM"
       }
     ]
   },
   getters: {
-    gettersApiPeserta: function(state){
+    gettersApiPeserta: function (state) {
       return state.peserta
     },
-    gettersKarya: function(state){
+    gettersKarya: function (state) {
       return state.karya
+    },
+    gettersCV: function (state) {
+      return state.cv
+    },
+    gettersUser: function(state){
+      return state.user
     }
   },
   mutations: {
-    getApiPeserta: function(state){
+    getApiUser: function (state) {
+      const token = localStorage.getItem('Bearer')
+      console.log('get user', token)
+      axios.get('http://192.168.43.56:8080/api/auth/user', {
+        headers: {
+          "Authorization": "Bearer: " + token
+        }
+      })
+        .then(res => {
+          res.data
+        })
+        .then(res => {
+          console.log('get user', res)
+          state.user = res.username
+        })
+        .catch(err => {
+          console.log('err user', err)
+        })
+    },
+    getApiFiles: function (state) {
+      const token = localStorage.getItem('Bearer')
+      axios.get('http://192.168.43.56:8080/praxis/data/list/files', {
+        headers: {
+          "Authorization": "Bearer: " + token
+        }
+      })
+        .then(res => {
+          res.data
+        })
+        .then(res => {
+          console.log('get files', res)
+          state.cv = res
+        })
+        .catch(err => {
+          console.log('err files', err)
+        })
+    },
+
+
+    getApiPeserta: function (state) {
       const access = localStorage.getItem('Bearer')
       console.log('ini token yg dimasukin', access)
-      axios.get(`http://${IP}/praxis/murid/get`, {
+      axios.get(`http://192.168.43.56:8080/praxis/murid/get`, {
         headers: {
           "Authorization": "Bearer: " + access
         }
       })
-      .then(res => res.data)
-      .then(data => {
-        state.peserta = data
-        console.log("get api", data)
-      })
-      .catch(err => console.log(err))
+        .then(res => res.data)
+        .then(data => {
+          state.peserta = data;
+
+          // gabungin cv dan data peserta
+          // for (let i = 0; i < state.peserta.length; i++) {
+          //   state.peserta[i].cv = state.cv[i];
+          // }
+          console.log("get api", state.peserta)
+        })
+        .catch(err => console.log(err))
     }
   },
   actions: {
-    getApiPeserta: function({commit}){
+    getApiPeserta: function ({ commit }) {
       commit('getApiPeserta')
+    },
+    getApiFiles: function ({ commit }) {
+      commit('getApiFiles')
+    },
+    getApiUser: function({commit}){
+      commit('getApiUser')
     }
   },
   modules: {

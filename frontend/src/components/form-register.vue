@@ -207,9 +207,9 @@
           </v-col>
         </v-row>
 
-        <v-row v-show="false">
+        <v-row>
           <v-col>
-            <v-file-input v-model="data.inputFiles" multiple label="Upload your CV*"></v-file-input>
+            <v-file-input v-model="inputFiles" :rules="inputVal" label="Upload your CV*"></v-file-input>
           </v-col>
         </v-row>
 
@@ -221,13 +221,26 @@
           </v-row>
         </div>
 
+        <div v-show="isErrorNetwork">
+          <v-row class="d-flex justify-center">
+            <span class="red--text">Network error</span>
+          </v-row>
+        </div>
+
         <v-row class="mt-15">
           <v-col class="d-flex justify-center">
-            <router-link to="/register/syarat" class="text-decoration-none">
-              <v-btn color="#112d4e" class="white--text mr-4">back</v-btn>
-            </router-link>
+            <div>
+              <div v-if="isLoading">
+                <v-progress-circular indeterminate color="primary"></v-progress-circular>
+              </div>
 
-            <v-btn color="#112d4e" class="white--text mr-4" @click="submit">submit</v-btn>
+              <div v-else>
+                <router-link to="/register/syarat" class="text-decoration-none">
+                  <v-btn color="#112d4e" class="white--text mr-4">back</v-btn>
+                </router-link>
+                <v-btn color="#112d4e" class="white--text mr-4" @click="submit">submit</v-btn>
+              </div>
+            </div>
           </v-col>
         </v-row>
       </v-form>
@@ -237,7 +250,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   data: () => {
@@ -245,7 +258,9 @@ export default {
       // boolean
       referensiBoolean: false,
       isError: false,
+      isErrorNetwork: false,
       tanggal: false,
+      isLoading: false,
 
       // select
       kelas: [
@@ -288,8 +303,8 @@ export default {
         referensi: "",
         mediaSosial: "",
         bootCamp: ""
-        // inputFiles: null
       },
+      inputFiles: [],
 
       // validate
       nameVal: [v => v.length >= 3 || "name length is 3 character"],
@@ -309,25 +324,73 @@ export default {
       alasanikutVal: [v => !!v || "required"],
       menyelesaikanVal: [v => !!v || "required"],
       referensiVal: [v => !!v || "required"],
-      mediasosialVal: [v => !!v || "required"]
-      // inputVal: [v => !!v || "required"]
+      mediasosialVal: [v => !!v || "required"],
+      inputVal: [v => !!v || "required"]
     };
   },
   methods: {
     submit: async function() {
-      console.log(this.data);
+      // data file
+      let formData = await new FormData();
+      console.log(this.inputFiles);
+      formData.append("file", this.inputFiles);
+
+      // multi file
+      // for(let i = 0; i < this.inputFiles.length; i++){
+      //   let file = this.inputFiles[i];
+
+      //   formData.append("file", file);
+      // }
+
+      console.log(formData.getAll("file"));
+
+      // for(let [key, value] of formData){
+      //   console.log("for = " + key + value)
+      // }
 
       if (this.$refs.form.validate()) {
-        const axios = await import('axios');
-        axios
-          .post("http://192.168.1.32:8080/praxis/murid/post", this.data)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        this.isLoading = true;
+
+        try {
+          // data
+          let data = await axios.post(
+            "http://192.168.43.56:8080/praxis/murid/post",
+            this.data
+          );
+
+          // file
+          let file = await axios.post(
+            "http://192.168.43.56:8080/praxis/data/upload",
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              }
+            }
+          );
+
+          // let pus = await this.$store.state.cv.push(file.data.downloadUri);
+
+          // selesai
+          console.log("selesai ", file.data, data);
+          this.$swal({
+            icon: "success",
+            title: "Berhasil mendaftar"
+          });
+          this.$router.push({ name: "Home" });
+        } catch (err) {
+          this.isLoading = false;
+          this.isErrorNetwork = true;
+          setTimeout(() => {
+            this.isErrorNetwork = false;
+          }, 5000);
+          console.log("try catch ", err);
+        }
       } else {
         this.isError = true;
         setTimeout(() => {
           this.isError = false;
-        }, 3000);
+        }, 5000);
       }
     }
   },
