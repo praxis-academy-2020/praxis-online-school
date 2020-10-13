@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -50,6 +51,42 @@ public class UploadedFileController {
 
         uploadedFileResponse.setMessage("Ooops 1 something went wrong please re-upload");
         return uploadedFileResponse;
+    }
+
+    @PostMapping("/uploads")
+    public List<UploadedFileResponse> uploadFilesToDB(@RequestParam("files") MultipartFile[] multipartFiles){
+        try {
+            List<UploadedFile> uploadedFiles = new ArrayList<UploadedFile>();
+            List<UploadedFileResponse> uploadedFileResponses = new ArrayList<UploadedFileResponse>();
+            for (MultipartFile multipartFile: multipartFiles) {
+                UploadedFile uploadedFile = uploadedFileService.uploadFile(multipartFile);
+                UploadedFileResponse uploadedFileResponse = new UploadedFileResponse();
+
+                if (uploadedFile != null){
+                    String downloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                            .path("/api/download/")
+                            .path(uploadedFile.getFileId())
+                            .toUriString();
+
+                    uploadedFileResponse.setDownloadUri(downloadUri);
+                    uploadedFileResponse.setFileId(uploadedFile.getFileId());
+                    uploadedFileResponse.setFileType(uploadedFile.getFileType());
+                    uploadedFileResponse.setUploadStatus(true);
+                    uploadedFileResponse.setMessage("File Uploaded Successfully");
+                }
+
+                uploadedFiles.add(uploadedFile);
+                uploadedFileResponses.add(uploadedFileResponse);
+
+            }
+            return uploadedFileResponses;
+
+        }
+        catch (Exception ex){
+            return null;
+
+        }
+
     }
 
     @GetMapping("/download/{id}")
