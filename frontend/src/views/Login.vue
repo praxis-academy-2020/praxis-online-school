@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import * as api from '../api/praxis'
 
 export default {
   data: () => {
@@ -70,8 +70,9 @@ export default {
     login: function() {
       if (this.$refs.form.validate()) {
         this.isLoading = true;
-        axios
-          .post("http://192.168.43.56:8080/api/auth/signin", this.form)
+        api.login(this.form)
+        // axios
+        //   .post("http://192.168.43.56:8080/api/auth/signin", this.form)
           .then(res => {
             console.log(res);
             localStorage.setItem(res.data.tokenType, res.data.accessToken);

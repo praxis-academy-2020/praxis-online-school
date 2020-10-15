@@ -12,8 +12,8 @@ export default {
   components: {
     navigasi
   },
-  beforeCreate() {
-    this.$store.dispatch("getApiUser");
+  async beforeCreate() {
+    await this.$store.dispatch("getApiUser");
     this.$store.dispatch("getApiPeserta");
     this.$store.dispatch("getApiFiles");
     console.log("local ", localStorage.getItem("Bearer"));

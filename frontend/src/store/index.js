@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from "axios"
+// import axios from "axios"
+import * as api from '../api/praxis'
 
 Vue.use(Vuex)
 
@@ -46,7 +47,7 @@ export default new Vuex.Store({
     gettersCV: function (state) {
       return state.cv
     },
-    gettersUser: function(state){
+    gettersUser: function (state) {
       return state.user
     }
   },
@@ -54,7 +55,7 @@ export default new Vuex.Store({
     getApiUser: function (state) {
       const token = localStorage.getItem('Bearer')
       console.log('get user', token)
-      axios.get('http://192.168.43.56:8080/api/auth/user', {
+      api.getUser({
         headers: {
           "Authorization": "Bearer: " + token
         }
@@ -72,7 +73,7 @@ export default new Vuex.Store({
     },
     getApiFiles: function (state) {
       const token = localStorage.getItem('Bearer')
-      axios.get('http://192.168.43.56:8080/praxis/data/list/files', {
+      api.getFiles({
         headers: {
           "Authorization": "Bearer: " + token
         }
@@ -89,11 +90,10 @@ export default new Vuex.Store({
         })
     },
 
-
     getApiPeserta: function (state) {
       const access = localStorage.getItem('Bearer')
       console.log('ini token yg dimasukin', access)
-      axios.get(`http://192.168.43.56:8080/praxis/murid/get`, {
+      api.getPeserta({
         headers: {
           "Authorization": "Bearer: " + access
         }
@@ -118,7 +118,7 @@ export default new Vuex.Store({
     getApiFiles: function ({ commit }) {
       commit('getApiFiles')
     },
-    getApiUser: function({commit}){
+    getApiUser: function ({ commit }) {
       commit('getApiUser')
     }
   },

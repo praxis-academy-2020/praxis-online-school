@@ -209,7 +209,12 @@
 
         <v-row>
           <v-col>
-            <v-file-input v-model="inputFiles" :rules="inputVal" label="Upload your CV*"></v-file-input>
+            <v-file-input
+              v-model="inputFiles"
+              multiple
+              :rules="inputVal"
+              label="Upload your CV*"
+            ></v-file-input>
           </v-col>
         </v-row>
 
@@ -250,7 +255,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import axios from "axios";
+import * as api from "../api/praxis";
 
 export default {
   data: () => {
@@ -302,77 +307,85 @@ export default {
         komitmen: "",
         referensi: "",
         mediaSosial: "",
-        bootCamp: ""
+        bootCamp: "",
+        uploadedFileResponses: []
       },
-      inputFiles: [],
+      uploadedFiles: [],
 
       // validate
-      nameVal: [v => v.length >= 3 || "name length is 3 character"],
-      programVal: [v => !!v || "required"],
-      emailVal: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-      ],
-      tempatlahirVal: [v => !!v || "required"],
-      kotaasalVal: [v => !!v || "required"],
-      status: [v => !!v || "required"],
-      nomorhpVal: [v => !!v || "required"],
-      alamatVal: [v => !!v || "required"],
-      pendidikanVal: [v => !!v || "required"],
-      namakampusVal: [v => !!v || "required"],
-      alamatkampusVal: [v => !!v || "required"],
-      alasanikutVal: [v => !!v || "required"],
-      menyelesaikanVal: [v => !!v || "required"],
-      referensiVal: [v => !!v || "required"],
-      mediasosialVal: [v => !!v || "required"],
-      inputVal: [v => !!v || "required"]
+      // nameVal: [v => v.length >= 3 || "name length is 3 character"],
+      // programVal: [v => !!v || "required"],
+      // emailVal: [
+      //   v => !!v || "E-mail is required",
+      //   v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      // ],
+      // tempatlahirVal: [v => !!v || "required"],
+      // kotaasalVal: [v => !!v || "required"],
+      // status: [v => !!v || "required"],
+      // nomorhpVal: [v => !!v || "required"],
+      // alamatVal: [v => !!v || "required"],
+      // pendidikanVal: [v => !!v || "required"],
+      // namakampusVal: [v => !!v || "required"],
+      // alamatkampusVal: [v => !!v || "required"],
+      // alasanikutVal: [v => !!v || "required"],
+      // menyelesaikanVal: [v => !!v || "required"],
+      // referensiVal: [v => !!v || "required"],
+      // mediasosialVal: [v => !!v || "required"],
+      // inputVal: [v => !!v || "required"]
     };
   },
   methods: {
     submit: async function() {
       // data file
       let formData = await new FormData();
-      console.log(this.inputFiles);
-      formData.append("file", this.inputFiles);
+      console.log(this.uploadedFiles);
 
-      // multi file
-      // for(let i = 0; i < this.inputFiles.length; i++){
-      //   let file = this.inputFiles[i];
+      // single file
+      // formData.append("file", this.uploadedFiles);
 
+      // multi file 1
+      // for(let i = 0; i < this.uploadedFiles.length; i++){
+      //   let file = this.uploadedFiles[i];
       //   formData.append("file", file);
       // }
 
-      console.log(formData.getAll("file"));
+      // multi file 2
+      this.uploadedFiles.forEach(file => {
+        formData.append("files", file);
+      });
 
-      // for(let [key, value] of formData){
-      //   console.log("for = " + key + value)
-      // }
+      console.log("input file ", formData.getAll("file"));
 
       if (this.$refs.form.validate()) {
         this.isLoading = true;
 
         try {
           // data
-          let data = await axios.post(
-            "http://192.168.43.56:8080/praxis/murid/post",
-            this.data
-          );
+          let data = await api.postPeserta(this.data);
 
           // file
-          let file = await axios.post(
-            "http://192.168.43.56:8080/praxis/data/upload",
-            formData,
-            {
-              headers: {
-                "Content-Type": "multipart/form-data"
-              }
-            }
-          );
+          // let file = await api.postFile(formData, {
+          //   headers: {
+          //     "Content-Type": "multipart/form-data"
+          //   }
+          // });
 
-          // let pus = await this.$store.state.cv.push(file.data.downloadUri);
+          // multi file
+          let files = await api.postFiles(formData, {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          });
+
+          // all data
+          // let allData = await api.postPeserta(formData, {
+          //   headers: {
+          //     "Content-Type": "multipart/form-data"
+          //   }
+          // });
 
           // selesai
-          console.log("selesai ", file.data, data);
+          console.log("selesai ", files, data);
           this.$swal({
             icon: "success",
             title: "Berhasil mendaftar"
