@@ -22,21 +22,30 @@
 
       <v-row>
         <v-col>
-          <v-text-field v-model="form.github" label="Github project" outlined></v-text-field>
+          <v-text-field v-model="form.github" label="Link Github" outlined></v-text-field>
         </v-col>
       </v-row>
 
-      <!-- <v-row>
-        <v-col cols="6">
-          <v-text-field v-model="form.anggota.nama" label="Nama anggota" outlined></v-text-field>
+      <v-row>
+        <v-col>
+          <v-text-field v-model="form.youtube" label="Link Youtube" outlined></v-text-field>
         </v-col>
-        <v-col cols="3">
-          <v-text-field v-model="form.anggota.medsos" label="Akun medsos" outlined></v-text-field>
+      </v-row>
+
+      <div v-for="i in add" :key="i">
+        <v-row>
+          <v-col>
+            <v-text-field v-model="form.anggota.nama" label="Nama anggota" outlined></v-text-field>
+          </v-col>
+        </v-row>
+      </div>
+
+      <v-row>
+        <v-col>
+          <v-btn class="mr-3" depressed color="primary" @click="tambah()">add</v-btn>
+          <v-btn depressed color="error" @click="hapus()">hapus</v-btn>
         </v-col>
-        <v-col cols="3">
-          <v-text-field v-model="form.anggota.github" label="Akun github" outlined></v-text-field>
-        </v-col>
-      </v-row> -->
+      </v-row>
 
       <v-row>
         <v-col class="d-flex justify-center">
@@ -51,17 +60,31 @@
 export default {
   data: () => {
     return {
+      add: 1,
       form: {
         title: "",
         deskripsi: "",
         github: "",
-        // anggota: {
-        //   nama: "",
-        //   medsos: "",
-        //   github: ""
-        // }
+        youtube: "",
+        anggota: [
+          {
+            nama: ""
+          }
+        ]
       }
     };
+  },
+  methods: {
+    tambah() {
+      this.add = this.add + 1;
+      console.log(this.add);
+    },
+    hapus() {
+      if(this.add > 1) {
+        this.add = this.add - 1;
+      }
+      console.log(this.add);
+    }
   }
 };
 </script>

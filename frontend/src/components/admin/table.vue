@@ -27,7 +27,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import axios from "axios";
+import * as api from "../../api/praxis";
+import Swal from "sweetalert2";
 
 export default {
   data() {
@@ -48,46 +49,58 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([
-      "gettersApiPeserta",
-      "gettersCV"
-      ])
+    ...mapGetters(["gettersApiPeserta", "gettersCV"])
   },
   methods: {
     deleteItem(id) {
       console.log(id);
-      axios
-        .delete(`http://192.168.43.56:8080/praxis/murid/delete/${id}`, {
-          headers: {
-            Authorization: "Bearer: " + localStorage.getItem("Bearer")
-          }
-        })
-        .then(res => {
-          this.$swal({
-            icon: "success",
-            title: "Berhasil dihapus"
-          });
-          console.log(res);
-          this.$store.dispatch("getApiPeserta");
-        })
-        .catch(err => console.log(err));
+      Swal.fire({
+        title: "Apa kamu yakin ingin menghapus?",
+        showDenyButton: true,
+        denyButtonText: "ga jadi",
+        confirmButtonText: `Hapus`
+      }).then(res => {
+        if (res.isConfirmed) {
+          api
+            .deletePeserta(id, {
+              headers: {
+                Authorization: "Bearer: " + localStorage.getItem("Bearer")
+              }
+            })
+            .then(res => {
+              this.$swal({
+                icon: "success",
+                title: "Berhasil dihapus"
+              });
+              console.log(res);
+              this.$store.dispatch("getApiPeserta");
+            })
+            .catch(err => console.log(err));
+        }
+      });
     },
-    download(id){
+    download(id) {
       console.log(id);
-      axios
-        .post(`http://192.168.43.56:8080/praxis/data/download/${id}`, {
+      api
+        .downloadFiles(id, {
           headers: {
             Authorization: "Bearer: " + localStorage.getItem("Bearer")
           }
         })
+        // axios
+        //   .post(`http://192.168.43.56:8080/praxis/data/download/${id}`, {
+        //     headers: {
+        //       Authorization: "Bearer: " + localStorage.getItem("Bearer")
+        //     }
+        //   })
         .then(res => {
           console.log(res);
         })
         .catch(err => console.log(err));
     }
   },
-  mounted(){
-    console.log(this.gettersApiPeserta)
+  mounted() {
+    console.log(this.gettersApiPeserta);
   }
 };
 </script>
