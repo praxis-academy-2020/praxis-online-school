@@ -210,7 +210,7 @@
         <v-row>
           <v-col>
             <v-file-input
-              v-model="uploadedFiles"
+              v-model="inputFiles"
               multiple
               :rules="inputVal"
               label="Upload your CV*"
@@ -307,10 +307,10 @@ export default {
         komitmen: "",
         referensi: "",
         mediaSosial: "",
-        bootCamp: ""
+        bootCamp: "",
+        uploadedFileResponses: []
       },
-      // inputFiles: [],
-      uploadedFiles: []
+      uploadedFiles: [],
 
       // validate
       // nameVal: [v => v.length >= 3 || "name length is 3 character"],
@@ -377,8 +377,15 @@ export default {
             }
           });
 
+          // all data
+          // let allData = await api.postPeserta(formData, {
+          //   headers: {
+          //     "Content-Type": "multipart/form-data"
+          //   }
+          // });
+
           // selesai
-          console.log("selesai ", files.data, data);
+          console.log("selesai ", files, data);
           this.$swal({
             icon: "success",
             title: "Berhasil mendaftar"
