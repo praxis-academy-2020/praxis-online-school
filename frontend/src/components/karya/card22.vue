@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <v-row>
     <!-- card -->
-    <v-col>
+    <v-col cols="12" sm="4" md="6" v-for="(item, index) in gettersKarya" :key="index">
       <v-card class="mx-auto d" max-width="200" :elevation="4">
-        <v-img max-height="100" :src="poto"></v-img>
-        <h3 class="mt-7 mb-7 text-center">{{judul}}</h3>
+        <v-img max-height="100" :src="g3"></v-img>
+        <h3 class="mt-7 mb-7 text-center">{{item.namaKarya}}</h3>
 
         <v-row justify="center" class="pb-5">
           <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
@@ -16,7 +16,7 @@
                 <v-btn small icon dark @click="dialog = false">
                   <v-icon>mdi-close</v-icon>
                 </v-btn>
-                <v-toolbar-title>{{namakarya}}</v-toolbar-title>
+                <v-toolbar-title>{{item.namaKarya}}</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
 
@@ -32,7 +32,7 @@
                     <iframe
                       width="700"
                       height="350"
-                      :src="vid"
+                      :src="item.url"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen
@@ -45,30 +45,19 @@
                 <v-col cols="12" sm="12" class="text-center mt-5 mb-5">
                   <div>
                     <h1>Deskripsi Karya:</h1>
-                    <p class="mt-5">{{deskripsii}}</p>
+                    <p class="mt-5">{{item.description}}</p>
 
                     <h1 class="mt-15">Nama Team:</h1>
-
-                    <v-row class="text-center">
-                      <v-col cols="12" sm="4">
+                    <v-row>
+                      <v-col cols="12" sm="4" v-for="(data, index) in item.anggotaKaryas" :key="index">
                         <v-img src="@/assets/profil.png" width="200" class="center"></v-img>
-                        <h4>lorem</h4>
-                        <h6>Python</h6>
-                      </v-col>
-                      <v-col cols="12" sm="4">
-                        <v-img src="@/assets/profil.png" width="200" class="center"></v-img>
-                        <h4>justien</h4>
-                        <h6>Fullstack</h6>
-                      </v-col>
-                      <v-col cols="12" sm="4">
-                        <v-img src="@/assets/profil.png" width="200" class="center"></v-img>
-                        <h4>ben10</h4>
-                        <h6>Frontend</h6>
+                        <h4>{{data.anggota}}</h4>
+                        <h6>{{data.roleAnggota}}</h6>
                       </v-col>
                     </v-row>
                     <br />
 
-                    <a :href="link" target="_blank" class="text-decoration-none">
+                    <a :href="item.urlGithub" target="_blank" class="text-decoration-none">
                       <v-btn color="#112d4e" class="mx-auto center huruf">GITHUB</v-btn>
                     </a>
                   </div>
@@ -79,29 +68,27 @@
         </v-row>
       </v-card>
     </v-col>
-  </div>
+  </v-row>
 </template>
 
 <script>
+import g3 from "@/assets/p.png";
+import { mapGetters } from "vuex";
+
 export default {
   data() {
     return {
       dialog: false,
       notifications: false,
       sound: true,
-      widgets: false
+      widgets: false,
+      g3
     };
   },
-  props: [
-    "judul",
-    "deskripsi",
-    "poto",
-    "namakarya",
-    "",
-    "deskripsii",
-    "link",
-    "vid"
-  ]
+  components: {},
+  computed: {
+    ...mapGetters(["gettersKarya"])
+  }
 };
 </script>
 

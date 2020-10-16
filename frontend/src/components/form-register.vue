@@ -210,7 +210,7 @@
         <v-row>
           <v-col>
             <v-file-input
-              v-model="inputFiles"
+              v-model="uploadedFiles"
               multiple
               :rules="inputVal"
               label="Upload your CV*"
@@ -310,7 +310,7 @@ export default {
         bootCamp: "",
         uploadedFileResponses: []
       },
-      uploadedFiles: [],
+      uploadedFiles: null,
 
       // validate
       // nameVal: [v => v.length >= 3 || "name length is 3 character"],
@@ -338,7 +338,7 @@ export default {
     submit: async function() {
       // data file
       let formData = await new FormData();
-      console.log(this.uploadedFiles);
+      console.log('state ', this.uploadedFiles);
 
       // single file
       // formData.append("file", this.uploadedFiles);
@@ -354,7 +354,7 @@ export default {
         formData.append("files", file);
       });
 
-      console.log("input file ", formData.getAll("file"));
+      console.log("input file ", formData.getAll("files"));
 
       if (this.$refs.form.validate()) {
         this.isLoading = true;

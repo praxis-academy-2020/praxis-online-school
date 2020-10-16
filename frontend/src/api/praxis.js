@@ -24,7 +24,7 @@ export const getPeserta = function(headers){
 
 // KARYA
 export const getKarya = function(){
-    return Api.get('/praxis/')
+    return Api.get('/praxis/karya/get')
 }
 
 export const postKarya = function(data){
