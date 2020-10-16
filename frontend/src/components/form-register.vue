@@ -313,25 +313,25 @@ export default {
       uploadedFiles: null,
 
       // validate
-      // nameVal: [v => v.length >= 3 || "name length is 3 character"],
-      // programVal: [v => !!v || "required"],
-      // emailVal: [
-      //   v => !!v || "E-mail is required",
-      //   v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-      // ],
-      // tempatlahirVal: [v => !!v || "required"],
-      // kotaasalVal: [v => !!v || "required"],
-      // status: [v => !!v || "required"],
-      // nomorhpVal: [v => !!v || "required"],
-      // alamatVal: [v => !!v || "required"],
-      // pendidikanVal: [v => !!v || "required"],
-      // namakampusVal: [v => !!v || "required"],
-      // alamatkampusVal: [v => !!v || "required"],
-      // alasanikutVal: [v => !!v || "required"],
-      // menyelesaikanVal: [v => !!v || "required"],
-      // referensiVal: [v => !!v || "required"],
-      // mediasosialVal: [v => !!v || "required"],
-      // inputVal: [v => !!v || "required"]
+      nameVal: [v => v.length >= 3 || "name length is 3 character"],
+      programVal: [v => !!v || "required"],
+      emailVal: [
+        v => !!v || "E-mail is required",
+        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      ],
+      tempatlahirVal: [v => !!v || "required"],
+      kotaasalVal: [v => !!v || "required"],
+      status: [v => !!v || "required"],
+      nomorhpVal: [v => !!v || "required"],
+      alamatVal: [v => !!v || "required"],
+      pendidikanVal: [v => !!v || "required"],
+      namakampusVal: [v => !!v || "required"],
+      alamatkampusVal: [v => !!v || "required"],
+      alasanikutVal: [v => !!v || "required"],
+      menyelesaikanVal: [v => !!v || "required"],
+      referensiVal: [v => !!v || "required"],
+      mediasosialVal: [v => !!v || "required"],
+      inputVal: [v => !!v || "required"]
     };
   },
   methods: {

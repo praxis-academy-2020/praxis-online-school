@@ -11,6 +11,9 @@
             <template v-slot:activator="{ on, attrs }">
               <v-btn color="#112d4e" dark v-bind="attrs" v-on="on" small>Open Dialog</v-btn>
             </template>
+
+            <!-- modal -->
+
             <v-card>
               <v-toolbar dark color="primary">
                 <v-btn small icon dark @click="dialog = false">
@@ -19,8 +22,6 @@
                 <v-toolbar-title>{{item.namaKarya}}</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
-
-              <!-- modal -->
 
               <v-row class="mt-10">
                 <v-col cols="3" class="d-none d-sm-flex">
@@ -49,7 +50,12 @@
 
                     <h1 class="mt-15">Nama Team:</h1>
                     <v-row>
-                      <v-col cols="12" sm="4" v-for="(data, index) in item.anggotaKaryas" :key="index">
+                      <v-col
+                        cols="12"
+                        sm="4"
+                        v-for="(data, index) in item.anggotaKaryas"
+                        :key="index"
+                      >
                         <v-img src="@/assets/profil.png" width="200" class="center"></v-img>
                         <h4>{{data.anggota}}</h4>
                         <h6>{{data.roleAnggota}}</h6>
