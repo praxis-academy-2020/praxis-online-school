@@ -213,7 +213,7 @@
               <template v-slot:activator="{ on, attrs }">
                 <div>
                   <p>Unggah CV anda :</p>
-                  <v-btn color="primary" dark v-bind="attrs" v-on="on">Tambahkan file</v-btn>
+                  <v-btn color="primary" dark v-bind="attrs" @click="files()" v-on="on">Tambahkan file</v-btn>
                 </div>
               </template>
 
@@ -232,13 +232,14 @@
                             multiple
                             @change="files()"
                             :rules="inputVal"
+                            accept="image/png, image/jpeg, image/bmp"
                             label="Upload your CV*"
                           ></v-file-input>
                         </v-form>
                       </v-col>
                     </v-row>
                   </v-container>
-                  <small>*indicates required field</small>
+
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -247,7 +248,7 @@
                   </div>
 
                   <div v-else>
-                    <v-btn color="blue darken-1" text @click="dialog = false">Cancel</v-btn>
+                    <v-btn color="blue darken-1" text @click="cancelFiles()">Cancel</v-btn>
                     <v-btn
                       color="blue darken-1"
                       v-show="this.showButton"
@@ -263,7 +264,7 @@
               <v-btn
                 class="mt-5 rounded"
                 
-              >{{this.uploadedFiles === null ? "No files" : this.uploadedFiles.length}}</v-btn>
+              >{{this.uploadedFiles === null ? "No files" : this.uploadedFiles.length + " files"}}</v-btn>
             </div>
           </v-col>
         </v-row>
@@ -392,7 +393,11 @@ export default {
     };
   },
   methods: {
-    files: function() {
+    cancelFiles(){
+      this.dialog = false;
+      this.uploadedFiles = [];
+    },
+    files() {
       if (this.uploadedFiles.length > 0) {
         this.showButton = true;
       } else {
