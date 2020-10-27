@@ -68,6 +68,11 @@ const routes = [
         component: () => import('../views/admin/Tampil-table.vue')
       }
     ]
+  },
+  {
+    path: "/program/:name",
+    name: "Program",
+    component: () => import('../views/Program.vue')
   }
 ]
 
