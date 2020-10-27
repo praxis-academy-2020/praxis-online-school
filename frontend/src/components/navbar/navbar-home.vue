@@ -20,13 +20,13 @@
             </template>
 
             <v-list>
-              <router-link to="program/fullstack-developer">
+              <router-link to="/program/fullstack-developer">
                 <v-list-item>
                   <v-list-item-title>Fullstack developer</v-list-item-title>
                 </v-list-item>
               </router-link>
 
-              <router-link to="program/python-developer">
+              <router-link to="/program/python-developer">
                 <v-list-item>
                   <v-list-item-title
                     >Python developer</v-list-item-title
@@ -34,19 +34,19 @@
                 </v-list-item>
               </router-link>
 
-              <router-link to="program/frontend-developer">
+              <router-link to="/program/frontend-developer">
                 <v-list-item>
                   <v-list-item-title>Frontend developer</v-list-item-title>
                 </v-list-item>
               </router-link>
 
-              <router-link to="program/mobile-developer">
+              <router-link to="/program/mobile-developer">
                 <v-list-item>
                   <v-list-item-title>Mobile developer</v-list-item-title>
                 </v-list-item>
               </router-link>
 
-              <router-link to="program/nodejs-programming">
+              <router-link to="/program/nodejs-programming">
                 <v-list-item>
                   <v-list-item-title>Nodejs programming</v-list-item-title>
                 </v-list-item>
