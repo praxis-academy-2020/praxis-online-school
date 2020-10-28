@@ -1,14 +1,5 @@
 <template>
-    <div class="grey">
+    <div class="grey lighten-4">
         pengertian
     </div>
 </template>
-
-<script>
-export default {
-    
-}
-</script>
-<style  scoped>
-
-</style>
