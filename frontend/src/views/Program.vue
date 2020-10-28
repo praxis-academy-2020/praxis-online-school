@@ -6,8 +6,6 @@
         <Pengertian />
         <Silabus />
         <Ajakan />
-      <h1>Program {{ this.$route.params.name }}</h1>
-        
     </div>
     <foot />
   </div>
@@ -30,6 +28,9 @@ export default {
     Silabus,
     Ajakan,
   },
+  mounted(){
+    scrollTo(0, 0)
+  }
 };
 </script>
 

@@ -9,7 +9,7 @@
       </div>
 
       <v-btn to="/register/syarat" large color="#63D0FF" class="white--text">
-        daftar
+        daftar sekarang
       </v-btn>
     </div>
   </div>
