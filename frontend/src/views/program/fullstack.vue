@@ -3,7 +3,14 @@
     <nava />
     <div>
       <hero 
-        title="Fullstack developer"
+        title="Fullstack developer" 
+        disk="Program belajar untuk menjadi seorang Fullstack developer, meningkatkan skill pemrogramman Fullstack, dan GRATIS."
+      />
+      <pengertian 
+      :src="gmb"
+      judul="Fullstack"
+      keterangan=" Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, temporibus aliquam! Ab exercitationem ea sequi eius rem? Magni odit ut, dolor quod itaque fuga vel numquam reiciendis sunt, impedit porro?"
+      />
       />
     </div>
     <foot />
@@ -14,12 +21,19 @@
 import nava from "@/components/navbar/navbar-home.vue";
 import foot from "@/components/footer/footer-home.vue";
 import hero from "@/components/program/hero.vue";
-
+import pengertian from "@/components/program/pengertian.vue"
+import gmb from "@/assets/program/ill1.svg";
 export default {
+  data(){
+    return{
+      gmb
+    }
+  },
   components: {
     nava,
     foot,
     hero,
+    pengertian,
   },
 };
 </script>

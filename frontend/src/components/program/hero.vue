@@ -5,10 +5,7 @@
         <v-col cols="12" md="6">
           <div class="text-h3 py-5">{{title}}</div>
           <div class="py-5">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Consectetur, cupiditate eveniet excepturi eaque minus dolorem
-            recusandae rerum unde impedit incidunt aliquam. Rem, aperiam
-            adipisci asperiores totam inventore culpa vel mollitia!
+           {{disk}}
           </div>
 
           <div class="pt-10">
@@ -33,6 +30,6 @@
 
 <script>
 export default {
-  props: ['title']
+  props: ['title','disk']
 };
 </script>
