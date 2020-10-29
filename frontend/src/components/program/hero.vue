@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" md="6">
-          <div class="text-h3 py-5">Frontend developer</div>
+          <div class="text-h3 py-5">{{title}}</div>
           <div class="py-5">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             Consectetur, cupiditate eveniet excepturi eaque minus dolorem
@@ -32,5 +32,7 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['title']
+};
 </script>

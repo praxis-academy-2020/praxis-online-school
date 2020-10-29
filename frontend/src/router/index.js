@@ -70,9 +70,14 @@ const routes = [
     ]
   },
   {
-    path: "/program/:name",
-    name: "Program",
-    component: () => import('../views/Program.vue')
+    path: "/program/frontend-developer",
+    name: "Frontend",
+    component: () => import('../views/program/frontend.vue')
+  },
+  {
+    path: "/program/fullstack-developer",
+    name: "Fullstack",
+    component: () => import('../views/program/fullstack.vue')
   }
 ]
 
