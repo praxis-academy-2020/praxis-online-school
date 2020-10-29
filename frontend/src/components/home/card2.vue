@@ -1,4 +1,5 @@
 <template>
+<div class="blue lighten-4">
   <v-container>
     <div class="mt-5 mb-5 text-center">
       <h1>KARYA KITA</h1>
@@ -73,6 +74,7 @@
       </v-col>
     </v-row>
   </v-container>
+  </div>
 </template>
 
 <script>
