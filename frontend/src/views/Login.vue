@@ -71,8 +71,6 @@ export default {
       if (this.$refs.form.validate()) {
         this.isLoading = true;
         api.login(this.form)
-        // axios
-        //   .post("http://192.168.43.56:8080/api/auth/signin", this.form)
           .then(res => {
             console.log(res);
             localStorage.setItem(res.data.tokenType, res.data.accessToken);
