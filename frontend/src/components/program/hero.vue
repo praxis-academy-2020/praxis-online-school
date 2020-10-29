@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 80px 0">
+  <div style="padding: 100px 0 0 0">
     <v-container>
       <v-row>
         <v-col cols="12" md="6">
