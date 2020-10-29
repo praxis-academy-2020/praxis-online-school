@@ -2,13 +2,13 @@
   <div>
     <navbarHome :isInverted="true" />
     <corosel />
-    <fas />
-    <abouts />
+    <!-- <fas /> -->
     <cardss />
-    <paralx />
+    <!-- <abouts /> -->
     
+    <paralx />
     <silab/>
-    <daftarkuy />
+    <!-- <daftarkuy /> -->
     <!-- <cardsss /> -->
     <aboutss />
     
@@ -20,15 +20,15 @@
 <script>
 import navbarHome from "@/components/navbar/navbar-home.vue";
 import corosel from "@/components/home/carousel.vue";
-import abouts from "@/components/home/about.vue";
-import aboutss from "@/components/home/about2.vue";
+// import abouts from "@/components/home/about.vue";
+// import aboutss from "@/components/home/about2.vue";
 import cardss from "@/components/home/card2.vue";
 // import cardsss from "@/components/home/card3.vue";
 // import slidee from "@/components/home/slide.vue";
 import paralx from "@/components/home/paralax.vue";
-import daftarkuy from "@/components/home/daftar.vue";
+// import daftarkuy from "@/components/home/daftar.vue";
 import foot from "@/components/footer/footer-home.vue";
-import fas from "@/components/home/fasilitas.vue";
+// import fas from "@/components/home/fasilitas.vue";
 import silab from "@/components/home/silabus.vue"
 export default {
   name: "Home",
@@ -39,12 +39,12 @@ export default {
     corosel,
     cardss,
     // cardsss,
-    abouts,
+    // abouts,
     paralx,
-    aboutss,
-    daftarkuy,
+    // aboutss,
+    // daftarkuy,
     foot,
-    fas,
+    // fas,
     silab
   },
   beforeCreate() {
