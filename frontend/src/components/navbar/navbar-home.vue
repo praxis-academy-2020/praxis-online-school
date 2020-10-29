@@ -2,7 +2,7 @@
   <div id="navbarr">
     <v-card class="mx-auto overflow-hidden ukuran">
       <!-- dekstop -->
-      <v-app-bar color="primary" dark fixed>
+      <v-app-bar color="#00ffff" dark fixed elevate-on-scroll class="py-10">
         <router-link to="/" class="text-decoration-none">
           <v-toolbar-title>
             <v-img :src="logo" width="50" />
@@ -61,11 +61,11 @@
           </router-link>
         </div>
 
-        <div class="mr-5 hidden-xs-only">
+        <!-- <div class="mr-5 hidden-xs-only">
           <router-link to="/activity" class="text-decoration-none">
             <span class="white--text">Kegiatan</span>
           </router-link>
-        </div>
+        </div> -->
 
         <div class="mr-5 hidden-xs-only">
           <router-link to="/register/syarat" class="text-decoration-none">
@@ -156,6 +156,6 @@ export default {
 </script>
 <style scoped>
 .ukuran {
-  font-size: 12px;
+  font-size: 15px;
 }
 </style>

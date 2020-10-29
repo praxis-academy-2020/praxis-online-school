@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="grad1">
     <v-row>
-      <v-col class="d-flex align-self-center" cols="12" sm="12" md="6">
+      <v-col class="d-flex align-self-center " cols="12" sm="12" md="6">
         <div>
           <h1 class="ml-10">Jadilah Tech Talent Masa Depan!</h1>
           <p
@@ -63,5 +63,8 @@ export default {
   width: 30%;
   height: 100%;
   font-size: 107%;
+}
+.grad1 {
+  background-image: linear-gradient(to top, rgba(255,0,0,0), #00ffff 100%);
 }
 </style>
