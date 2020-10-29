@@ -65,6 +65,6 @@ export default {
   font-size: 107%;
 }
 .grad1 {
-  background-image: linear-gradient(to top, rgba(255,0,0,0), #00ffff 100%);
+  background-image: linear-gradient(to top, rgba(255,0,0,0), #0B55D3 100%);
 }
 </style>
