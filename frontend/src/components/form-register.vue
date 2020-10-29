@@ -207,18 +207,73 @@
           </v-col>
         </v-row>
 
-        <v-row>
-          <v-col>
-            <v-file-input
-              v-model="inputFiles"
-              multiple
-              :rules="inputVal"
-              label="Upload your CV*"
-            ></v-file-input>
+        <v-row class="d-flex flex-column">
+          <v-col class="d-flex flex-column">
+            <v-dialog v-model="dialog" persistent max-width="600px">
+              <template v-slot:activator="{ on, attrs }">
+                <div>
+                  <p>Unggah CV anda :</p>
+                  <v-btn color="primary" dark v-bind="attrs" @click="files()" v-on="on">Tambahkan file</v-btn>
+                </div>
+              </template>
+
+              <!-- modal -->
+              <v-card>
+                <v-card-title>
+                  <span class="headline">Tambahkan file</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col>
+                        <v-form ref="files" lazy-validation>
+                          <v-file-input
+                            v-model="uploadedFiles"
+                            multiple
+                            @change="files()"
+                            :rules="inputVal"
+                            accept="image/png, image/jpeg, image/bmp"
+                            label="Upload your CV*"
+                          ></v-file-input>
+                        </v-form>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <div v-if="isLoadingDialog">
+                    <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                  </div>
+
+                  <div v-else>
+                    <v-btn color="blue darken-1" text @click="cancelFiles()">Cancel</v-btn>
+                    <v-btn
+                      color="blue darken-1"
+                      v-show="this.showButton"
+                      text
+                      @click="upload()"
+                    >Upload</v-btn>
+                  </div>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+
+            <div>
+              <v-btn
+                class="mt-5 rounded"
+                
+              >{{this.uploadedFiles === null ? "No files" : this.uploadedFiles.length + " files"}}</v-btn>
+            </div>
           </v-col>
         </v-row>
 
-        <small>*wajib diisi</small>
+        <v-row class="mt-15">
+          <v-col>
+            <small>*wajib diisi</small>
+          </v-col>
+        </v-row>
 
         <div v-show="isError">
           <v-row class="d-flex justify-center">
@@ -266,6 +321,9 @@ export default {
       isErrorNetwork: false,
       tanggal: false,
       isLoading: false,
+      dialog: false,
+      isLoadingDialog: false,
+      showButton: false,
 
       // select
       kelas: [
@@ -313,55 +371,63 @@ export default {
       uploadedFiles: [],
 
       // validate
-      // nameVal: [v => v.length >= 3 || "name length is 3 character"],
-      // programVal: [v => !!v || "required"],
-      // emailVal: [
-      //   v => !!v || "E-mail is required",
-      //   v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-      // ],
-      // tempatlahirVal: [v => !!v || "required"],
-      // kotaasalVal: [v => !!v || "required"],
-      // status: [v => !!v || "required"],
-      // nomorhpVal: [v => !!v || "required"],
-      // alamatVal: [v => !!v || "required"],
-      // pendidikanVal: [v => !!v || "required"],
-      // namakampusVal: [v => !!v || "required"],
-      // alamatkampusVal: [v => !!v || "required"],
-      // alasanikutVal: [v => !!v || "required"],
-      // menyelesaikanVal: [v => !!v || "required"],
-      // referensiVal: [v => !!v || "required"],
-      // mediasosialVal: [v => !!v || "required"],
-      // inputVal: [v => !!v || "required"]
+      nameVal: [v => v.length >= 3 || "name length is 3 character"],
+      programVal: [v => !!v || "required"],
+      emailVal: [
+        v => !!v || "E-mail is required",
+        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      ],
+      tempatlahirVal: [v => !!v || "required"],
+      kotaasalVal: [v => !!v || "required"],
+      status: [v => !!v || "required"],
+      nomorhpVal: [v => !!v || "required"],
+      alamatVal: [v => !!v || "required"],
+      pendidikanVal: [v => !!v || "required"],
+      namakampusVal: [v => !!v || "required"],
+      alamatkampusVal: [v => !!v || "required"],
+      alasanikutVal: [v => !!v || "required"],
+      menyelesaikanVal: [v => !!v || "required"],
+      referensiVal: [v => !!v || "required"],
+      mediasosialVal: [v => !!v || "required"],
+      inputVal: [v => !!v || "required"]
     };
   },
   methods: {
-    submit: async function() {
-      // data file
-      let formData = await new FormData();
-      console.log(this.uploadedFiles);
-
-      // single file
-      // formData.append("file", this.uploadedFiles);
-
-      // multi file 1
-      // for(let i = 0; i < this.uploadedFiles.length; i++){
-      //   let file = this.uploadedFiles[i];
-      //   formData.append("file", file);
-      // }
-
-      // multi file 2
-      this.uploadedFiles.forEach(file => {
-        formData.append("files", file);
-      });
-
-      console.log("input file ", formData.getAll("file"));
-
-      if (this.$refs.form.validate()) {
-        this.isLoading = true;
+    cancelFiles(){
+      this.dialog = false;
+      this.uploadedFiles = [];
+    },
+    files() {
+      if (this.uploadedFiles.length > 0) {
+        this.showButton = true;
+      } else {
+        this.showButton = false;
+      }
+    },
+    upload: async function() {
+      if (this.$refs.files.validate()) {
+        this.isLoadingDialog = true;
 
         try {
-          // data
-          let data = await api.postPeserta(this.data);
+          // data file
+          let formData = await new FormData();
+          console.log("state ", this.uploadedFiles);
+
+          // single file
+          // formData.append("file", this.uploadedFiles);
+
+          // multi file 1
+          // for(let i = 0; i < this.uploadedFiles.length; i++){
+          //   let file = this.uploadedFiles[i];
+          //   formData.append("file", file);
+          // }
+
+          // multi file 2
+          this.uploadedFiles.forEach(file => {
+            formData.append("files", file);
+          });
+
+          console.log("input file ", formData.getAll("files"));
 
           // file
           // let file = await api.postFile(formData, {
@@ -377,15 +443,30 @@ export default {
             }
           });
 
-          // all data
-          // let allData = await api.postPeserta(formData, {
-          //   headers: {
-          //     "Content-Type": "multipart/form-data"
-          //   }
-          // });
+          let data = files.data;
+
+          console.log("file upload ", data);
+          this.isLoadingDialog = false;
+        } catch (err) {
+          console.log("err file ", err);
+          this.isLoadingDialog = false;
+        }
+      } else {
+        this.isLoadingDialog = false;
+        console.log("upload error coyy");
+      }
+    },
+
+    submit: async function() {
+      if (this.$refs.form.validate()) {
+        this.isLoading = true;
+
+        try {
+          // data
+          let data = await api.postPeserta(this.data);
 
           // selesai
-          console.log("selesai ", files, data);
+          console.log("selesai ", data);
           this.$swal({
             icon: "success",
             title: "Berhasil mendaftar"

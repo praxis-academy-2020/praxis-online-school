@@ -16,7 +16,8 @@
 
         <v-data-table :headers="headers" :items="gettersApiPeserta" :search="search">
           <template v-slot:item.actions="{ item }">
-            <v-icon class="mr-3" @click="download(id)">mdi-arrow-down-thin-circle-outline</v-icon>
+            <v-progress-circular v-if="isDownload" indeterminate color="primary"></v-progress-circular>
+            <v-icon class="mr-3" v-else @click="download(item.id)">mdi-arrow-down-thin-circle-outline</v-icon>
             <v-icon class="mr-3" @click="deleteItem(item.userId)">mdi-delete</v-icon>
           </template>
         </v-data-table>

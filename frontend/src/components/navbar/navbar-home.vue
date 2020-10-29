@@ -2,7 +2,7 @@
   <div id="navbarr">
     <v-card class="mx-auto overflow-hidden ukuran">
       <!-- dekstop -->
-      <v-app-bar color="primary" dark fixed >
+      <v-app-bar color="primary" dark fixed>
         <router-link to="/" class="text-decoration-none">
           <v-toolbar-title>
             <v-img :src="logo" width="50" />
@@ -20,24 +20,37 @@
             </template>
 
             <v-list>
-              <v-list-item>
-                <v-list-item-title>Fullstack developer</v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-title>Enterprise Python developer</v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-title>Frontend developer</v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-title>Mobile developer</v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-title>Nodejs programming</v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-title>UI/UX Designer</v-list-item-title>
-              </v-list-item>
+              <router-link to="/program/fullstack-developer">
+                <v-list-item>
+                  <v-list-item-title>Fullstack developer</v-list-item-title>
+                </v-list-item>
+              </router-link>
+
+              <router-link to="/program/python-developer">
+                <v-list-item>
+                  <v-list-item-title
+                    >Python developer</v-list-item-title
+                  >
+                </v-list-item>
+              </router-link>
+
+              <router-link to="/program/frontend-developer">
+                <v-list-item>
+                  <v-list-item-title>Frontend developer</v-list-item-title>
+                </v-list-item>
+              </router-link>
+
+              <router-link to="/program/mobile-developer">
+                <v-list-item>
+                  <v-list-item-title>Mobile developer</v-list-item-title>
+                </v-list-item>
+              </router-link>
+
+              <router-link to="/program/nodejs-programming">
+                <v-list-item>
+                  <v-list-item-title>Nodejs programming</v-list-item-title>
+                </v-list-item>
+              </router-link>
             </v-list>
           </v-menu>
         </div>
@@ -60,7 +73,10 @@
           </router-link>
         </div>
 
-        <v-app-bar-nav-icon class="hidden-sm-and-up" @click="sideNav = true"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon
+          class="hidden-sm-and-up"
+          @click="sideNav = true"
+        ></v-app-bar-nav-icon>
       </v-app-bar>
 
       <!-- mobile -->
@@ -94,19 +110,28 @@
 
             <router-link to="/creation" class="text-decoration-none">
               <v-list-item>
-                <v-list-item-title class="black--text ukurann">Karya</v-list-item-title>
+                <v-list-item-title class="black--text ukurann"
+                  >Karya</v-list-item-title
+                >
               </v-list-item>
             </router-link>
 
             <router-link to="/activity" class="text-decoration-none">
               <v-list-item>
-                <v-list-item-title class="black--text ukurann">Kegiatan</v-list-item-title>
+                <v-list-item-title class="black--text ukurann"
+                  >Kegiatan</v-list-item-title
+                >
               </v-list-item>
             </router-link>
 
-            <router-link to="/register/syarat" class="text-decoration-none ukurann">
+            <router-link
+              to="/register/syarat"
+              class="text-decoration-none ukurann"
+            >
               <v-list-item>
-                <v-list-item-title class="black--text">Bootcamp</v-list-item-title>
+                <v-list-item-title class="black--text"
+                  >Bootcamp</v-list-item-title
+                >
               </v-list-item>
             </router-link>
           </v-list-item-group>
@@ -123,10 +148,10 @@ export default {
   data: () => {
     return {
       sideNav: false,
-      logo
+      logo,
     };
   },
-  props: ['isInverted']
+  props: ["isInverted"],
 };
 </script>
 <style scoped>

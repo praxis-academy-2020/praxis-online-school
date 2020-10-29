@@ -10,32 +10,7 @@ export default new Vuex.Store({
     user: "",
     cv: [],
     peserta: [],
-    karya: [
-      {
-        id: 1,
-        title: "JOB DEV",
-        deskripsi: "diskripsi",
-        github: 'github',
-        anggota: ['1', '2', '3'],
-        src: "https://www.youtube.com/embed/FaAtjbyqGns"
-      },
-      {
-        id: 2,
-        title: "title",
-        deskripsi: "diskripsi",
-        github: 'github',
-        anggota: ['1', '2', '3'],
-        src: "https://www.youtube.com/embed/IQw-4JABPCM"
-      },
-      {
-        id: 3,
-        title: "title",
-        deskripsi: "diskripsi",
-        github: 'github',
-        anggota: ['1', '2', '3'],
-        src: "https://www.youtube.com/embed/IQw-4JABPCM"
-      }
-    ]
+    karya: []
   },
   getters: {
     gettersApiPeserta: function (state) {
@@ -109,6 +84,13 @@ export default new Vuex.Store({
           console.log("get api", state.peserta)
         })
         .catch(err => console.log(err))
+    },
+
+    getApiKarya: async function(state){
+      let res = await api.getKarya()
+      let data = await res.data;
+      state.karya = data;
+      console.log(data)
     }
   },
   actions: {
@@ -120,6 +102,9 @@ export default new Vuex.Store({
     },
     getApiUser: function ({ commit }) {
       commit('getApiUser')
+    },
+    getApiKarya: function({commit}){
+      commit('getApiKarya')
     }
   },
   modules: {

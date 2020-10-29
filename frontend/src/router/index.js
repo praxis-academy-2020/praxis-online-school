@@ -68,6 +68,31 @@ const routes = [
         component: () => import('../views/admin/Tampil-table.vue')
       }
     ]
+  },
+  {
+    path: "/program/frontend-developer",
+    name: "Frontend",
+    component: () => import('../views/program/frontend.vue')
+  },
+  {
+    path: "/program/fullstack-developer",
+    name: "Fullstack",
+    component: () => import('../views/program/fullstack.vue')
+  },
+  {
+    path: "/program/python-developer",
+    name: "Frontend",
+    component: () => import('../views/program/python.vue')
+  },
+  {
+    path: "/program/nodejs-programming",
+    name: "Fullstack",
+    component: () => import('../views/program/nodejs.vue')
+  },
+  {
+    path: "/program/mobile-developer",
+    name: "Frontend",
+    component: () => import('../views/program/mobile.vue')
   }
 ]
 
