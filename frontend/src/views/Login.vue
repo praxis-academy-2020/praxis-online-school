@@ -39,7 +39,7 @@
                     <v-progress-circular :width="3" indeterminate color="primary"></v-progress-circular>
                   </div>
                   <div v-else>
-                    <v-btn color="primary" @click="login">Login</v-btn>
+                    <tombol text="Login" @click="login()" />
                   </div>
                 </div>
               </v-card-actions>
@@ -53,6 +53,7 @@
 
 <script>
 import * as api from '../api/praxis'
+import tombol from "@/components/button.vue"
 
 export default {
   data: () => {
@@ -65,6 +66,9 @@ export default {
       nameVal: [v => !!v || "required"],
       passwordVal: [v => !!v || "required"]
     };
+  },
+  components: {
+    tombol
   },
   methods: {
     login: function() {

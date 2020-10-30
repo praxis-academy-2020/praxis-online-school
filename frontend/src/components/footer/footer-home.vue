@@ -1,6 +1,7 @@
 <template>
   <v-footer color="#fff">
     <v-container>
+      <hr>
       <v-row class="pt-16">
         <v-col cols="12" sm="4">
           <h3 class="mb-5">PRAXIS ACADEMY</h3>

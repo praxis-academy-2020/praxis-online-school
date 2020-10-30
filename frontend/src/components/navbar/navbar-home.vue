@@ -20,33 +20,46 @@
             </template>
 
             <v-list>
-              <router-link to="/program/fullstack-developer">
+              <router-link
+                to="/program/fullstack-developer"
+                class="text-decoration-none"
+              >
                 <v-list-item>
                   <v-list-item-title>Fullstack developer</v-list-item-title>
                 </v-list-item>
               </router-link>
 
-              <router-link to="/program/python-developer">
+              <router-link
+                to="/program/python-developer"
+                class="text-decoration-none"
+              >
                 <v-list-item>
-                  <v-list-item-title
-                    >Python developer</v-list-item-title
-                  >
+                  <v-list-item-title>Python developer</v-list-item-title>
                 </v-list-item>
               </router-link>
 
-              <router-link to="/program/frontend-developer">
+              <router-link
+                to="/program/frontend-developer"
+                class="text-decoration-none"
+              >
                 <v-list-item>
                   <v-list-item-title>Frontend developer</v-list-item-title>
                 </v-list-item>
               </router-link>
 
-              <router-link to="/program/mobile-developer">
+              <router-link
+                to="/program/mobile-developer"
+                class="text-decoration-none"
+              >
                 <v-list-item>
                   <v-list-item-title>Mobile developer</v-list-item-title>
                 </v-list-item>
               </router-link>
 
-              <router-link to="/program/nodejs-programming">
+              <router-link
+                to="/program/nodejs-programming"
+                class="text-decoration-none"
+              >
                 <v-list-item>
                   <v-list-item-title>Nodejs programming</v-list-item-title>
                 </v-list-item>
@@ -104,9 +117,6 @@
 
         <v-list nav dense>
           <v-list-item-group>
-            <v-list-item>
-              <v-list-item-title>Program</v-list-item-title>
-            </v-list-item>
 
             <router-link to="/creation" class="text-decoration-none">
               <v-list-item>
@@ -116,13 +126,13 @@
               </v-list-item>
             </router-link>
 
-            <router-link to="/activity" class="text-decoration-none">
+            <!-- <router-link to="/activity" class="text-decoration-none">
               <v-list-item>
                 <v-list-item-title class="black--text ukurann"
                   >Kegiatan</v-list-item-title
                 >
               </v-list-item>
-            </router-link>
+            </router-link> -->
 
             <router-link
               to="/register/syarat"
