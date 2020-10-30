@@ -3,7 +3,9 @@
     <v-container>
       <v-row>
         <v-col class="d-flex justify-center mb-10">
-          <h1>Karya kita</h1>
+          <div class="mb-10 text-h4 text-sm-h3 font-weight-medium">
+            Karya Praxis Academy
+          </div>
         </v-col>
       </v-row>
       <v-row class="mx-auto">

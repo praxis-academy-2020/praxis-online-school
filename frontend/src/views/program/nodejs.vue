@@ -30,7 +30,7 @@ import nava from "@/components/navbar/navbar-home.vue";
 import foot from "@/components/footer/footer-home.vue";
 import hero from "@/components/program/hero.vue";
 import pengertian from "@/components/program/pengertian.vue";
-import gmb from "@/assets/program/ill1.svg";
+import gmb from "@/assets/program/ill2.svg";
 import silabus from "@/components/program/silabus.vue";
 import ajakan from "@/components/program/ajakan.vue";
 

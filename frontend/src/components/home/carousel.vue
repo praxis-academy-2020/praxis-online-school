@@ -1,29 +1,27 @@
 <template>
   <div class="grad1">
     <v-container>
-    <v-row>
-      <v-col
-        class="d-flex align-self-center white--text"
-        cols="12"
-        sm="12"
-        md="6"
-      >
-        <div>
-          <h1>Jadilah Tech Talent Masa Depan!</h1>
-          <p class="mt-5 mb-15">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-            provident incidunt in eum! Illum, dignissimos recusandae unde ipsa
-            eaque cupiditate provident nemo sint molestiae cum? Est velit
-            necessitatibus autem eligendi.
-          </p>
-          <tombol text="daftar sekarang" />
-        </div>
-      </v-col>
-      <v-col cols="12" sm="12" md="6">
-        <v-img class src="@/assets/carousel/hhh.png"></v-img>
-        
-      </v-col>
-    </v-row>
+      <v-row>
+        <v-col
+          class="d-flex white--text"
+          cols="12"
+          sm="12"
+          md="6"
+        >
+          <div>
+            <div class="my-sm-16 my-10 text-h4 text-sm-h3 font-weight-medium">
+              Menjadi Developer Bertalenta bersama Praxis Academy
+            </div>
+            <!-- <p class="mt-5 mb-15">
+              Coding School for Enterprise System
+            </p> -->
+            <tombol text="daftar sekarang" />
+          </div>
+        </v-col>
+        <v-col cols="12" sm="12" md="6">
+          <v-img class src="@/assets/carousel/hhh.png"></v-img>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>

@@ -1,9 +1,11 @@
 <template>
-  <div style="padding: 100px 0 0 0">
+  <div style="padding: 130px 0 100px 0">
     <v-container>
       <v-row>
-        <v-col cols="12" md="6">
-          <div class="text-h3 py-5">{{title}}</div>
+        <v-col cols="12" md="6" class="align-self-center">
+          <div class="mb-10 text-h4 text-sm-h3 font-weight-medium">
+            {{title}}
+          </div>
           <div class="py-5">
            {{disk}}
           </div>

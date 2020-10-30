@@ -2,7 +2,7 @@
   <div>
     <!-- card -->
     <v-col>
-      <v-card class="mx-auto d" max-width="200" :elevation="4">
+      <v-card class="mx-auto d" max-width="250" :elevation="5">
         <v-img max-height="100" :src="poto"></v-img>
         <h3 class="mt-7 mb-7 text-center">{{ judul }}</h3>
 
@@ -166,8 +166,5 @@ export default {
 }
 iframe {
   border-radius: 10px;
-}
-.d {
-  border-radius: 20px;
 }
 </style>
