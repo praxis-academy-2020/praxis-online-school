@@ -74,11 +74,11 @@
           </router-link>
         </div>
 
-        <!-- <div class="mr-5 hidden-xs-only">
+        <div class="mr-5 hidden-xs-only">
           <router-link to="/activity" class="text-decoration-none">
             <span class="white--text">Kegiatan</span>
           </router-link>
-        </div> -->
+        </div>
 
         <div class="mr-5 hidden-xs-only">
           <router-link to="/register/syarat" class="text-decoration-none">

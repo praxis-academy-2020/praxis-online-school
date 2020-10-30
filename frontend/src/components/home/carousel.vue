@@ -21,6 +21,7 @@
       </v-col>
       <v-col cols="12" sm="12" md="6">
         <v-img class src="@/assets/carousel/hhh.png"></v-img>
+        
       </v-col>
     </v-row>
     </v-container>
