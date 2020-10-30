@@ -9,7 +9,12 @@
       <v-form ref="form" lazy-validation>
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.namaUser" label="Name*" :rules="nameVal" required></v-text-field>
+            <v-text-field
+              v-model="data.namaUser"
+              label="Name*"
+              :rules="nameVal"
+              required
+            ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-select
@@ -24,7 +29,12 @@
 
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.emailUser" :rules="emailVal" label="Email*" required></v-text-field>
+            <v-text-field
+              v-model="data.emailUser"
+              :rules="emailVal"
+              label="Email*"
+              required
+            ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
             <v-menu
@@ -46,23 +56,41 @@
                   v-on="on"
                 ></v-text-field>
               </template>
-              <v-date-picker v-model="data.tanggalLahir" @input="tanggal = false"></v-date-picker>
+              <v-date-picker
+                v-model="data.tanggalLahir"
+                @input="tanggal = false"
+              ></v-date-picker>
             </v-menu>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.tempatLahir" :rules="status" label="Tempat lahir*" required></v-text-field>
+            <v-text-field
+              v-model="data.tempatLahir"
+              :rules="status"
+              label="Tempat lahir*"
+              required
+            ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="data.nomorHape" :rules="nomorhpVal" label="Nomor HP*" required></v-text-field>
+            <v-text-field
+              v-model="data.nomorHape"
+              :rules="nomorhpVal"
+              label="Nomor HP*"
+              required
+            ></v-text-field>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col>
-            <v-text-field v-model="data.kotaAsal" :rules="kotaasalVal" label="Kota asal*" required></v-text-field>
+            <v-text-field
+              v-model="data.kotaAsal"
+              :rules="kotaasalVal"
+              label="Kota asal*"
+              required
+            ></v-text-field>
           </v-col>
         </v-row>
 
@@ -154,7 +182,9 @@
 
         <v-row>
           <v-col>
-            <p>Apakah anda bersedia menyelesaikan pendidikan sampai selesai?*</p>
+            <p>
+              Apakah anda bersedia menyelesaikan pendidikan sampai selesai?*
+            </p>
             <v-radio-group :rules="menyelesaikanVal" v-model="data.komitmen">
               <v-radio label="Ya" value="Ya"></v-radio>
               <v-radio label="Tidak" value="Tidak"></v-radio>
@@ -188,12 +218,36 @@
         <v-row>
           <v-col>
             <p>Mengetahui informasi bootcamp dari:</p>
-            <v-checkbox v-model="data.bootCamp" label="Facebook" value="Facebook"></v-checkbox>
-            <v-checkbox v-model="data.bootCamp" label="Instagram" value="Instagram"></v-checkbox>
-            <v-checkbox v-model="data.bootCamp" label="Twitter" value="Twitter"></v-checkbox>
-            <v-checkbox v-model="data.bootCamp" label="WhatsApp" value="WhatsApp"></v-checkbox>
-            <v-checkbox v-model="data.bootCamp" label="LinkedIn" value="LinkedIn"></v-checkbox>
-            <v-checkbox v-model="data.bootCamp" label="Teman" value="Teman"></v-checkbox>
+            <v-checkbox
+              v-model="data.bootCamp"
+              label="Facebook"
+              value="Facebook"
+            ></v-checkbox>
+            <v-checkbox
+              v-model="data.bootCamp"
+              label="Instagram"
+              value="Instagram"
+            ></v-checkbox>
+            <v-checkbox
+              v-model="data.bootCamp"
+              label="Twitter"
+              value="Twitter"
+            ></v-checkbox>
+            <v-checkbox
+              v-model="data.bootCamp"
+              label="WhatsApp"
+              value="WhatsApp"
+            ></v-checkbox>
+            <v-checkbox
+              v-model="data.bootCamp"
+              label="LinkedIn"
+              value="LinkedIn"
+            ></v-checkbox>
+            <v-checkbox
+              v-model="data.bootCamp"
+              label="Teman"
+              value="Teman"
+            ></v-checkbox>
           </v-col>
         </v-row>
 
@@ -213,7 +267,15 @@
               <template v-slot:activator="{ on, attrs }">
                 <div>
                   <p>Unggah CV anda :</p>
-                  <v-btn color="primary" dark v-bind="attrs" @click="files()" v-on="on">Tambahkan file</v-btn>
+                  <v-btn
+                    large
+                    color="#03A1EA"
+                    class="white--text text-capitalize"
+                    v-bind="attrs"
+                    @click="files()"
+                    v-on="on"
+                    >Tambahkan file</v-btn
+                  >
                 </div>
               </template>
 
@@ -239,32 +301,39 @@
                       </v-col>
                     </v-row>
                   </v-container>
-
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <div v-if="isLoadingDialog">
-                    <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                    <v-progress-circular
+                      indeterminate
+                      color="primary"
+                    ></v-progress-circular>
                   </div>
 
                   <div v-else>
-                    <v-btn color="blue darken-1" text @click="cancelFiles()">Cancel</v-btn>
+                    <v-btn color="blue darken-1" text @click="cancelFiles()"
+                      >Cancel</v-btn
+                    >
                     <v-btn
-                      color="blue darken-1"
+                      large
+                      color="#03A1EA"
+                      class="white--text text-capitalize"
                       v-show="this.showButton"
-                      text
                       @click="upload()"
-                    >Upload</v-btn>
+                      >Upload</v-btn
+                    >
                   </div>
                 </v-card-actions>
               </v-card>
             </v-dialog>
 
             <div>
-              <v-btn
-                class="mt-5 rounded"
-                
-              >{{this.uploadedFiles === null ? "No files" : this.uploadedFiles.length + " files"}}</v-btn>
+              <v-btn class="mt-5 rounded">{{
+                this.uploadedFiles === null
+                  ? "No files"
+                  : this.uploadedFiles.length + " files"
+              }}</v-btn>
             </div>
           </v-col>
         </v-row>
@@ -291,14 +360,27 @@
           <v-col class="d-flex justify-center">
             <div>
               <div v-if="isLoading">
-                <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
               </div>
 
               <div v-else>
-                <router-link to="/register/syarat" class="text-decoration-none">
-                  <v-btn color="#112d4e" class="white--text mr-4">back</v-btn>
-                </router-link>
-                <v-btn color="#112d4e" class="white--text mr-4" @click="submit">submit</v-btn>
+                <v-btn
+                  to="/register/syarat"
+                  large
+                  color="#03A1EA"
+                  class="white--text text-capitalize mr-4"
+                  >back</v-btn
+                >
+                <v-btn
+                  large
+                  color="#03A1EA"
+                  class="white--text text-capitalize"
+                  @click="submit"
+                  >submit</v-btn
+                >
               </div>
             </div>
           </v-col>
@@ -331,7 +413,7 @@ export default {
         "fullstack developer",
         "python developer",
         "mobile developer",
-        "nodejs developer"
+        "nodejs developer",
       ],
       pendidikanArr: [
         "SMK",
@@ -342,7 +424,7 @@ export default {
         "S1",
         "S2",
         "S3",
-        "Lainnya"
+        "Lainnya",
       ],
 
       // data
@@ -366,34 +448,34 @@ export default {
         referensi: "",
         mediaSosial: "",
         bootCamp: "",
-        uploadedFileResponses: []
+        uploadedFileResponses: [],
       },
       uploadedFiles: [],
 
       // validate
-      nameVal: [v => v.length >= 3 || "name length is 3 character"],
-      programVal: [v => !!v || "required"],
+      nameVal: [(v) => v.length >= 3 || "name length is 3 character"],
+      programVal: [(v) => !!v || "required"],
       emailVal: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
       ],
-      tempatlahirVal: [v => !!v || "required"],
-      kotaasalVal: [v => !!v || "required"],
-      status: [v => !!v || "required"],
-      nomorhpVal: [v => !!v || "required"],
-      alamatVal: [v => !!v || "required"],
-      pendidikanVal: [v => !!v || "required"],
-      namakampusVal: [v => !!v || "required"],
-      alamatkampusVal: [v => !!v || "required"],
-      alasanikutVal: [v => !!v || "required"],
-      menyelesaikanVal: [v => !!v || "required"],
-      referensiVal: [v => !!v || "required"],
-      mediasosialVal: [v => !!v || "required"],
-      inputVal: [v => !!v || "required"]
+      tempatlahirVal: [(v) => !!v || "required"],
+      kotaasalVal: [(v) => !!v || "required"],
+      status: [(v) => !!v || "required"],
+      nomorhpVal: [(v) => !!v || "required"],
+      alamatVal: [(v) => !!v || "required"],
+      pendidikanVal: [(v) => !!v || "required"],
+      namakampusVal: [(v) => !!v || "required"],
+      alamatkampusVal: [(v) => !!v || "required"],
+      alasanikutVal: [(v) => !!v || "required"],
+      menyelesaikanVal: [(v) => !!v || "required"],
+      referensiVal: [(v) => !!v || "required"],
+      mediasosialVal: [(v) => !!v || "required"],
+      inputVal: [(v) => !!v || "required"],
     };
   },
   methods: {
-    cancelFiles(){
+    cancelFiles() {
       this.dialog = false;
       this.uploadedFiles = [];
     },
@@ -404,7 +486,7 @@ export default {
         this.showButton = false;
       }
     },
-    upload: async function() {
+    upload: async function () {
       if (this.$refs.files.validate()) {
         this.isLoadingDialog = true;
 
@@ -423,7 +505,7 @@ export default {
           // }
 
           // multi file 2
-          this.uploadedFiles.forEach(file => {
+          this.uploadedFiles.forEach((file) => {
             formData.append("files", file);
           });
 
@@ -439,8 +521,8 @@ export default {
           // multi file
           let files = await api.postFiles(formData, {
             headers: {
-              "Content-Type": "multipart/form-data"
-            }
+              "Content-Type": "multipart/form-data",
+            },
           });
 
           let data = files.data;
@@ -457,7 +539,7 @@ export default {
       }
     },
 
-    submit: async function() {
+    submit: async function () {
       if (this.$refs.form.validate()) {
         this.isLoading = true;
 
@@ -469,7 +551,7 @@ export default {
           console.log("selesai ", data);
           this.$swal({
             icon: "success",
-            title: "Berhasil mendaftar"
+            title: "Berhasil mendaftar",
           });
           this.$router.push({ name: "Home" });
         } catch (err) {
@@ -486,10 +568,10 @@ export default {
           this.isError = false;
         }, 5000);
       }
-    }
+    },
   },
   computed: {
-    ...mapGetters(["gettersApiPeserta"])
-  }
+    ...mapGetters(["gettersApiPeserta"]),
+  },
 };
 </script>

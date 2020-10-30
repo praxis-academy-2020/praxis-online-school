@@ -14,7 +14,7 @@
             to="/register/syarat"
             large
             color="#63D0FF"
-            class="white--text"
+            class="white--text text-capitalize"
           >
             daftar sekarang
           </v-btn>

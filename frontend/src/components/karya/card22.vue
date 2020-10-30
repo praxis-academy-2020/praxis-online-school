@@ -89,7 +89,9 @@
             transition="dialog-bottom-transition"
           >
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="#112d4e" dark v-bind="attrs" v-on="on" small
+              <v-btn large
+                color="#03A1EA"
+                class="white--text text-capitalize" v-bind="attrs" v-on="on"
                 >Open Dialog</v-btn
               >
             </template>

@@ -8,8 +8,13 @@
       </v-row>
         <v-row class="d-flex justify-space-around">
            <v-col class="pa-4" cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-language-javascript</v-icon>
-                <span><strong>Frontend Developer</strong></span>
+                <v-icon large color="black" class="mr-2" >mdi-language-java</v-icon>
+                <span><strong>Fullstack Developer</strong></span>
+                <p class="mt-3"> mengembangkan interface website menggunakan: javascript, VueJs, Vuetify</p>
+            </v-col>
+            <v-col class="pa-4" cols="12"  sm="4">
+                <v-icon large color="black" class="mr-2" >mdi-language-python</v-icon>
+                <span><strong>Python Developer</strong></span>
                 <p class="mt-3"> mengembangkan interface website menggunakan: javascript, VueJs, Vuetify</p>
             </v-col>
             <v-col class="pa-4" cols="12"  sm="4">
@@ -18,18 +23,13 @@
                 <p class="mt-3"> mengembangkan interface website menggunakan: javascript, VueJs, Vuetify</p>
             </v-col>
             <v-col class="pa-4" cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-language-javascript</v-icon>
-                <span><strong>Frontend Developer</strong></span>
+                <v-icon large color="black" class="mr-2" >mdi-react</v-icon>
+                <span><strong>Mobile Developer</strong></span>
                 <p class="mt-3"> mengembangkan interface website menggunakan: javascript, VueJs, Vuetify</p>
             </v-col>
             <v-col class="pa-4" cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-language-javascript</v-icon>
-                <span><strong>Frontend Developer</strong></span>
-                <p class="mt-3"> mengembangkan interface website menggunakan: javascript, VueJs, Vuetify</p>
-            </v-col>
-            <v-col class="pa-4" cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-language-javascript</v-icon>
-                <span><strong>Frontend Developer</strong></span>
+                <v-icon large color="black" class="mr-2" >mdi-nodejs</v-icon>
+                <span><strong>Nodejs Programming</strong></span>
                 <p class="mt-3"> mengembangkan interface website menggunakan: javascript, VueJs, Vuetify</p>
             </v-col>
         </v-row>
