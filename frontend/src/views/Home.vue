@@ -2,15 +2,17 @@
   <div>
     <navbarHome :isInverted="true" />
     <corosel />
-    <!-- <fas /> -->
-    <cardss />
+    
+    
     <!-- <abouts /> -->
     
-    <paralx />
+    <fas />
+    <cardss />
     <silab/>
+    <paralx />
     <!-- <daftarkuy /> -->
     <!-- <cardsss /> -->
-    <aboutss />
+    <!-- <aboutss /> -->
     
     
     <foot />
@@ -28,7 +30,7 @@ import cardss from "@/components/home/card2.vue";
 import paralx from "@/components/home/paralax.vue";
 // import daftarkuy from "@/components/home/daftar.vue";
 import foot from "@/components/footer/footer-home.vue";
-// import fas from "@/components/home/fasilitas.vue";
+import fas from "@/components/home/fasilitas.vue";
 import silab from "@/components/home/silabus.vue"
 export default {
   name: "Home",
@@ -44,7 +46,7 @@ export default {
     // aboutss,
     // daftarkuy,
     foot,
-    // fas,
+    fas,
     silab
   },
   beforeCreate() {

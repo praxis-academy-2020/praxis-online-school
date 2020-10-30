@@ -1,4 +1,5 @@
 <template>
+<div style="margin-top: 100px">
   <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12">
@@ -11,6 +12,7 @@
       </v-col>
     </v-row>
   </v-parallax>
+  </div>
 </template>
 <style scoped>
 .m{

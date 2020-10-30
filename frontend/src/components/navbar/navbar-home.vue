@@ -1,8 +1,8 @@
 <template>
-  <div id="navbarr">
-    <v-card class="mx-auto overflow-hidden ukuran">
+  <div>
+    <v-card class="mx-auto overflow-hidden">
       <!-- dekstop -->
-      <v-app-bar color="primary" dark fixed>
+      <v-app-bar color="#0b55d3" height="80px" dark fixed elevate-on-scroll>
         <router-link to="/" class="text-decoration-none">
           <v-toolbar-title>
             <v-img :src="logo" width="50" />
@@ -154,8 +154,3 @@ export default {
   props: ["isInverted"],
 };
 </script>
-<style scoped>
-.ukuran {
-  font-size: 12px;
-}
-</style>

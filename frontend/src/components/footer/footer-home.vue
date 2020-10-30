@@ -1,8 +1,8 @@
 <template>
-  <v-footer>
+  <v-footer color="#fff">
     <v-container>
       <v-row class="pt-16">
-        <v-col cols="12" sm="6" md="4">
+        <v-col cols="12" sm="4">
           <h3 class="mb-5">PRAXIS ACADEMY</h3>
           <p class="font-weight-light">Tentang Kami</p>
           <p class="font-weight-light">Bantuan</p>
@@ -10,14 +10,14 @@
           <p class="font-weight-light">FAQ</p>
         </v-col>
 
-        <v-col cols="12" sm="6" md="4">
+        <v-col cols="12" sm="4">
           <h3 class="mb-5">PERUSAHAAN</h3>
           <p class="font-weight-light">Pendaftaran</p>
           <p class="font-weight-light">Pasang Iklan</p>
           <p class="font-weight-light">Kebijakan Privasi</p>
         </v-col>
 
-        <v-col cols="12" sm="6" md="4">
+        <v-col cols="12" sm="4">
           <h3 class="mb-5">TENTANG KAMI</h3>
           <p class="font-weight-light"
             >Praxis Academy adalah sekolah pemrograman yang khusus menangani
@@ -67,3 +67,4 @@
     </v-container>
   </v-footer>
 </template>
+
