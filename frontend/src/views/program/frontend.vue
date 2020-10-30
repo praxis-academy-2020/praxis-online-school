@@ -41,5 +41,12 @@ export default {
     silabus,
     ajakan,
   },
+  beforeCreate() {
+    if (!localStorage.getItem("Bearer")) {
+      scrollTo(0, 0);
+    } else {
+      this.$router.push({ name: "Dashboard" });
+    }
+  }
 };
 </script>
