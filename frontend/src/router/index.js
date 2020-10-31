@@ -38,36 +38,9 @@ const routes = [
     component: () => import('../views/Activity.vue')
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import('../views/Login.vue')
-  },
-  {
     path: '*',
     name: '404',
     component: () => import('../views/404.vue')
-  },
-  {
-    path: '/admin',
-    name: 'Admin',
-    component: () => import('../views/admin/Admin.vue'),
-    children: [
-      {
-        path: 'dashboard',
-        name: 'Dashboard',
-        component: () => import('../views/admin/Dashboard.vue')
-      },
-      {
-        path: 'tambah-karya',
-        name: 'Tambah-karya',
-        component: () => import('../views/admin/Tambah-karya.vue')
-      },
-      {
-        path: 'tampil-table',
-        name: 'Tampil-table',
-        component: () => import('../views/admin/Tampil-table.vue')
-      }
-    ]
   },
   {
     path: "/program/frontend-developer",
