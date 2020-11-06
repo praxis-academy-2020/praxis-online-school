@@ -54,17 +54,17 @@ const routes = [
   },
   {
     path: "/program/python-developer",
-    name: "Frontend",
+    name: "Python",
     component: () => import('../views/program/python.vue')
   },
   {
     path: "/program/nodejs-programming",
-    name: "Fullstack",
+    name: "Nodejs",
     component: () => import('../views/program/nodejs.vue')
   },
   {
     path: "/program/mobile-developer",
-    name: "Frontend",
+    name: "Mobile",
     component: () => import('../views/program/mobile.vue')
   }
 ]

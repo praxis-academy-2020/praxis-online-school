@@ -13,7 +13,7 @@
       <v-row class="text-center text-sm-left">
         <v-col cols="12" sm="4" md="2" class="d-flex justify-center align-center"><span class="primary--text text-h3 font-weight-bold">2</span></v-col>
         <v-col cols="12" sm="8" md="10"
-          ><span class="text-h3 primary--text">tes dan wawancara</span>
+          ><span class="text-h3 primary--text">Tes dan Wawancara</span>
           <p class="mt-3 text-h5 font-weight-light">
            Para peserta seleksi yang sudah mendaftar akan dihubungi tim Praxis Academy untuk mengerjakan tugas yang diberikan dan melakukan tes wawancara.
           </p></v-col

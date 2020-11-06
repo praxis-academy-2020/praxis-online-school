@@ -1,310 +1,415 @@
 <template>
-  <div>
-    <v-container>
+  <v-container>
+    <div>
       <v-row>
-        <v-col class="text-center">
-          <h1>Registrasi Praxis Academy</h1>
-        </v-col>
-      </v-row>
-      <v-form ref="form" lazy-validation>
-        <v-row>
-          <v-col cols="12" sm="6">
-            <v-text-field
-              v-model="data.namaUser"
-              label="Name*"
-              :rules="nameVal"
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-select
-              v-model="data.program"
-              :items="kelas"
-              :rules="programVal"
-              label="Program*"
-              required
-            ></v-select>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-col cols="12" sm="6">
-            <v-text-field
-              v-model="data.emailUser"
-              :rules="emailVal"
-              label="Email*"
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-menu
-              v-model="tanggal"
-              :close-on-content-click="false"
-              :nudge-right="40"
-              transition="scale-transition"
-              offset-y
-              :rules="tempatlahirVal"
-              min-width="290px"
-              required
-            >
-              <template v-slot:activator="{ on, attrs }">
+        <v-col cols="0" sm="0" md="3"> </v-col>
+        <v-col cols="12" sm="12" md="6">
+          <v-row>
+            <v-col class="text-center">
+              <h1>Formulir Pendaftaran</h1>
+            </v-col>
+          </v-row>
+          <v-form ref="form" lazy-validation>
+            <v-row>
+              <v-col cols="12" sm="6">
                 <v-text-field
-                  v-model="data.tanggalLahir"
-                  label="Picker without buttons"
-                  readonly
-                  v-bind="attrs"
-                  v-on="on"
+                  v-model="data.namaUser"
+                  label="Nama lengkap*"
+                  :rules="nameVal"
+                  required
+                  outlined
+                  placeholder="Nama lengkap"
                 ></v-text-field>
-              </template>
-              <v-date-picker
-                v-model="data.tanggalLahir"
-                @input="tanggal = false"
-              ></v-date-picker>
-            </v-menu>
-          </v-col>
-        </v-row>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-select
+                  v-model="data.program"
+                  :items="kelas"
+                  :rules="programVal"
+                  label="Program*"
+                  required
+                  outlined
+                  placeholder="Program"
+                ></v-select>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col cols="12" sm="6">
-            <v-text-field
-              v-model="data.tempatLahir"
-              :rules="status"
-              label="Tempat lahir*"
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-text-field
-              v-model="data.nomorHape"
-              :rules="nomorhpVal"
-              label="Nomor HP*"
-              required
-            ></v-text-field>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  v-model="data.emailUser"
+                  :rules="emailVal"
+                  label="Email*"
+                  required
+                  outlined
+                  placeholder="Email"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-menu
+                  v-model="tanggal"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  :rules="tempatlahirVal"
+                  min-width="290px"
+                  required
+                  outlined
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="data.tanggalLahir"
+                      label="Picker without buttons"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
+                    v-model="data.tanggalLahir"
+                    @input="tanggal = false"
+                    outlined
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-text-field
-              v-model="data.kotaAsal"
-              :rules="kotaasalVal"
-              label="Kota asal*"
-              required
-            ></v-text-field>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  v-model="data.tempatLahir"
+                  :rules="status"
+                  label="Tempat lahir*"
+                  required
+                  outlined
+                  placeholder="Tempat lahir"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  v-model="data.nomorHape"
+                  :rules="nomorhpVal"
+                  label="Nomor HP*"
+                  required
+                  outlined
+                  placeholder="Nomor handphone"
+                ></v-text-field>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-textarea
-              v-model="data.alamat"
-              :rules="alamatVal"
-              autocomplete="alamat"
-              label="Alamat*"
-            ></v-textarea>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-text-field
+                  v-model="data.kotaAsal"
+                  :rules="kotaasalVal"
+                  label="Kota asal*"
+                  required
+                  outlined
+                  placeholder="Kota asal"
+                ></v-text-field>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-select
-              v-model="data.pendidikan"
-              :rules="pendidikanVal"
-              :items="pendidikanArr"
-              label="Pendidikan*"
-              required
-            ></v-select>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-textarea
+                  v-model="data.alamat"
+                  :rules="alamatVal"
+                  autocomplete="alamat"
+                  label="Alamat lengkap*"
+                  outlined
+                  placeholder="Alamat lengkap"
+                ></v-textarea>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-text-field
-              v-model="data.namaKampus"
-              :rules="namakampusVal"
-              label="Nama kampus*"
-              required
-            ></v-text-field>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-select
+                  v-model="data.pendidikan"
+                  :rules="pendidikanVal"
+                  :items="pendidikanArr"
+                  label="Apa pendidikan terakhir anda?*"
+                  required
+                  outlined
+                  placeholder="Pilih jenjang pendidikan"
+                ></v-select>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-text-field
-              v-model="data.semester"
-              label="Semester(diisi apabila belum lulus)"
-              required
-            ></v-text-field>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-text-field
+                  v-model="data.namaKampus"
+                  :rules="namakampusVal"
+                  label="Nama kampus*"
+                  required
+                  outlined
+                  placeholder="Nama kampus"
+                ></v-text-field>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-textarea
-              v-model="data.alamatKampus"
-              :rules="alamatkampusVal"
-              autocomplete="alamat kampus"
-              label="Alamat kampus*"
-            ></v-textarea>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-text-field
+                  v-model="data.semester"
+                  label="Semester"
+                  required
+                  outlined
+                  placeholder="Pilih semester"
+                ></v-text-field>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-textarea
-              v-model="data.pengalamanKerja"
-              autocomplete="pengalaman kerja"
-              label="Pengalaman kerja"
-            ></v-textarea>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-textarea
+                  v-model="data.alamatKampus"
+                  :rules="alamatkampusVal"
+                  autocomplete="alamat kampus"
+                  label="Alamat kampus*"
+                  outlined
+                  placeholder="Alamat kampus"
+                ></v-textarea>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-textarea
-              v-model="data.pengalamanProject"
-              autocomplete="pengalaman project"
-              label="Pengalaman project"
-            ></v-textarea>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-textarea
+                  v-model="data.pengalamanKerja"
+                  autocomplete="pengalaman kerja"
+                  label="Pengalaman kerja"
+                  outlined
+                  placeholder="Pengalaman kerja"
+                ></v-textarea>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-textarea
-              v-model="data.alasanIkut"
-              :rules="alasanikutVal"
-              autocomplete="alasan ikut"
-              label="Alasan ikut*"
-            ></v-textarea>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-textarea
+                  v-model="data.pengalamanProject"
+                  autocomplete="pengalaman project"
+                  label="Pengalaman project"
+                  outlined
+                  placeholder="Pengalaman project"
+                ></v-textarea>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <p>
-              Apakah anda bersedia menyelesaikan pendidikan sampai selesai?*
-            </p>
-            <v-radio-group :rules="menyelesaikanVal" v-model="data.komitmen">
-              <v-radio label="Ya" value="Ya"></v-radio>
-              <v-radio label="Tidak" value="Tidak"></v-radio>
-              <v-radio label="Mungkin" value="Mungkin"></v-radio>
-            </v-radio-group>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-textarea
+                  v-model="data.alasanIkut"
+                  :rules="alasanikutVal"
+                  autocomplete="alasan ikut"
+                  label="Alasan ikut*"
+                  outlined
+                  placeholder="Alasan ikut"
+                ></v-textarea>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <p>Apakah anda bersedia memberikan surat referensi?*</p>
-            <v-radio-group :rules="referensiVal" v-model="data.referensi">
-              <v-radio label="Ya" value="Ya"></v-radio>
-              <v-radio label="Tidak" value="Tidak"></v-radio>
-              <v-radio label="Mungkin" value="Mungkin"></v-radio>
-            </v-radio-group>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <p>
+                  Apakah anda bersedia menyelesaikan pendidikan sampai selesai?*
+                </p>
+                <v-radio-group
+                  :rules="menyelesaikanVal"
+                  v-model="data.komitmen"
+                >
+                  <v-radio label="Ya" value="Ya"></v-radio>
+                  <v-radio label="Tidak" value="Tidak"></v-radio>
+                  <v-radio label="Mungkin" value="Mungkin"></v-radio>
+                </v-radio-group>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-textarea
-              v-model="data.mediaSosial"
-              :rules="mediasosialVal"
-              autocomplete="media sosial"
-              label="Media sosial*"
-            ></v-textarea>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <p>Apakah anda bersedia memberikan surat referensi?*</p>
+                <v-radio-group :rules="referensiVal" v-model="data.referensi">
+                  <v-radio label="Ya" value="Ya"></v-radio>
+                  <v-radio label="Tidak" value="Tidak"></v-radio>
+                  <v-radio label="Mungkin" value="Mungkin"></v-radio>
+                </v-radio-group>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <p>Mengetahui informasi bootcamp dari:</p>
-            <v-checkbox
-              v-model="data.bootCamp"
-              label="Facebook"
-              value="Facebook"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="data.bootCamp"
-              label="Instagram"
-              value="Instagram"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="data.bootCamp"
-              label="Twitter"
-              value="Twitter"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="data.bootCamp"
-              label="WhatsApp"
-              value="WhatsApp"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="data.bootCamp"
-              label="LinkedIn"
-              value="LinkedIn"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="data.bootCamp"
-              label="Teman"
-              value="Teman"
-            ></v-checkbox>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <v-textarea
+                  v-model="data.mediaSosial"
+                  :rules="mediasosialVal"
+                  autocomplete="media sosial"
+                  label="Media sosial*"
+                  outlined
+                  placeholder="Akun media sosial"
+                ></v-textarea>
+              </v-col>
+            </v-row>
 
-        <v-row>
-          <v-col>
-            <v-text-field
-              v-model="data.info"
-              label="Tuliskan nama pemberi Informasi bootcamp"
-              required
-            ></v-text-field>
-          </v-col>
-        </v-row>
+            <v-row>
+              <v-col>
+                <p>Mengetahui informasi bootcamp dari:</p>
+                <v-checkbox
+                  v-model="data.bootCamp"
+                  label="Facebook"
+                  value="Facebook"
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="data.bootCamp"
+                  label="Instagram"
+                  value="Instagram"
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="data.bootCamp"
+                  label="Twitter"
+                  value="Twitter"
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="data.bootCamp"
+                  label="WhatsApp"
+                  value="WhatsApp"
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="data.bootCamp"
+                  label="LinkedIn"
+                  value="LinkedIn"
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="data.bootCamp"
+                  label="Teman"
+                  value="Teman"
+                ></v-checkbox>
+              </v-col>
+            </v-row>
 
-        <v-row class="d-flex flex-column">
-          <v-col class="d-flex flex-column">
-            <v-dialog v-model="dialog" persistent max-width="600px">
-              <template v-slot:activator="{ on, attrs }">
+            <v-row>
+              <v-col>
+                <v-text-field
+                  v-model="data.info"
+                  label="Tuliskan nama pemberi Informasi bootcamp"
+                  outlined
+                  placeholder="Nama pemberi informasi bootcamp"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+
+            <v-row class="d-flex flex-column">
+              <v-col class="d-flex flex-column">
+                <v-dialog v-model="dialog" persistent max-width="600px">
+                  <template v-slot:activator="{ on, attrs }">
+                    <div>
+                      <p>Unggah CV anda :</p>
+                      <v-btn
+                        large
+                        color="#03A1EA"
+                        class="white--text text-capitalize"
+                        v-bind="attrs"
+                        @click="files()"
+                        v-on="on"
+                        >Tambahkan file</v-btn
+                      >
+                    </div>
+                  </template>
+
+                  <!-- modal -->
+                  <v-card>
+                    <v-card-title>
+                      <span class="headline">Tambahkan file</span>
+                    </v-card-title>
+                    <v-card-text>
+                      <v-container>
+                        <v-row>
+                          <v-col>
+                            <v-form ref="files" lazy-validation>
+                              <v-file-input
+                                v-model="uploadedFiles"
+                                multiple
+                                @change="files()"
+                                :rules="inputVal"
+                                accept="image/png, image/jpeg, image/bmp"
+                                label="Upload CV anda*"
+                                outlined
+                                placeholder="Upload CV anda"
+                              ></v-file-input>
+                            </v-form>
+                          </v-col>
+                        </v-row>
+
+                      <div v-show="isErrorUpload">
+                        <v-row class="d-flex justify-center">
+                          <span class="red--text">Gagal mengupload</span>
+                        </v-row>
+                      </div>
+
+                      </v-container>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+
+                      <div v-if="isLoadingDialog">
+                        <v-progress-circular
+                          indeterminate
+                          color="primary"
+                        ></v-progress-circular>
+                      </div>
+
+                      <div v-else>
+                        <v-btn color="blue darken-1" text @click="cancelFiles()"
+                          >Cancel</v-btn
+                        >
+                        <v-btn
+                          large
+                          color="#03A1EA"
+                          class="white--text text-capitalize"
+                          v-show="this.showButton"
+                          @click="upload()"
+                          >Upload</v-btn
+                        >
+                      </div>
+                    </v-card-actions>
+                  </v-card>
+                  <!-- end of modal -->
+                </v-dialog>
+
                 <div>
-                  <p>Unggah CV anda :</p>
-                  <v-btn
-                    large
-                    color="#03A1EA"
-                    class="white--text text-capitalize"
-                    v-bind="attrs"
-                    @click="files()"
-                    v-on="on"
-                    >Tambahkan file</v-btn
-                  >
+                  <v-btn class="mt-5 rounded">{{
+                    this.uploadedFiles === null
+                      ? "No file"
+                      : this.uploadedFiles.length + " file"
+                  }}</v-btn>
                 </div>
-              </template>
+              </v-col>
+            </v-row>
 
-              <!-- modal -->
-              <v-card>
-                <v-card-title>
-                  <span class="headline">Tambahkan file</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col>
-                        <v-form ref="files" lazy-validation>
-                          <v-file-input
-                            v-model="uploadedFiles"
-                            multiple
-                            @change="files()"
-                            :rules="inputVal"
-                            accept="image/png, image/jpeg, image/bmp"
-                            label="Upload your CV*"
-                          ></v-file-input>
-                        </v-form>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <div v-if="isLoadingDialog">
+            <v-row>
+              <v-col>
+                <small>*wajib diisi</small>
+              </v-col>
+            </v-row>
+
+            <div v-show="isError">
+              <v-row class="d-flex justify-center">
+                <span class="red--text">Tolong masukan data dengan benar</span>
+              </v-row>
+            </div>
+
+            <div v-show="isErrorNetwork">
+              <v-row class="d-flex justify-center">
+                <span class="red--text">Network error</span>
+              </v-row>
+            </div>
+
+            <v-row class="mt-15">
+              <v-col class="d-flex justify-center">
+                <div>
+                  <div v-if="isLoading">
                     <v-progress-circular
                       indeterminate
                       color="primary"
@@ -312,82 +417,30 @@
                   </div>
 
                   <div v-else>
-                    <v-btn color="blue darken-1" text @click="cancelFiles()"
-                      >Cancel</v-btn
+                    <v-btn
+                      to="/register/syarat"
+                      large
+                      color="#03A1EA"
+                      class="white--text text-capitalize mr-4"
+                      >back</v-btn
                     >
                     <v-btn
                       large
                       color="#03A1EA"
                       class="white--text text-capitalize"
-                      v-show="this.showButton"
-                      @click="upload()"
-                      >Upload</v-btn
+                      @click="submit"
+                      >submit</v-btn
                     >
                   </div>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-
-            <div>
-              <v-btn class="mt-5 rounded">{{
-                this.uploadedFiles === null
-                  ? "No files"
-                  : this.uploadedFiles.length + " files"
-              }}</v-btn>
-            </div>
-          </v-col>
-        </v-row>
-
-        <v-row class="mt-15">
-          <v-col>
-            <small>*wajib diisi</small>
-          </v-col>
-        </v-row>
-
-        <div v-show="isError">
-          <v-row class="d-flex justify-center">
-            <span class="red--text">Tolong masukan data dengan benar</span>
-          </v-row>
-        </div>
-
-        <div v-show="isErrorNetwork">
-          <v-row class="d-flex justify-center">
-            <span class="red--text">Network error</span>
-          </v-row>
-        </div>
-
-        <v-row class="mt-15">
-          <v-col class="d-flex justify-center">
-            <div>
-              <div v-if="isLoading">
-                <v-progress-circular
-                  indeterminate
-                  color="primary"
-                ></v-progress-circular>
-              </div>
-
-              <div v-else>
-                <v-btn
-                  to="/register/syarat"
-                  large
-                  color="#03A1EA"
-                  class="white--text text-capitalize mr-4"
-                  >back</v-btn
-                >
-                <v-btn
-                  large
-                  color="#03A1EA"
-                  class="white--text text-capitalize"
-                  @click="submit"
-                  >submit</v-btn
-                >
-              </div>
-            </div>
-          </v-col>
-        </v-row>
-      </v-form>
-    </v-container>
-  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </v-form>
+        </v-col>
+        <v-col cols="0" sm="0" md="3"> </v-col>
+      </v-row>
+    </div>
+  </v-container>
 </template>
 
 <script>
@@ -406,6 +459,7 @@ export default {
       dialog: false,
       isLoadingDialog: false,
       showButton: false,
+      isErrorUpload: false,
 
       // select
       kelas: [
@@ -489,6 +543,7 @@ export default {
     upload: async function () {
       if (this.$refs.files.validate()) {
         this.isLoadingDialog = true;
+        this.isErrorUpload = false;
 
         try {
           // data file
@@ -532,6 +587,7 @@ export default {
         } catch (err) {
           console.log("err file ", err);
           this.isLoadingDialog = false;
+          this.isErrorUpload = true;
         }
       } else {
         this.isLoadingDialog = false;
