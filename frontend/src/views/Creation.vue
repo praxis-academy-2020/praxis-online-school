@@ -1,26 +1,41 @@
 <template>
   <div>
-
     <navbarHome :isInverted="false" />
 
     <v-container>
-               <div class="text-h4 text-sm-h3 font-weight-medium" style="margin-top:100px; text-align:center;">
-            Karya Praxis Academy
-          </div>
-    <v-row>
-      <v-col cols='6'>
-    <cardssss src='https://www.youtube.com/embed/UiPv8GGt_Ik' class="mt-15" hrf='http://salamdoc.id/'/>
-    </v-col>
-    <v-col cols='6'>
-    <cardssss src='https://www.youtube.com/embed/UiPv8GGt_Ik' class="mt-15" />
-    </v-col>
-    <v-col cols='6'>
-    <cardssss src='https://www.youtube.com/embed/UiPv8GGt_Ik' class="mt-15" />
-    </v-col>
-    <v-col cols='6'>
-    <cardssss src='https://www.youtube.com/embed/UiPv8GGt_Ik' class="mt-15" />
-    </v-col>
-    </v-row>
+      <div
+        class="text-h4 text-sm-h3 font-weight-medium"
+        style="margin-top: 100px; text-align: center"
+      >
+        Karya Praxis Academy
+      </div>
+      <v-row>
+        <v-col cols="12" sm="6">
+          <cardssss
+            src="https://www.youtube.com/embed/UiPv8GGt_Ik"
+            class="mt-15"
+            hrf="http://salamdoc.id/"
+          />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <cardssss
+            src="https://www.youtube.com/embed/UiPv8GGt_Ik"
+            class="mt-15"
+          />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <cardssss
+            src="https://www.youtube.com/embed/UiPv8GGt_Ik"
+            class="mt-15"
+          />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <cardssss
+            src="https://www.youtube.com/embed/UiPv8GGt_Ik"
+            class="mt-15"
+          />
+        </v-col>
+      </v-row>
     </v-container>
     <foot />
   </div>
@@ -36,7 +51,7 @@ export default {
   components: {
     navbarHome,
     foot,
-    cardssss
+    cardssss,
   },
   beforeCreate() {
     this.$store.dispatch("getApiKarya");
@@ -47,6 +62,6 @@ export default {
     } else {
       this.$router.push({ name: "Dashboard" });
     }
-  }
+  },
 };
 </script>
