@@ -24,6 +24,9 @@ export default new Vuex.Store({
   actions: {
     getApiKarya: function({commit}){
       commit('getApiKarya')
+    },
+    postPeserta: function(params){
+      api.postPeserta(params);
     }
   },
   modules: {

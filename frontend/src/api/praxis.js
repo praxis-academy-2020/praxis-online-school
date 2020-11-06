@@ -1,7 +1,7 @@
 import Api from './index';
 
 export const postPeserta = function(data){
-    return Api.post('/praxis/murid/post', data)
+    return Api.post('/api/peserta/post', data)
 }
 
 export const getKarya = function(){

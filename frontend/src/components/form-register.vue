@@ -332,7 +332,7 @@
                                 v-model="uploadedFiles"
                                 multiple
                                 @change="files()"
-                                :rules="inputVal"
+                                
                                 accept="image/png, image/jpeg, image/bmp"
                                 label="Upload CV anda*"
                                 outlined
@@ -502,7 +502,7 @@ export default {
         referensi: "",
         mediaSosial: "",
         bootCamp: "",
-        uploadedFileResponses: [],
+        // uploadedFileResponses: [],
       },
       uploadedFiles: [],
 
@@ -525,7 +525,7 @@ export default {
       menyelesaikanVal: [(v) => !!v || "required"],
       referensiVal: [(v) => !!v || "required"],
       mediasosialVal: [(v) => !!v || "required"],
-      inputVal: [(v) => !!v || "required"],
+      // inputVal: [(v) => !!v || "required"],
     };
   },
   methods: {
@@ -601,10 +601,10 @@ export default {
 
         try {
           // data
-          let data = await api.postPeserta(this.data);
+          let hasil = await api.postPeserta(this.data)
 
           // selesai
-          console.log("selesai ", data);
+          console.log("selesai ", hasil);
           this.$swal({
             icon: "success",
             title: "Berhasil mendaftar",
