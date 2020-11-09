@@ -11,15 +11,8 @@ export default {
   components: {
     formRegister
   },
-  beforeCreate() {
-    if (!localStorage.getItem("Bearer")) {
-      scrollTo(0, 0);
-    } else {
-      this.$router.push({ name: "Dashboard" });
-    }
+  mounted(){
+    scrollTo(0, 0);
   }
 };
 </script>
-
-<style>
-</style>

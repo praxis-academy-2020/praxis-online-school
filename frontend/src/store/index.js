@@ -28,7 +28,5 @@ export default new Vuex.Store({
     postPeserta: function(params){
       api.postPeserta(params);
     }
-  },
-  modules: {
   }
 })

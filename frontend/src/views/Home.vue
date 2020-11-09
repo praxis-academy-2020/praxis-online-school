@@ -6,7 +6,7 @@
      <karyaa/>
     <!-- <cardss /> -->
     <silab/>
-    <paralx />
+    <!-- <paralx /> -->
     <foot />
   </div>
 </template>
@@ -15,7 +15,7 @@
 import navbarHome from "@/components/navbar/navbar-home.vue";
 import corosel from "@/components/home/carousel.vue";
 import karyaa from "@/components/home/karya.vue";
-import paralx from "@/components/home/paralax.vue";
+// import paralx from "@/components/home/paralax.vue";
 import foot from "@/components/footer/footer-home.vue";
 import fas from "@/components/home/fasilitas.vue";
 import silab from "@/components/home/silabus.vue"
@@ -26,17 +26,13 @@ export default {
     navbarHome,
     karyaa,
     corosel,
-    paralx,
+    // paralx,
     foot,
     fas,
     silab
   },
-  beforeCreate() {
-    if (!localStorage.getItem("Bearer")) {
-      scrollTo(0, 0);
-    }else{
-      this.$router.push({name: 'Dashboard'})
-    }
+  mounted(){
+    scrollTo(0, 0);
   }
 };
 </script>
