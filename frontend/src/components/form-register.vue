@@ -13,7 +13,7 @@
             <v-row>
               <v-col cols="12" sm="6">
                 <v-text-field
-                  v-model="data.namaUser"
+                  v-model="peserta.namaUser"
                   label="Nama lengkap*"
                   :rules="nameVal"
                   required
@@ -23,7 +23,7 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <v-select
-                  v-model="data.program"
+                  v-model="peserta.program"
                   :items="kelas"
                   :rules="programVal"
                   label="Program*"
@@ -37,7 +37,7 @@
             <v-row>
               <v-col cols="12" sm="6">
                 <v-text-field
-                  v-model="data.emailUser"
+                  v-model="peserta.emailUser"
                   :rules="emailVal"
                   label="Email*"
                   required
@@ -59,7 +59,7 @@
                 >
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
-                      v-model="data.tanggalLahir"
+                      v-model="peserta.tanggalLahir"
                       label="Picker without buttons"
                       readonly
                       v-bind="attrs"
@@ -67,7 +67,7 @@
                     ></v-text-field>
                   </template>
                   <v-date-picker
-                    v-model="data.tanggalLahir"
+                    v-model="peserta.tanggalLahir"
                     @input="tanggal = false"
                     outlined
                   ></v-date-picker>
@@ -78,7 +78,7 @@
             <v-row>
               <v-col cols="12" sm="6">
                 <v-text-field
-                  v-model="data.tempatLahir"
+                  v-model="peserta.tempatLahir"
                   :rules="status"
                   label="Tempat lahir*"
                   required
@@ -88,7 +88,7 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <v-text-field
-                  v-model="data.nomorHape"
+                  v-model="peserta.nomorHape"
                   :rules="nomorhpVal"
                   label="Nomor HP*"
                   required
@@ -101,7 +101,7 @@
             <v-row>
               <v-col>
                 <v-text-field
-                  v-model="data.kotaAsal"
+                  v-model="peserta.kotaAsal"
                   :rules="kotaasalVal"
                   label="Kota asal*"
                   required
@@ -114,7 +114,7 @@
             <v-row>
               <v-col>
                 <v-textarea
-                  v-model="data.alamat"
+                  v-model="peserta.alamat"
                   :rules="alamatVal"
                   autocomplete="alamat"
                   label="Alamat lengkap*"
@@ -127,7 +127,7 @@
             <v-row>
               <v-col>
                 <v-select
-                  v-model="data.pendidikan"
+                  v-model="peserta.pendidikan"
                   :rules="pendidikanVal"
                   :items="pendidikanArr"
                   label="Apa pendidikan terakhir anda?*"
@@ -141,7 +141,7 @@
             <v-row>
               <v-col>
                 <v-text-field
-                  v-model="data.namaKampus"
+                  v-model="peserta.namaKampus"
                   :rules="namakampusVal"
                   label="Nama kampus*"
                   required
@@ -154,7 +154,7 @@
             <v-row>
               <v-col>
                 <v-text-field
-                  v-model="data.semester"
+                  v-model="peserta.semester"
                   label="Semester"
                   required
                   outlined
@@ -166,7 +166,7 @@
             <v-row>
               <v-col>
                 <v-textarea
-                  v-model="data.alamatKampus"
+                  v-model="peserta.alamatKampus"
                   :rules="alamatkampusVal"
                   autocomplete="alamat kampus"
                   label="Alamat kampus*"
@@ -179,7 +179,7 @@
             <v-row>
               <v-col>
                 <v-textarea
-                  v-model="data.pengalamanKerja"
+                  v-model="peserta.pengalamanKerja"
                   autocomplete="pengalaman kerja"
                   label="Pengalaman kerja"
                   outlined
@@ -191,7 +191,7 @@
             <v-row>
               <v-col>
                 <v-textarea
-                  v-model="data.pengalamanProject"
+                  v-model="peserta.pengalamanProject"
                   autocomplete="pengalaman project"
                   label="Pengalaman project"
                   outlined
@@ -203,7 +203,7 @@
             <v-row>
               <v-col>
                 <v-textarea
-                  v-model="data.alasanIkut"
+                  v-model="peserta.alasanIkut"
                   :rules="alasanikutVal"
                   autocomplete="alasan ikut"
                   label="Alasan ikut*"
@@ -220,7 +220,7 @@
                 </p>
                 <v-radio-group
                   :rules="menyelesaikanVal"
-                  v-model="data.komitmen"
+                  v-model="peserta.komitmen"
                 >
                   <v-radio label="Ya" value="Ya"></v-radio>
                   <v-radio label="Tidak" value="Tidak"></v-radio>
@@ -232,7 +232,10 @@
             <v-row>
               <v-col>
                 <p>Apakah anda bersedia memberikan surat referensi?*</p>
-                <v-radio-group :rules="referensiVal" v-model="data.referensi">
+                <v-radio-group
+                  :rules="referensiVal"
+                  v-model="peserta.referensi"
+                >
                   <v-radio label="Ya" value="Ya"></v-radio>
                   <v-radio label="Tidak" value="Tidak"></v-radio>
                   <v-radio label="Mungkin" value="Mungkin"></v-radio>
@@ -243,7 +246,7 @@
             <v-row>
               <v-col>
                 <v-textarea
-                  v-model="data.mediaSosial"
+                  v-model="peserta.mediaSosial"
                   :rules="mediasosialVal"
                   autocomplete="media sosial"
                   label="Media sosial*"
@@ -257,32 +260,32 @@
               <v-col>
                 <p>Mengetahui informasi bootcamp dari:</p>
                 <v-checkbox
-                  v-model="data.bootCamp"
+                  v-model="peserta.bootCamp"
                   label="Facebook"
                   value="Facebook"
                 ></v-checkbox>
                 <v-checkbox
-                  v-model="data.bootCamp"
+                  v-model="peserta.bootCamp"
                   label="Instagram"
                   value="Instagram"
                 ></v-checkbox>
                 <v-checkbox
-                  v-model="data.bootCamp"
+                  v-model="peserta.bootCamp"
                   label="Twitter"
                   value="Twitter"
                 ></v-checkbox>
                 <v-checkbox
-                  v-model="data.bootCamp"
+                  v-model="peserta.bootCamp"
                   label="WhatsApp"
                   value="WhatsApp"
                 ></v-checkbox>
                 <v-checkbox
-                  v-model="data.bootCamp"
+                  v-model="peserta.bootCamp"
                   label="LinkedIn"
                   value="LinkedIn"
                 ></v-checkbox>
                 <v-checkbox
-                  v-model="data.bootCamp"
+                  v-model="peserta.bootCamp"
                   label="Teman"
                   value="Teman"
                 ></v-checkbox>
@@ -292,7 +295,7 @@
             <v-row>
               <v-col>
                 <v-text-field
-                  v-model="data.info"
+                  v-model="peserta.info"
                   label="Tuliskan nama pemberi Informasi bootcamp"
                   outlined
                   placeholder="Nama pemberi informasi bootcamp"
@@ -302,88 +305,17 @@
 
             <v-row class="d-flex flex-column">
               <v-col class="d-flex flex-column">
-                <v-dialog v-model="dialog" persistent max-width="600px">
-                  <template v-slot:activator="{ on, attrs }">
-                    <div>
-                      <p>Unggah CV anda :</p>
-                      <v-btn
-                        large
-                        color="#03A1EA"
-                        class="white--text text-capitalize"
-                        v-bind="attrs"
-                        @click="files()"
-                        v-on="on"
-                        >Tambahkan file</v-btn
-                      >
-                    </div>
-                  </template>
-
-                  <!-- modal -->
-                  <v-card>
-                    <v-card-title>
-                      <span class="headline">Tambahkan file</span>
-                    </v-card-title>
-                    <v-card-text>
-                      <v-container>
-                        <v-row>
-                          <v-col>
-                            <v-form ref="files" lazy-validation>
-                              <v-file-input
-                                v-model="uploadedFiles"
-                                multiple
-                                @change="files()"
-                                
-                                accept="image/png, image/jpeg, image/bmp"
-                                label="Upload CV anda*"
-                                outlined
-                                placeholder="Upload CV anda"
-                              ></v-file-input>
-                            </v-form>
-                          </v-col>
-                        </v-row>
-
-                      <div v-show="isErrorUpload">
-                        <v-row class="d-flex justify-center">
-                          <span class="red--text">Gagal mengupload</span>
-                        </v-row>
-                      </div>
-
-                      </v-container>
-                    </v-card-text>
-                    <v-card-actions>
-                      <v-spacer></v-spacer>
-
-                      <div v-if="isLoadingDialog">
-                        <v-progress-circular
-                          indeterminate
-                          color="primary"
-                        ></v-progress-circular>
-                      </div>
-
-                      <div v-else>
-                        <v-btn color="blue darken-1" text @click="cancelFiles()"
-                          >Cancel</v-btn
-                        >
-                        <v-btn
-                          large
-                          color="#03A1EA"
-                          class="white--text text-capitalize"
-                          v-show="this.showButton"
-                          @click="upload()"
-                          >Upload</v-btn
-                        >
-                      </div>
-                    </v-card-actions>
-                  </v-card>
-                  <!-- end of modal -->
-                </v-dialog>
-
                 <div>
-                  <v-btn class="mt-5 rounded">{{
-                    this.uploadedFiles === null
-                      ? "No file"
-                      : this.uploadedFiles.length + " file"
-                  }}</v-btn>
+                  <p>Unggah CV anda :</p>
+                  <input
+                    @change="fil"
+                    accept="image/*"
+                    type="file"
+                    label="Upload CV anda*"
+                    outlined
+                    placeholder="Upload CV anda"
+                  />
+                  <v-img alt="image" :src="peserta.uploadedFiles"></v-img>
                 </div>
               </v-col>
             </v-row>
@@ -444,7 +376,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import * as api from "../api/praxis";
 
 export default {
@@ -481,8 +412,8 @@ export default {
         "Lainnya",
       ],
 
-      // data
-      data: {
+      // peserta
+      peserta: {
         namaUser: "",
         emailUser: "",
         program: "",
@@ -502,9 +433,8 @@ export default {
         referensi: "",
         mediaSosial: "",
         bootCamp: "",
-        // uploadedFileResponses: [],
+        uploadedFiles: "",
       },
-      uploadedFiles: [],
 
       // validate
       nameVal: [(v) => v.length >= 3 || "name length is 3 character"],
@@ -529,82 +459,36 @@ export default {
     };
   },
   methods: {
-    cancelFiles() {
-      this.dialog = false;
-      this.uploadedFiles = [];
+    fil(e) {
+      const file = e.target.files[0];
+      this.createBase64(file, (result) => {
+        this.peserta.uploadedFiles = result;
+        console.log("change", this.peserta.uploadedFiles);
+      });
     },
-    files() {
-      if (this.uploadedFiles.length > 0) {
-        this.showButton = true;
-      } else {
-        this.showButton = false;
-      }
-    },
-    upload: async function () {
-      if (this.$refs.files.validate()) {
-        this.isLoadingDialog = true;
-        this.isErrorUpload = false;
+    createBase64(file, onload) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        onload(e.target.result);
+        // console.log(e.target.result)
+      };
 
-        try {
-          // data file
-          let formData = await new FormData();
-          console.log("state ", this.uploadedFiles);
-
-          // single file
-          // formData.append("file", this.uploadedFiles);
-
-          // multi file 1
-          // for(let i = 0; i < this.uploadedFiles.length; i++){
-          //   let file = this.uploadedFiles[i];
-          //   formData.append("file", file);
-          // }
-
-          // multi file 2
-          this.uploadedFiles.forEach((file) => {
-            formData.append("files", file);
-          });
-
-          console.log("input file ", formData.getAll("files"));
-
-          // file
-          // let file = await api.postFile(formData, {
-          //   headers: {
-          //     "Content-Type": "multipart/form-data"
-          //   }
-          // });
-
-          // multi file
-          let files = await api.postFiles(formData, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          });
-
-          let data = files.data;
-
-          console.log("file upload ", data);
-          this.isLoadingDialog = false;
-        } catch (err) {
-          console.log("err file ", err);
-          this.isLoadingDialog = false;
-          this.isErrorUpload = true;
-        }
-      } else {
-        this.isLoadingDialog = false;
-        console.log("upload error coyy");
-      }
+      reader.readAsDataURL(file);
     },
 
     submit: async function () {
+      console.log(this.peserta);
       if (this.$refs.form.validate()) {
         this.isLoading = true;
 
         try {
-          // data
-          let hasil = await api.postPeserta(this.data)
+          const datas = this.peserta;
+          console.log("praaa", datas);
+          // peserta
+          const hasil = await api.postPeserta(datas);
 
           // selesai
-          console.log("selesai ", hasil);
+          console.log("selesai ", hasil.data);
           this.$swal({
             icon: "success",
             title: "Berhasil mendaftar",
@@ -625,9 +509,6 @@ export default {
         }, 5000);
       }
     },
-  },
-  computed: {
-    ...mapGetters(["gettersApiPeserta"]),
   },
 };
 </script>
