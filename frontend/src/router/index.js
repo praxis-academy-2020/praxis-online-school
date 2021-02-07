@@ -38,36 +38,9 @@ const routes = [
     component: () => import('../views/Activity.vue')
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import('../views/Login.vue')
-  },
-  {
     path: '*',
     name: '404',
     component: () => import('../views/404.vue')
-  },
-  {
-    path: '/admin',
-    name: 'Admin',
-    component: () => import('../views/admin/Admin.vue'),
-    children: [
-      {
-        path: 'dashboard',
-        name: 'Dashboard',
-        component: () => import('../views/admin/Dashboard.vue')
-      },
-      {
-        path: 'tambah-karya',
-        name: 'Tambah-karya',
-        component: () => import('../views/admin/Tambah-karya.vue')
-      },
-      {
-        path: 'tampil-table',
-        name: 'Tampil-table',
-        component: () => import('../views/admin/Tampil-table.vue')
-      }
-    ]
   },
   {
     path: "/program/frontend-developer",
@@ -81,17 +54,17 @@ const routes = [
   },
   {
     path: "/program/python-developer",
-    name: "Frontend",
+    name: "Python",
     component: () => import('../views/program/python.vue')
   },
   {
     path: "/program/nodejs-programming",
-    name: "Fullstack",
+    name: "Nodejs",
     component: () => import('../views/program/nodejs.vue')
   },
   {
     path: "/program/mobile-developer",
-    name: "Frontend",
+    name: "Mobile",
     component: () => import('../views/program/mobile.vue')
   }
 ]
@@ -101,15 +74,5 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
-// router.beforeEach((to,from, next) => {
-//   if (['Home', 'Login', '404', 'Activity', 'Detail', 'Creation', 'Formulir', 'Syarat', 'Register'].includes(name => to.name === name) && localStorage.getItem('Bearer')) {
-//     return next({ name: 'Dashboard' })
-//   }
-//   else if (['Admin', 'Dashboard', 'Tambah-karya', 'Tampil-table'].includes(name => to.name === name) && localStorage.getItem('Bearer') === null) {
-//     return next({ name: '404' })
-//   }
-//   next()
-// })
 
 export default router

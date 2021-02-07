@@ -1,56 +1,38 @@
 <template>
-  <div>
-    <v-row>
-      <v-col class="d-flex align-self-center" cols="12" sm="12" md="6">
-        <div>
-          <h1 class="ml-10">Jadilah Tech Talent Masa Depan!</h1>
-          <p
-            class="ml-10 mt-5"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore provident incidunt in eum! Illum, dignissimos recusandae unde ipsa eaque cupiditate provident nemo sint molestiae cum? Est velit necessitatibus autem eligendi.</p>
-          <router-link to="/register/syarat" class="text-decoration-none ml-10">
-            <v-btn color="#112d4e" class="mt-3 white--text m">DAFTAR</v-btn>
-          </router-link>
-        </div>
-      </v-col>
-      <v-col cols="12" sm="12" md="6">
-        <v-img class src="@/assets/carousel/hhh.png"></v-img>
-      </v-col>
-    </v-row>
+  <div class="grad1">
+    <v-container>
+      <v-row>
+        <v-col
+          class="d-flex white--text"
+          cols="12"
+          sm="12"
+          md="6"
+        >
+          <div>
+            <div class="my-sm-16 my-10 text-h4 text-sm-h3 font-weight-medium">
+              Menjadi Developer Bertalenta bersama Praxis Academy
+            </div>
+            <!-- <p class="mt-5 mb-15">
+              Coding School for Enterprise System
+            </p> -->
+            <tombol text="daftar sekarang" />
+          </div>
+        </v-col>
+        <v-col cols="12" sm="12" md="6">
+          <v-img class src="@/assets/carousel/hhh.png"></v-img>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script>
-// import gmbhome1 from "@/assets/carousel/h.jpg";
-// import gmbhome2 from "@/assets/carousel/CUR1.png";
-// import gmbhome3 from "@/assets/carousel/CUR4.png";
-// import gmbhome4 from "@/assets/carousel/CUR3.png";
-// import gmbhome5 from "@/assets/carousel/CUR5.png";
-// import gmbhome6 from "@/assets/carousel/CUR6.png";
+import tombol from "@/components/button.vue";
+
 export default {
-  data() {
-    return {
-      items: [
-        // {
-        //   src: gmbhome1
-        // }
-        // {
-        //   src: gmbhome2
-        // },
-        // {
-        //   src: gmbhome3
-        // },
-        // {
-        //   src: gmbhome4
-        // },
-        // {
-        //   src: gmbhome5
-        // },
-        // {
-        //   src: gmbhome6
-        // }
-      ]
-    };
-  }
+  components: {
+    tombol,
+  },
 };
 </script>
 
@@ -60,8 +42,11 @@ export default {
   margin-top: 25%;
 }
 .m {
-  width: 30%;
-  height: 100%;
   font-size: 107%;
+  letter-spacing: 1px;
+}
+.grad1 {
+  background-image: linear-gradient(to top, rgba(255, 0, 0, 0), #0b55d3 50%);
+  padding: 100px 0 0 0;
 }
 </style>

@@ -1,52 +1,63 @@
 <template>
+  <div style="padding: 50px 0 100px 0">
     <v-container>
-        <v-row>
-            <v-col cols="12"  sm="4">
-                <h2><strong>Ubah Hidupmu</strong></h2>
-                <h2><strong> Tanpa Terhalang </strong></h2>
-                <h2><strong>Biaya</strong></h2>
-            </v-col>
-            <v-col cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-instagram</v-icon>
-                <h5><strong>Income Share Agreement</strong></h5>
-                <h6>Kamu tidak perlu membayar sebelum diterima kerja</h6>
-            </v-col>
-            <v-col cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-instagram</v-icon>
-                <h5><strong>Income Share Agreement</strong></h5>
-                <h6>Kamu tidak perlu membayar sebelum diterima kerja</h6>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-instagram</v-icon>
-                <h5><strong>Income Share Agreement</strong></h5>
-                <h6>Kamu tidak perlu membayar sebelum diterima kerja</h6>
-            </v-col>
-            <v-col cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-instagram</v-icon>
-                <h5><strong>Income Share Agreement</strong></h5>
-                <h6>Kamu tidak perlu membayar sebelum diterima kerja</h6>
-            </v-col>
-            <v-col cols="12"  sm="4">
-                <v-icon large color="black" class="mr-2" >mdi-instagram</v-icon>
-                <h5><strong>Income Share Agreement</strong></h5>
-                <h6>Kamu tidak perlu membayar sebelum diterima kerja</h6>
-            </v-col>
-        </v-row>
-        <br>
-         <v-row align="center" justify="center">
-             <v-col class="text-center" cols="12" sm="4">
-         <router-link to="/register/syarat" class="text-decoration-none">
-      <v-btn color="#112d4e" class="mt-3 white--text m">DAFTAR</v-btn>
-    </router-link>
-      </v-col>
-    </v-row>
+      <v-row>
+        <v-col class="d-flex justify-center mb-10">
+          <div class="mb-10 text-h4 text-sm-h3 font-weight-medium primary--text">
+            Program Praxis Academy
+          </div>
+        </v-col>
+      </v-row>
+      <v-row class="d-flex justify-space-around">
+        <v-col class="pa-4" cols="12" sm="4">
+          <v-icon large color="black" class="mr-2">mdi-language-java</v-icon>
+          <span class="primary--text"><strong>Fullstack Developer</strong></span>
+          <p class="mt-3">
+            mengembangkan interface website menggunakan: javascript, VueJs,
+            Vuetify
+          </p>
+        </v-col>
+        <v-col class="pa-4" cols="12" sm="4">
+          <v-icon large color="black" class="mr-2">mdi-language-python</v-icon>
+          <span class="primary--text"><strong>Python Developer</strong></span>
+          <p class="mt-3">
+            mengembangkan interface website menggunakan: javascript, VueJs,
+            Vuetify
+          </p>
+        </v-col>
+        <v-col class="pa-4" cols="12" sm="4">
+          <v-icon large color="black" class="mr-2"
+            >mdi-language-javascript</v-icon
+          >
+          <span class="primary--text"><strong>Frontend Developer</strong></span>
+          <p class="mt-3">
+            mengembangkan interface website menggunakan: javascript, VueJs,
+            Vuetify
+          </p>
+        </v-col>
+        <v-col class="pa-4" cols="12" sm="4">
+          <v-icon large color="black" class="mr-2">mdi-react</v-icon>
+          <span class="primary--text"><strong>Mobile Developer</strong></span>
+          <p class="mt-3">
+            mengembangkan interface website menggunakan: javascript, VueJs,
+            Vuetify
+          </p>
+        </v-col>
+        <v-col class="pa-4" cols="12" sm="4">
+          <v-icon large color="black" class="mr-2">mdi-nodejs</v-icon>
+          <span class="primary--text"><strong>Nodejs Programming</strong></span>
+          <p class="mt-3">
+            mengembangkan interface website menggunakan: javascript, VueJs,
+            Vuetify
+          </p>
+        </v-col>
+      </v-row>
     </v-container>
+  </div>
 </template>
 
 <style scoped>
-.m{
+.m {
   width: 50%;
   height: 100%;
   font-size: 107%;

@@ -1,14 +1,13 @@
 <template>
-  <div style="padding: 80px 0">
+  <div style="padding: 130px 0 100px 0">
     <v-container>
       <v-row>
-        <v-col cols="12" md="6">
-          <div class="text-h3 py-5">{{title}}</div>
+        <v-col cols="12" md="6" class="align-self-center">
+          <div class="mb-10 text-h4 text-sm-h3 font-weight-medium">
+            {{title}}
+          </div>
           <div class="py-5">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Consectetur, cupiditate eveniet excepturi eaque minus dolorem
-            recusandae rerum unde impedit incidunt aliquam. Rem, aperiam
-            adipisci asperiores totam inventore culpa vel mollitia!
+           {{disk}}
           </div>
 
           <div class="pt-10">
@@ -16,7 +15,7 @@
               to="/register/syarat"
               large
               color="#63D0FF"
-              class="white--text"
+              class="white--text text-capitalize"
             >
               daftar sekarang
             </v-btn>
@@ -33,6 +32,6 @@
 
 <script>
 export default {
-  props: ['title']
+  props: ['title','disk']
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-15">
+  <div style="margin-top: 50px;">
     <formRegister />
   </div>
 </template>
@@ -11,15 +11,8 @@ export default {
   components: {
     formRegister
   },
-  beforeCreate() {
-    if (!localStorage.getItem("Bearer")) {
-      scrollTo(0, 0);
-    } else {
-      this.$router.push({ name: "Dashboard" });
-    }
+  mounted(){
+    scrollTo(0, 0);
   }
 };
 </script>
-
-<style>
-</style>
